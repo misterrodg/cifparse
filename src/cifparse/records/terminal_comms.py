@@ -1,0 +1,90 @@
+from cifparse.functions.record import extract_field, translate_cont_rec_no
+from cifparse.functions.records import partition
+
+from .appl_table import a_table
+from .record_base import RecordBase
+from .table_base import process_table
+
+from .terminal_comm.primary import Primary
+from .terminal_comm.continuation import Continuation
+from .terminal_comm.time import Time
+from .terminal_comm.widths import w_pri, w_con, w_tim
+
+from sqlite3 import Cursor
+
+
+class TerminalComm(RecordBase):
+    primary: Primary
+    continuation: list[Continuation]
+    time: list[Time]
+
+    def __init__(self, terminal_comm_partition: list[str]):
+        self.primary = None
+        self.continuation = []
+        self.time = []
+
+        for line in terminal_comm_partition:
+            cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+            if cont_rec_no in [0, 1]:
+                primary = Primary()
+                self.primary = primary.from_line(line)
+                continue
+            else:
+                application = extract_field(line, w_con.application)
+                if application == a_table.standard:
+                    continuation = Continuation()
+                    self.continuation.append(continuation.from_line(line))
+                    continue
+                application = extract_field(line, w_tim.application)
+                if application == a_table.time:
+                    time = Time()
+                    self.time.append(time.from_line(line))
+                    continue
+
+    def to_dict(self) -> dict:
+        return {
+            "primary": self.primary.to_dict(),
+            "continuation": [item.to_dict() for item in self.continuation],
+            "time": [item.to_dict() for item in self.time],
+        }
+
+
+class TerminalComms:
+    records: list[TerminalComm]
+
+    def __init__(self, terminal_comm_lines: list[str]):
+        self.records = []
+
+        print("    Parsing Terminal Comms")
+        terminal_comm_partitioned = partition(terminal_comm_lines, 0, 25)
+        for terminal_comm_partition in terminal_comm_partitioned:
+            terminal_comm = TerminalComm(terminal_comm_partition)
+            self.records.append(terminal_comm)
+
+    def to_dict(self) -> list[dict]:
+        result = []
+        for record in self.records:
+            result.append(record.to_dict())
+        return result
+
+    def to_db(self, db_cursor: Cursor) -> None:
+        primary = []
+        continuation = []
+        time = []
+
+        print("    Processing Terminal Comms")
+        for terminal_comm in self.records:
+            if terminal_comm.has_primary():
+                primary.append(terminal_comm.primary)
+            if terminal_comm.has_continuation():
+                continuation.extend(terminal_comm.continuation)
+            if terminal_comm.has_time():
+                time.extend(terminal_comm.time)
+
+        if primary:
+            process_table(db_cursor, primary)
+        if continuation:
+            process_table(db_cursor, continuation)
+        if time:
+            process_table(db_cursor, time)
+        return
