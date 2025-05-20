@@ -1,0 +1,83 @@
+from cifparse.functions.record import extract_field, translate_cont_rec_no
+from cifparse.functions.records import partition
+
+from .appl_table import a_table
+from .record_base import RecordBase
+from .table_base import process_table
+
+from .fir_uir.primary import Primary
+from .fir_uir.continuation import Continuation
+from .fir_uir.widths import w_pri, w_con
+
+from sqlite3 import Cursor
+
+
+class FIRUIR(RecordBase):
+    primary: Primary
+    continuation: list[Continuation]
+
+    def __init__(self, fir_uir_partition: list[str]):
+        self.primary = None
+        self.continuation = []
+
+        for line in fir_uir_partition:
+            cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+            if cont_rec_no in [0, 1]:
+                primary = Primary()
+                self.primary = primary.from_line(line)
+                continue
+            else:
+                application = extract_field(line, w_con.application)
+                if application == a_table.standard:
+                    continuation = Continuation()
+                    self.continuation.append(continuation.from_line(line))
+                    continue
+
+    def to_dict(self) -> dict:
+        return {
+            "primary": self.primary.to_dict(),
+            "continuation": [item.to_dict() for item in self.continuation],
+        }
+
+
+class FIRUIRs:
+    records: list[FIRUIR]
+
+    def __init__(self, fir_uir_lines: list[str]):
+        self.records = []
+
+        print("    Parsing FIR UIRs")
+        fir_uir_partitioned = partition(fir_uir_lines, 0, 19)
+        for fir_uir_partition in fir_uir_partitioned:
+            fir_uir = FIRUIR(fir_uir_partition)
+            self.records.append(fir_uir)
+
+    def get_fir_uir_by_id(self, vhf_fir_uir_id: str) -> FIRUIR:
+        result = None
+        for record in self.records:
+            if record.has_primary() and record.primary.fir_uir_id == vhf_fir_uir_id:
+                result = record
+        return result
+
+    def to_dict(self) -> list[dict]:
+        result = []
+        for record in self.records:
+            result.append(record.to_dict())
+        return result
+
+    def to_db(self, db_cursor: Cursor) -> None:
+        primary = []
+        continuation = []
+
+        print("    Processing FIR UIRs")
+        for fir_uir in self.records:
+            if fir_uir.has_primary():
+                primary.append(fir_uir.primary)
+            if fir_uir.has_continuation():
+                continuation.extend(fir_uir.continuation)
+
+        if primary:
+            process_table(db_cursor, primary)
+        if continuation:
+            process_table(db_cursor, continuation)
+        return
