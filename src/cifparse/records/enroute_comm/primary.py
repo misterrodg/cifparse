@@ -1,0 +1,136 @@
+from cifparse.functions.record import (
+    clean_value,
+    convert_altitude_fl,
+    convert_elevation,
+    convert_lat_dms,
+    convert_lon_dms,
+    convert_mag_var,
+    extract_field,
+    translate_cont_rec_no,
+)
+
+from .base import Base
+from .widths import w_pri
+
+
+class Primary(Base):
+    cont_rec_no: int
+    serv_ind: str
+    radar: str
+    modulation: str
+    sig_em: str
+    lat: float
+    lon: float
+    mag_var: float
+    fac_elev: int
+    h24_ind: str
+    alt_desc: str
+    alt_1: int
+    fl_1: int
+    alt_2: int
+    fl_2: int
+    remote_fac: str
+    remote_region: str
+    remote_sec_code: str
+    remote_sub_code: str
+
+    def __init__(self):
+        super().__init__("enroute_comms")
+        self.cont_rec_no = None
+        self.serv_ind = None
+        self.radar = None
+        self.modulation = None
+        self.sig_em = None
+        self.lat = None
+        self.lon = None
+        self.mag_var = None
+        self.fac_elev = None
+        self.h24_ind = None
+        self.alt_desc = None
+        self.alt_1 = None
+        self.fl_1 = None
+        self.alt_2 = None
+        self.fl_2 = None
+        self.remote_fac = None
+        self.remote_region = None
+        self.remote_sec_code = None
+        self.remote_sub_code = None
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}: {self.fir_rdo_id}, {self.comm_freq}"
+
+    def from_line(self, line: str) -> "Primary":
+        super().from_line(line)
+        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.serv_ind = extract_field(line, w_pri.serv_ind)
+        self.radar = extract_field(line, w_pri.radar)
+        self.modulation = extract_field(line, w_pri.modulation)
+        self.sig_em = extract_field(line, w_pri.sig_em)
+        self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
+        self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
+        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
+        self.fac_elev = convert_elevation(extract_field(line, w_pri.fac_elev))
+        self.h24_ind = extract_field(line, w_pri.h24_ind)
+        self.alt_desc = extract_field(line, w_pri.alt_desc)
+        self.fl_1, self.alt_1 = convert_altitude_fl(extract_field(line, w_pri.alt_1))
+        self.fl_2, self.alt_2 = convert_altitude_fl(extract_field(line, w_pri.alt_2))
+        self.remote_fac = extract_field(line, w_pri.remote_fac)
+        self.remote_region = extract_field(line, w_pri.remote_region)
+        self.remote_sec_code = extract_field(line, w_pri.remote_sec_code)
+        self.remote_sub_code = extract_field(line, w_pri.remote_sub_code)
+        return self
+
+    def ordered_fields(self) -> list:
+        result = []
+        result.extend(super().ordered_leading())
+        result.extend(
+            [
+                "cont_rec_no",
+                "serv_ind",
+                "radar",
+                "modulation",
+                "sig_em",
+                "lat",
+                "lon",
+                "mag_var",
+                "fac_elev",
+                "h24_ind",
+                "alt_desc",
+                "alt_1",
+                "fl_1",
+                "alt_2",
+                "fl_2",
+                "remote_fac",
+                "remote_region",
+                "remote_sec_code",
+                "remote_sub_code",
+            ]
+        )
+        result.extend(super().ordered_trailing())
+        return result
+
+    def to_dict(self) -> dict:
+        leading_dict = super().get_leading_dict()
+        trailing_dict = super().get_trailing_dict()
+        this_dict = {
+            "cont_rec_no": clean_value(self.cont_rec_no),
+            "serv_ind": clean_value(self.serv_ind),
+            "radar": clean_value(self.radar),
+            "modulation": clean_value(self.modulation),
+            "sig_em": clean_value(self.sig_em),
+            "lat": clean_value(self.lat),
+            "lon": clean_value(self.lon),
+            "mag_var": clean_value(self.mag_var),
+            "fac_elev": clean_value(self.fac_elev),
+            "h24_ind": clean_value(self.h24_ind),
+            "alt_desc": clean_value(self.alt_desc),
+            "alt_1": clean_value(self.alt_1),
+            "fl_1": clean_value(self.fl_1),
+            "alt_2": clean_value(self.alt_2),
+            "fl_2": clean_value(self.fl_2),
+            "remote_fac": clean_value(self.remote_fac),
+            "remote_region": clean_value(self.remote_region),
+            "remote_sec_code": clean_value(self.remote_sec_code),
+            "remote_sub_code": clean_value(self.remote_sub_code),
+        }
+        return {**leading_dict, **this_dict, **trailing_dict}
