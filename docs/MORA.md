@@ -1,0 +1,41 @@
+# The MORA Object
+
+The MORA object comprises the following fields:
+
+- st: A standard (S) versus tailored (T) identifier.
+- sec_code: The section code, used in parsing.
+- sub_code: The subsection code, used in parsing.
+- start_lat: The starting latitude of the MORA grid.
+- start_lon: The starting longitude of the MORA grid.
+- mora_1: The MORA for block 1.
+- mora_2: The MORA for block 2.
+- mora_3: The MORA for block 3.
+- mora_4: The MORA for block 4.
+- mora_5: The MORA for block 5.
+- mora_6: The MORA for block 6.
+- mora_7: The MORA for block 7.
+- mora_8: The MORA for block 8.
+- mora_9: The MORA for block 9.
+- mora_10: The MORA for block 10.
+- mora_11: The MORA for block 11.
+- mora_12: The MORA for block 12.
+- mora_13: The MORA for block 13.
+- mora_14: The MORA for block 14.
+- mora_15: The MORA for block 15.
+- mora_16: The MORA for block 16.
+- mora_17: The MORA for block 17.
+- mora_18: The MORA for block 18.
+- mora_19: The MORA for block 19.
+- mora_20: The MORA for block 20.
+- mora_21: The MORA for block 21.
+- mora_22: The MORA for block 22.
+- mora_23: The MORA for block 23.
+- mora_24: The MORA for block 24.
+- mora_25: The MORA for block 25.
+- mora_26: The MORA for block 26.
+- mora_27: The MORA for block 27.
+- mora_28: The MORA for block 28.
+- mora_29: The MORA for block 29.
+- mora_30: The MORA for block 30.
+- record_number: The CIFP record number.
+- cycle_data: The cycle ID of when the record was added/updated.
