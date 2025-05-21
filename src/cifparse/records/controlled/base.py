@@ -1,0 +1,120 @@
+from cifparse.functions.record import (
+    clean_value,
+    convert_record_number,
+    convert_seq_no,
+    extract_field,
+)
+from cifparse.records.table_base import TableBase
+
+from .widths import w_bas
+
+
+class Base(TableBase):
+    st: str
+    area: str
+    sec_code: str
+    sub_code: str
+    center_region: str
+    airspace_type: str
+    center_id: str
+    center_sec_code: str
+    center_sub_code: str
+    airspace_class: str
+    mult_code: str
+    seq_no: int
+    record_number: int
+    cycle_data: str
+
+    def __init__(self, table_name: str):
+        super().__init__(table_name)
+        self.st = (0, 1)
+        self.area = (1, 4)
+        self.sec_code = (4, 5)
+        self.sub_code = (5, 6)
+        self.center_region = (6, 8)
+        self.airspace_type = (8, 9)
+        self.center_id = (9, 14)
+        self.center_sec_code = (14, 15)
+        self.center_sub_code = (15, 16)
+        self.airspace_class = (16, 17)
+        self.mult_code = (19, 20)
+        self.seq_no = (20, 24)
+        self.record_number = (123, 128)
+        self.cycle_data = (128, 132)
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}: {self.center_id}"
+
+    def from_line(self, line: str) -> "Base":
+        self.st = extract_field(line, w_bas.st)
+        self.area = extract_field(line, w_bas.area)
+        self.sec_code = extract_field(line, w_bas.sec_code)
+        self.sub_code = extract_field(line, w_bas.sub_code)
+        self.center_region = extract_field(line, w_bas.center_region)
+        self.airspace_type = extract_field(line, w_bas.airspace_type)
+        self.center_id = extract_field(line, w_bas.center_id)
+        self.center_sec_code = extract_field(line, w_bas.center_sec_code)
+        self.center_sub_code = extract_field(line, w_bas.center_sub_code)
+        self.airspace_class = extract_field(line, w_bas.airspace_class)
+        self.mult_code = extract_field(line, w_bas.mult_code)
+        self.seq_no = convert_seq_no(extract_field(line, w_bas.seq_no))
+        self.record_number = convert_record_number(
+            extract_field(line, w_bas.record_number)
+        )
+        self.cycle_data = extract_field(line, w_bas.cycle_data)
+        return self
+
+    def ordered_leading(self) -> list:
+        return [
+            "st",
+            "area",
+            "sec_code",
+            "sub_code",
+            "center_region",
+            "airspace_type",
+            "center_id",
+            "center_sec_code",
+            "center_sub_code",
+            "airspace_class",
+            "mult_code",
+            "seq_no",
+        ]
+
+    def ordered_trailing(self) -> list:
+        return [
+            "record_number",
+            "cycle_data",
+        ]
+
+    def ordered_fields(self) -> dict:
+        result = []
+        result.extend(self.ordered_leading())
+        result.extend(self.ordered_trailing())
+        return result
+
+    def get_leading_dict(self) -> dict:
+        return {
+            "st": clean_value(self.st),
+            "area": clean_value(self.area),
+            "sec_code": clean_value(self.sec_code),
+            "sub_code": clean_value(self.sub_code),
+            "center_region": clean_value(self.center_region),
+            "airspace_type": clean_value(self.airspace_type),
+            "center_id": clean_value(self.center_id),
+            "center_sec_code": clean_value(self.center_sec_code),
+            "center_sub_code": clean_value(self.center_sub_code),
+            "airspace_class": clean_value(self.airspace_class),
+            "mult_code": clean_value(self.mult_code),
+            "seq_no": clean_value(self.seq_no),
+        }
+
+    def get_trailing_dict(self) -> dict:
+        return {
+            "record_number": clean_value(self.record_number),
+            "cycle_data": clean_value(self.cycle_data),
+        }
+
+    def to_dict(self) -> dict:
+        leading = self.get_leading_dict()
+        trailing = self.get_trailing_dict()
+        return {**leading, **trailing}
