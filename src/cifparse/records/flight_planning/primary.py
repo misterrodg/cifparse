@@ -1,0 +1,127 @@
+from cifparse.functions.record import (
+    clean_value,
+    convert_altitude_fl,
+    convert_course,
+    convert_speed,
+    convert_yn,
+    extract_field,
+    translate_cont_rec_no,
+)
+
+from .base import Base
+from .widths import w_pri
+
+
+class Primary(Base):
+    cont_rec_no: int
+    noe: str
+    turbo: str
+    rnav: bool
+    atc_wc: str
+    atc_id: str
+    time_zone: str
+    description: str
+    ltc: str
+    rpt: str
+    out_mag_crs: float
+    alt_desc: str
+    alt_1: int
+    alt_2: int
+    limit_speed: int
+    cruise_id: str
+    speed_desc: str
+
+    def __init__(self):
+        super().__init__("flight_plannings")
+        self.cont_rec_no = None
+        self.noe = None
+        self.turbo = None
+        self.rnav = None
+        self.atc_wc = None
+        self.atc_id = None
+        self.time_zone = None
+        self.description = None
+        self.ltc = None
+        self.rpt = None
+        self.out_mag_crs = None
+        self.alt_desc = None
+        self.alt_1 = None
+        self.alt_2 = None
+        self.limit_speed = None
+        self.cruise_id = None
+        self.speed_desc = None
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}: {self.airport_id}, {self.procedure_type}, {self.procedure_id}"
+
+    def from_line(self, line: str) -> "Primary":
+        super().from_line(line)
+        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.noe = extract_field(line, w_pri.noe)
+        self.turbo = extract_field(line, w_pri.turbo)
+        self.rnav = convert_yn(extract_field(line, w_pri.rnav))
+        self.atc_wc = extract_field(line, w_pri.atc_wc)
+        self.atc_id = extract_field(line, w_pri.atc_id)
+        self.time_zone = extract_field(line, w_pri.time_zone)
+        self.description = extract_field(line, w_pri.description)
+        self.ltc = extract_field(line, w_pri.ltc)
+        self.rpt = extract_field(line, w_pri.rpt)
+        self.out_mag_crs = convert_course(extract_field(line, w_pri.out_mag_crs))
+        self.alt_desc = extract_field(line, w_pri.alt_desc)
+        self.fl_1, self.alt_1 = convert_altitude_fl(extract_field(line, w_pri.alt_1))
+        self.fl_2, self.alt_2 = convert_altitude_fl(extract_field(line, w_pri.alt_2))
+        self.limit_speed = convert_speed(extract_field(line, w_pri.limit_speed))
+        self.cruise_id = extract_field(line, w_pri.cruise_id)
+        self.speed_desc = extract_field(line, w_pri.speed_desc)
+        return self
+
+    def ordered_fields(self) -> dict:
+        result = []
+        result.extend(super().ordered_leading())
+        result.extend(
+            [
+                "cont_rec_no",
+                "noe",
+                "turbo",
+                "rnav",
+                "atc_wc",
+                "atc_id",
+                "time_zone",
+                "description",
+                "ltc",
+                "rpt",
+                "out_mag_crs",
+                "alt_desc",
+                "alt_1",
+                "alt_2",
+                "limit_speed",
+                "cruise_id",
+                "speed_desc",
+            ]
+        )
+        result.extend(super().ordered_trailing())
+        return result
+
+    def to_dict(self) -> dict:
+        leading_dict = super().get_leading_dict()
+        trailing_dict = super().get_trailing_dict()
+        this_dict = {
+            "cont_rec_no": clean_value(self.cont_rec_no),
+            "noe": clean_value(self.noe),
+            "turbo": clean_value(self.turbo),
+            "rnav": clean_value(self.rnav),
+            "atc_wc": clean_value(self.atc_wc),
+            "atc_id": clean_value(self.atc_id),
+            "time_zone": clean_value(self.time_zone),
+            "description": clean_value(self.description),
+            "ltc": clean_value(self.ltc),
+            "rpt": clean_value(self.rpt),
+            "out_mag_crs": clean_value(self.out_mag_crs),
+            "alt_desc": clean_value(self.alt_desc),
+            "alt_1": clean_value(self.alt_1),
+            "alt_2": clean_value(self.alt_2),
+            "limit_speed": clean_value(self.limit_speed),
+            "cruise_id": clean_value(self.cruise_id),
+            "speed_desc": clean_value(self.speed_desc),
+        }
+        return {**leading_dict, **this_dict, **trailing_dict}
