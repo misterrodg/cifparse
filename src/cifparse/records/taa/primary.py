@@ -1,0 +1,138 @@
+from cifparse.functions.record import (
+    clean_value,
+    extract_field,
+    translate_cont_rec_no,
+)
+
+from .base import Base
+from .widths import w_pri
+
+
+class Primary(Base):
+    cont_rec_no: int
+    mag_true: str
+    radius_1: str
+    bearing_1: str
+    min_alt_1: str
+    radius_2: str
+    bearing_2: str
+    min_alt_2: str
+    radius_3: str
+    bearing_3: str
+    min_alt_3: str
+    radius_4: str
+    bearing_4: str
+    min_alt_4: str
+    radius_5: str
+    bearing_5: str
+    min_alt_5: str
+    radius_6: str
+    bearing_6: str
+    min_alt_6: str
+
+    def __init__(self):
+        super().__init__("taa_sectors")
+        self.cont_rec_no = None
+        self.mag_true = None
+        self.radius_1 = None
+        self.bearing_1 = None
+        self.min_alt_1 = None
+        self.radius_2 = None
+        self.bearing_2 = None
+        self.min_alt_2 = None
+        self.radius_3 = None
+        self.bearing_3 = None
+        self.min_alt_3 = None
+        self.radius_4 = None
+        self.bearing_4 = None
+        self.min_alt_4 = None
+        self.radius_5 = None
+        self.bearing_5 = None
+        self.min_alt_5 = None
+        self.radius_6 = None
+        self.bearing_6 = None
+        self.min_alt_6 = None
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}: {self.airport_id}, {self.iap_id}"
+
+    def from_line(self, line: str) -> "Primary":
+        super().from_line(line)
+        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.mag_true = extract_field(line, w_pri.mag_true)
+        self.radius_1 = extract_field(line, w_pri.radius_1)
+        self.bearing_1 = extract_field(line, w_pri.bearing_1)
+        self.min_alt_1 = extract_field(line, w_pri.min_alt_1)
+        self.radius_2 = extract_field(line, w_pri.radius_2)
+        self.bearing_2 = extract_field(line, w_pri.bearing_2)
+        self.min_alt_2 = extract_field(line, w_pri.min_alt_2)
+        self.radius_3 = extract_field(line, w_pri.radius_3)
+        self.bearing_3 = extract_field(line, w_pri.bearing_3)
+        self.min_alt_3 = extract_field(line, w_pri.min_alt_3)
+        self.radius_4 = extract_field(line, w_pri.radius_4)
+        self.bearing_4 = extract_field(line, w_pri.bearing_4)
+        self.min_alt_4 = extract_field(line, w_pri.min_alt_4)
+        self.radius_5 = extract_field(line, w_pri.radius_5)
+        self.bearing_5 = extract_field(line, w_pri.bearing_5)
+        self.min_alt_5 = extract_field(line, w_pri.min_alt_5)
+        self.radius_6 = extract_field(line, w_pri.radius_6)
+        self.bearing_6 = extract_field(line, w_pri.bearing_6)
+        self.min_alt_6 = extract_field(line, w_pri.min_alt_6)
+        return self
+
+    def ordered_fields(self) -> list:
+        result = []
+        result.extend(super().ordered_leading())
+        result.extend(
+            [
+                "cont_rec_no",
+                "mag_true",
+                "radius_1",
+                "bearing_1",
+                "min_alt_1",
+                "radius_2",
+                "bearing_2",
+                "min_alt_2",
+                "radius_3",
+                "bearing_3",
+                "min_alt_3",
+                "radius_4",
+                "bearing_4",
+                "min_alt_4",
+                "radius_5",
+                "bearing_5",
+                "min_alt_5",
+                "radius_6",
+                "bearing_6",
+                "min_alt_6",
+            ]
+        )
+        result.extend(super().ordered_trailing())
+        return result
+
+    def to_dict(self) -> dict:
+        leading_dict = super().get_leading_dict()
+        trailing_dict = super().get_trailing_dict()
+        this_dict = {
+            "cont_rec_no": clean_value(self.cont_rec_no),
+            "mag_true": clean_value(self.mag_true),
+            "radius_1": clean_value(self.radius_1),
+            "bearing_1": clean_value(self.bearing_1),
+            "min_alt_1": clean_value(self.min_alt_1),
+            "radius_2": clean_value(self.radius_2),
+            "bearing_2": clean_value(self.bearing_2),
+            "min_alt_2": clean_value(self.min_alt_2),
+            "radius_3": clean_value(self.radius_3),
+            "bearing_3": clean_value(self.bearing_3),
+            "min_alt_3": clean_value(self.min_alt_3),
+            "radius_4": clean_value(self.radius_4),
+            "bearing_4": clean_value(self.bearing_4),
+            "min_alt_4": clean_value(self.min_alt_4),
+            "radius_5": clean_value(self.radius_5),
+            "bearing_5": clean_value(self.bearing_5),
+            "min_alt_5": clean_value(self.min_alt_5),
+            "radius_6": clean_value(self.radius_6),
+            "bearing_6": clean_value(self.bearing_6),
+            "min_alt_6": clean_value(self.min_alt_6),
+        }
+        return {**leading_dict, **this_dict, **trailing_dict}
