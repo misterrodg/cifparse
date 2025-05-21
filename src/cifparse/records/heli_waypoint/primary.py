@@ -1,0 +1,92 @@
+from cifparse.functions.record import (
+    clean_value,
+    convert_elevation,
+    convert_lat_dms,
+    convert_lon_dms,
+    convert_mag_var,
+    extract_field,
+    translate_cont_rec_no,
+)
+
+from .base import Base
+from .widths import w_pri
+
+
+class Primary(Base):
+    cont_rec_no: int
+    type: str
+    usage: str
+    lat: float
+    lon: float
+    mag_var: float
+    elevation: int
+    datum_code: str
+    name_indicator: str
+    name_description: str
+
+    def __init__(self):
+        super().__init__("heli_terminal_waypoints")
+        self.cont_rec_no = None
+        self.type = None
+        self.usage = None
+        self.lat = None
+        self.lon = None
+        self.mag_var = None
+        self.elevation = None
+        self.datum_code = None
+        self.name_indicator = None
+        self.name_description = None
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}: {self.waypoint_id}"
+
+    def from_line(self, line: str) -> "Primary":
+        super().from_line(line)
+        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.type = extract_field(line, w_pri.type)
+        self.usage = extract_field(line, w_pri.usage)
+        self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
+        self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
+        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
+        self.elevation = convert_elevation(extract_field(line, w_pri.elevation))
+        self.datum_code = extract_field(line, w_pri.datum_code)
+        self.name_indicator = extract_field(line, w_pri.name_indicator)
+        self.name_description = extract_field(line, w_pri.name_description)
+        return self
+
+    def ordered_fields(self) -> list:
+        result = []
+        result.extend(super().ordered_leading())
+        result.extend(
+            [
+                "cont_rec_no",
+                "type",
+                "usage",
+                "lat",
+                "lon",
+                "mag_var",
+                "elevation",
+                "datum_code",
+                "name_indicator",
+                "name_description",
+            ]
+        )
+        result.extend(super().ordered_trailing())
+        return result
+
+    def to_dict(self) -> dict:
+        leading_dict = super().get_leading_dict()
+        trailing_dict = super().get_trailing_dict()
+        this_dict = {
+            "cont_rec_no": clean_value(self.cont_rec_no),
+            "type": clean_value(self.type),
+            "usage": clean_value(self.usage),
+            "lat": clean_value(self.lat),
+            "lon": clean_value(self.lon),
+            "mag_var": clean_value(self.mag_var),
+            "elevation": clean_value(self.elevation),
+            "datum_code": clean_value(self.datum_code),
+            "name_indicator": clean_value(self.name_indicator),
+            "name_description": clean_value(self.name_description),
+        }
+        return {**leading_dict, **this_dict, **trailing_dict}
