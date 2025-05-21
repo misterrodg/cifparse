@@ -1,0 +1,95 @@
+from cifparse.functions.record import clean_value, convert_record_number, extract_field
+from cifparse.records.table_base import TableBase
+
+from .widths import w_bas
+
+
+class Base(TableBase):
+    st: str
+    area: str
+    sec_code: str
+    sub_code: str
+    route_id: str
+    six_char: str
+    rest_id: str
+    rest_type: str
+    record_number: int
+    cycle_data: str
+
+    def __init__(self, table_name: str):
+        super().__init__(table_name)
+        self.st = None
+        self.area = None
+        self.sec_code = None
+        self.sub_code = None
+        self.route_id = None
+        self.six_char = None
+        self.rest_id = None
+        self.rest_type = None
+        self.record_number = None
+        self.cycle_data = None
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}: {self.route_id}, {self.rest_id}"
+
+    def from_line(self, line: str) -> "Base":
+        self.st = extract_field(line, w_bas.st)
+        self.area = extract_field(line, w_bas.area)
+        self.sec_code = extract_field(line, w_bas.sec_code)
+        self.sub_code = extract_field(line, w_bas.sub_code)
+        self.route_id = extract_field(line, w_bas.route_id)
+        self.six_char = extract_field(line, w_bas.six_char)
+        self.rest_id = extract_field(line, w_bas.rest_id)
+        self.rest_type = extract_field(line, w_bas.rest_type)
+        self.record_number = convert_record_number(
+            extract_field(line, w_bas.record_number)
+        )
+        self.cycle_data = extract_field(line, w_bas.cycle_data)
+        return self
+
+    def ordered_leading(self) -> list:
+        return [
+            "st",
+            "area",
+            "sec_code",
+            "sub_code",
+            "route_id",
+            "six_char",
+            "rest_id",
+            "rest_type",
+        ]
+
+    def ordered_trailing(self) -> list:
+        return [
+            "record_number",
+            "cycle_data",
+        ]
+
+    def ordered_fields(self) -> dict:
+        result = []
+        result.extend(self.ordered_leading())
+        result.extend(self.ordered_trailing())
+        return result
+
+    def get_leading_dict(self) -> dict:
+        return {
+            "st": clean_value(self.st),
+            "area": clean_value(self.area),
+            "sec_code": clean_value(self.sec_code),
+            "sub_code": clean_value(self.sub_code),
+            "route_id": clean_value(self.route_id),
+            "six_char": clean_value(self.six_char),
+            "rest_id": clean_value(self.rest_id),
+            "rest_type": clean_value(self.rest_type),
+        }
+
+    def get_trailing_dict(self) -> dict:
+        return {
+            "record_number": clean_value(self.record_number),
+            "cycle_data": clean_value(self.cycle_data),
+        }
+
+    def to_dict(self) -> dict:
+        leading = self.get_leading_dict()
+        trailing = self.get_trailing_dict()
+        return {**leading, **trailing}

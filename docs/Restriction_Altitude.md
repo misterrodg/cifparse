@@ -1,0 +1,47 @@
+# The Restriction Altitude Object
+
+The Restriction Altitude object comprises the following fields:
+
+- st: A standard (S) versus tailored (T) identifier.
+- area: The world region (e.g. `USA` or `CAN`).
+- sec_code: The section code, used in parsing.
+- sub_code: The subsection code, used in parsing.
+- route_id: The ID of the route.
+- six_char: A six character ID if one exists.
+- rest_id: The restriction ID.
+- rest_type: The restriction type.
+- cont_rec_no: An identifier for additional available data.
+- start_point_id: The ID of the start point.
+- start_point_region: The region of the start point.
+- start_point_sec_code: The section code of the start point.
+- start_point_sub_code: The subsection of the start point.
+- end_point_id: The ID of the end point.
+- end_point_region: The region of the end point.
+- end_point_sec_code: The section code of the end point.
+- end_point_sub_code: The subsection of the end point.
+- start_date: The start date.
+- end_date: The end date.
+- time_zone: The time zone.
+- daylight_ind: A DST marker.
+- op_time_1: The operating time.
+- op_time_2: The operating time.
+- op_time_3: The operating time.
+- op_time_4: The operating time.
+- exc_ind: The exclusion ID.
+- alt_desc: The altitude descriptor.
+- rest_alt_1: The altitude restriction.
+- blk_id_1: The block ID.
+- rest_alt_2: The altitude restriction.
+- blk_id_2: The block ID.
+- rest_alt_3: The altitude restriction.
+- blk_id_3: The block ID.
+- rest_alt_4: The altitude restriction.
+- blk_id_4: The block ID.
+- rest_alt_5: The altitude restriction.
+- blk_id_5: The block ID.
+- rest_alt_6: The altitude restriction.
+- blk_id_6: The block ID.
+- rest_alt_7: The altitude restriction.
+- blk_id_7: The block ID.
+- record_number: The CIFP record number.
+- cycle_data: The cycle ID of when the record was added/updated.
