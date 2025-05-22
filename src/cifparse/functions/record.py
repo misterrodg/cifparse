@@ -254,9 +254,10 @@ def convert_yn(text_val: str) -> bool:
     return result
 
 
-def extract_field(line: str, field_indices: tuple) -> str:
+def extract_field(line: str, field_indices: tuple, strip: bool = True) -> str:
     start, end = field_indices
-    return line[start:end].strip()
+    field = line[start:end]
+    return field.strip() if strip else field
 
 
 def translate_cont_rec_no(cont_rec_no_val: str) -> int:
