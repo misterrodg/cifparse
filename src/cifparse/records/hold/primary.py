@@ -32,7 +32,7 @@ class Primary(Base):
     hold_name: str
 
     def __init__(self):
-        super().__init__("vhf_navaids")
+        super().__init__("holds")
         self.cont_rec_no = None
         self.in_course = None
         self.true = None
