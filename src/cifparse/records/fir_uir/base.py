@@ -1,7 +1,7 @@
 from cifparse.functions.record import (
     clean_value,
-    convert_int,
     convert_record_number,
+    convert_seq_no,
     extract_field,
 )
 from cifparse.records.table_base import TableBase
@@ -45,7 +45,7 @@ class Base(TableBase):
         self.fir_uir_id = extract_field(line, w_bas.fir_uir_id)
         self.fir_uir_addr = extract_field(line, w_bas.fir_uir_addr)
         self.fir_uir_ind = extract_field(line, w_bas.fir_uir_ind)
-        self.seq_no = convert_int(extract_field(line, w_bas.seq_no))
+        self.seq_no = convert_seq_no(extract_field(line, w_bas.seq_no))
         self.record_number = convert_record_number(
             extract_field(line, w_bas.record_number)
         )

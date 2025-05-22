@@ -1,4 +1,9 @@
-from cifparse.functions.record import clean_value, convert_record_number, extract_field
+from cifparse.functions.record import (
+    clean_value,
+    convert_record_number,
+    convert_seq_no,
+    extract_field,
+)
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -31,7 +36,7 @@ class Base(TableBase):
         self.sec_code = extract_field(line, w_bas.sec_code)
         self.sub_code = extract_field(line, w_bas.sub_code)
         self.cruise_id = extract_field(line, w_bas.cruise_id)
-        self.seq_no = extract_field(line, w_bas.seq_no)
+        self.seq_no = convert_seq_no(extract_field(line, w_bas.seq_no))
         self.record_number = convert_record_number(
             extract_field(line, w_bas.record_number)
         )
