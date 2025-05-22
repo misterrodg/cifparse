@@ -24,7 +24,7 @@ The Restrictive Airspace Point object comprises the following fields:
 - arc_bearing: The starting bearing of the arc.
 - lower_limit: The lower limit of the airspace.
 - lower_unit: The unit of the lower limit.
-- upper_limit The upper limit of the airspace.
+- upper_limit: The upper limit of the airspace.
 - upper_unit: The unit of the upper limit.
 - restrictive_name: The name of the airspace.
 - record_number: The CIFP record number.

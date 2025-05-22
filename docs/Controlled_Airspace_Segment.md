@@ -15,6 +15,6 @@ The Controlled Airspace Segment object comprises the following fields:
 - mult_code: The multiple code, used in parsing.
 - lower_limit: The lower limit of the airspace.
 - lower_unit: The unit of the lower limit.
-- upper_limit The upper limit of the airspace.
+- upper_limit: The upper limit of the airspace.
 - upper_unit: The unit of the upper limit.
 - airspace_name: The name of the airspace.

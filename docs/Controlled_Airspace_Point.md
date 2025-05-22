@@ -28,7 +28,7 @@ The Controlled Airspace Point object comprises the following fields:
 - rnp: The RNP value.
 - lower_limit: The lower limit of the airspace.
 - lower_unit: The unit of the lower limit.
-- upper_limit The upper limit of the airspace.
+- upper_limit: The upper limit of the airspace.
 - upper_unit: The unit of the upper limit.
 - airspace_name: The name of the airspace.
 - record_number: The CIFP record number.
