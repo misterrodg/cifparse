@@ -44,7 +44,7 @@ import os
 import re
 
 from datetime import datetime, timedelta
-from sqlite3 import Cursor
+from sqlite3 import connect
 
 CYCLE_LENGTH_DAYS = 28
 
@@ -175,7 +175,13 @@ class CIFP:
             self._effective_to = effective_to_obj.strftime("%Y-%m-%d")
         return
 
-    def to_db(self, db_cursor: Cursor) -> None:
+    def to_db(self, db_file_path: str) -> None:
+        if os.path.exists(db_file_path):
+            os.remove(db_file_path)
+
+        connection = connect(db_file_path)
+        db_cursor = connection.cursor()
+
         self._set_header()
         validity = Validity(self._cycle_id, self._effective_from, self._effective_to)
         validity.to_db(db_cursor)
@@ -290,6 +296,9 @@ class CIFP:
 
         if self._restrictives:
             self._restrictives.to_db(db_cursor)
+
+        connection.commit()
+        connection.close()
         return
 
     def parse_moras(self) -> None:
