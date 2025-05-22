@@ -625,8 +625,8 @@ class CIFP:
     def get_heli_procedures(self) -> list[HeliProcedure]:
         return self._heli_procedures.records
 
-    def find_heli_procedure(self, procedure_id: str) -> HeliProcedure:
-        return self._heli_procedures.get_heli_procedure_by_id(procedure_id)
+    def find_heli_procedure(self, heliport_id: str, procedure_id: str) -> HeliProcedure:
+        return self._heli_procedures.get_heli_procedure_by_id(heliport_id, procedure_id)
 
     def get_heli_taas(self) -> list[HeliTAA]:
         return self._heli_taas.records
