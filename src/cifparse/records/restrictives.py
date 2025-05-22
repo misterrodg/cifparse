@@ -75,8 +75,8 @@ class Restrictives:
 
     def to_db(self, db_cursor: Cursor) -> None:
         primary = []
-        time = []
         continuation = []
+        time = []
 
         print("    Processing Restrictive Airspace")
         for restrictive in self.records:
