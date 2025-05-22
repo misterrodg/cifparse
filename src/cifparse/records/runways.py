@@ -41,6 +41,12 @@ class Runway(RecordBase):
                     self.simulation.append(simulation.from_line(line))
                     continue
 
+    def __repr__(self):
+        pri = ": primary: {{...}}" if self.primary else ""
+        con = ", continuation: [...]" if self.continuation else ""
+        sim = ", simulation: [...]" if self.simulation else ""
+        return f"\n{self.__class__.__name__}{pri}{con}{sim}"
+
     def to_dict(self) -> dict:
         return {
             "primary": self.primary.to_dict(),

@@ -57,6 +57,13 @@ class Waypoint(RecordBase):
                     was_last_planning = False
                     continue
 
+    def __repr__(self):
+        pri = ": primary: {{...}}" if self.primary else ""
+        con = ", continuation: [...]" if self.continuation else ""
+        pla = ", planning: [...]" if self.planning else ""
+        plc = ", planning_continuation: [...]" if self.planning_continuation else ""
+        return f"\n{self.__class__.__name__}{pri}{con}{pla}{plc}"
+
     def to_dict(self) -> dict:
         return {
             "primary": self.primary.to_dict(),

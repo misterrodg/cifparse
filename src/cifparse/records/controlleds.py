@@ -33,6 +33,11 @@ class Controlled(RecordBase):
                     self.time.append(time.from_line(line))
                     continue
 
+    def __repr__(self):
+        pri = ": primary: {{...}}" if self.primary else ""
+        tim = ", time: [...]" if self.time else ""
+        return f"\n{self.__class__.__name__}{pri}{tim}"
+
     def to_dict(self) -> dict:
         return {
             "primary": self.primary.to_dict(),

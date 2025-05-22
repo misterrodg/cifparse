@@ -15,6 +15,10 @@ class CruiseTable(RecordBase):
         primary = Primary()
         self.primary = primary.from_line(cruise_table_line)
 
+    def __repr__(self):
+        pri = ": primary: {{...}}" if self.primary else ""
+        return f"\n{self.__class__.__name__}{pri}"
+
     def to_dict(self) -> dict:
         return {
             "primary": self.primary.to_dict(),

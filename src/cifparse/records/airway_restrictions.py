@@ -83,6 +83,16 @@ class AirwayRestriction(RestrictionBase):
                     self.note_continuation = note_continuation.from_line(line)
                     continue
 
+    def __repr__(self):
+        alt_pri = ": alt_exc_primary: {{...}}" if self.alt_exc_primary else ""
+        alt_con = ", alt_exc_continuation: [...]" if self.alt_exc_continuation else ""
+        cru_pri = ": cruise_primary: {{...}}" if self.cruise_primary else ""
+        cru_con = ", cruise_continuation: [...]" if self.cruise_continuation else ""
+        clo_pri = ": closure_primary: {{...}}" if self.closure_primary else ""
+        not_pri = ": note_primary: {{...}}" if self.note_primary else ""
+        not_con = ", note_continuation: [...]" if self.note_continuation else ""
+        return f"\n{self.__class__.__name__}{alt_pri}{alt_con}{cru_pri}{cru_con}{clo_pri}{not_pri}{not_con}"
+
     def to_dict(self) -> dict:
         return {
             "alt_exc_primary": self.alt_exc_primary.to_dict(),
