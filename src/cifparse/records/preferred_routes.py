@@ -61,13 +61,6 @@ class PreferredRoutes:
             preferred_route = PreferredRoute(preferred_route_partition)
             self.records.append(preferred_route)
 
-    def get_preferred_route_by_id(self, preferred_route_id: str) -> PreferredRoute:
-        result = None
-        for record in self.records:
-            if record.has_primary() and record.primary.route_id == preferred_route_id:
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

@@ -88,13 +88,6 @@ class NDBNavaids:
             ndb_navaid = NDBNavaid(ndb_navaid_partition)
             self.records.append(ndb_navaid)
 
-    def get_navaid_by_id(self, ndb_navaid_id: str) -> NDBNavaid:
-        result = None
-        for record in self.records:
-            if record.has_primary() and record.primary.ndb_id == ndb_navaid_id:
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

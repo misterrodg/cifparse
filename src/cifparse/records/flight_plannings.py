@@ -61,15 +61,6 @@ class FlightPlannings:
             flight_planning = FlightPlanning(flight_planning_partition)
             self.records.append(flight_planning)
 
-    def get_flight_planning_by_airport_id(
-        self, airport_id: str
-    ) -> list[FlightPlanning]:
-        result = []
-        for record in self.records:
-            if record.has_primary() and record.primary.airport_id == airport_id:
-                result.append(record)
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

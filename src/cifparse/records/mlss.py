@@ -52,17 +52,6 @@ class MLSs:
             mls = MLS(mls_partition)
             self.records.append(mls)
 
-    def get_mls_by_id(self, fac_id: str, mls_id: str) -> MLS:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.fac_id == fac_id
-                and record.primary.mls_id == mls_id
-            ):
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

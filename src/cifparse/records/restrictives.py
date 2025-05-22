@@ -61,24 +61,6 @@ class Restrictives:
             restrictive = Restrictive(restrictive_partition)
             self.records.append(restrictive)
 
-    def get_restrictive_by_id(self, restrictive_id: str) -> list[Restrictive]:
-        result = []
-        for record in self.records:
-            if record.has_primary() and record.primary.restrictive_id == restrictive_id:
-                result.append(record)
-        return result
-
-    def get_restrictive_match(self, restrictive_name: str) -> list[str]:
-        result = []
-        for record in self.records:
-            if (
-                record.has_primary()
-                and restrictive_name in record.primary.restrictive_name
-            ):
-                line = f"{record.primary.restrictive_name} uses ID {record.primary.restrictive_id}"
-                result.append(line)
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

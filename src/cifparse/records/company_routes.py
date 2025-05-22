@@ -32,13 +32,6 @@ class CompanyRoutes:
             company_route = CompanyRoute(company_route_line)
             self.records.append(company_route)
 
-    def get_company_route_by_origin(self, origin_id: str) -> CompanyRoute:
-        result = []
-        for record in self.records:
-            if record.has_primary() and record.primary.from_1 == origin_id:
-                result.append(record)
-        return
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

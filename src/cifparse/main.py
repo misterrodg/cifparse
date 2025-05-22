@@ -565,26 +565,14 @@ class CIFP:
     def get_vhf_navaids(self) -> list[VHFNavaid]:
         return self._vhf_navaids.records
 
-    def find_vhf_navaid(self, vhf_navaid_id: str) -> VHFNavaid:
-        return self._vhf_navaids.get_navaid_by_id(vhf_navaid_id)
-
     def get_ndb_navaids(self) -> list[NDBNavaid]:
         return self._ndb_navaids.records
-
-    def find_ndb(self, ndb_navaid_id: str) -> NDBNavaid:
-        return self._ndb_navaids.get_navaid_by_id(ndb_navaid_id)
 
     def get_enroute_waypoints(self) -> list[Waypoint]:
         return self._enroute_waypoints.records
 
-    def find_enroute_waypoint(self, waypoint_id: str) -> Waypoint:
-        return self._enroute_waypoints.get_waypoint_by_id(waypoint_id)
-
     def get_airway_markers(self) -> list[AirwayMarker]:
         return self._airway_markers.records
-
-    def find_airway_marker(self, airway_marker_id: str) -> AirwayMarker:
-        return self._airway_markers.get_marker_by_id(airway_marker_id)
 
     def get_holds(self) -> list[Hold]:
         return self._holds.records
@@ -592,20 +580,11 @@ class CIFP:
     def get_airway_points(self) -> list[AirwayPoint]:
         return self._airway_points.records
 
-    def find_airway_points(self, airway_id: str) -> list[AirwayPoint]:
-        return self._airway_points.get_airway_points_by_id(airway_id)
-
     def get_preferred_routes(self) -> list[PreferredRoute]:
         return self._preferred_routes.records
 
-    def find_preferred_route(self, preferred_route_id: str) -> PreferredRoute:
-        return self._preferred_routes.get_preferred_route_by_id(preferred_route_id)
-
     def get_airway_restrictions(self) -> list[AirwayRestriction]:
         return self._airway_restrictions.records
-
-    def find_airway_restriction(self, airway_id: str) -> AirwayRestriction:
-        return self._airway_restrictions.get_airway_restrictions_by_id(airway_id)
 
     def get_enroute_comms(self) -> list[EnrouteComm]:
         return self._enroute_comms.records
@@ -613,32 +592,17 @@ class CIFP:
     def get_heliports(self) -> list[Heliport]:
         return self._heliports.records
 
-    def find_heliport(self, heliport_id: str) -> Heliport:
-        return self._heliports.get_heliport_by_id(heliport_id)
-
     def get_heli_terminal_waypoints(self) -> list[HeliWaypoint]:
         return self._heli_terminal_waypoints.records
-
-    def find_heli_terminal_waypoint(self, waypoint_id: str) -> HeliWaypoint:
-        return self._heli_terminal_waypoints.get_heli_waypoint_by_id(waypoint_id)
 
     def get_heli_procedures(self) -> list[HeliProcedure]:
         return self._heli_procedures.records
 
-    def find_heli_procedure(self, heliport_id: str, procedure_id: str) -> HeliProcedure:
-        return self._heli_procedures.get_heli_procedure_by_id(heliport_id, procedure_id)
-
     def get_heli_taas(self) -> list[HeliTAA]:
         return self._heli_taas.records
 
-    def find_heli_taa(self, heliport_id: str, iap_id: str) -> HeliTAA:
-        return self._taas.get_taa_by_id(heliport_id, iap_id)
-
     def get_heli_msas(self) -> list[HeliMSA]:
         return self._heli_msas.records
-
-    def find_heli_msas_for_heliport(self, heliport_id: str) -> list[HeliMSA]:
-        return self._heli_msas.get_msa_by_id(heliport_id)
 
     def get_heli_terminal_comms(self) -> list[HeliTerminalComm]:
         return self._heli_terminal_comms.records
@@ -646,68 +610,35 @@ class CIFP:
     def get_airports(self) -> list[Airport]:
         return self._airports.records
 
-    def find_airport(self, airport_id: str) -> Airport:
-        return self._airports.get_airport_by_id(airport_id)
-
     def get_gates(self) -> list[Gate]:
         return self._gates.records
-
-    def find_gate_by_id(self, airport_id: str, gate_id: str) -> Gate:
-        return self._gates.get_gate_by_id(airport_id, gate_id)
 
     def get_terminal_waypoints(self) -> list[Waypoint]:
         return self._terminal_waypoints.records
 
-    def find_terminal_waypoint(self, terminal_waypoint_id: str) -> Waypoint:
-        return self._terminal_waypoints.get_waypoint_by_id(terminal_waypoint_id)
-
     def get_procedures(self) -> list[ProcedurePoint]:
         return self._procedures.records
-
-    def find_procedure(self, airport_id: str, procedure_id: str) -> ProcedurePoint:
-        return self._procedures.get_procedure_by_id(airport_id, procedure_id)
 
     def get_runways(self) -> list[Runway]:
         return self._runways.records
 
-    def find_runway(self, airport_id: str, runway_id: str) -> Runway:
-        return self._runways.get_runway_by_id(airport_id, runway_id)
-
     def get_loc_gss(self) -> list[LOC_GS]:
         return self._loc_gss.records
-
-    def find_loc_gs(self, airport_id: str, loc_gs_id: str) -> LOC_GS:
-        return self._loc_gss.get_loc_gs_by_id(airport_id, loc_gs_id)
 
     def get_company_routes(self) -> list[CompanyRoute]:
         return self._company_routes.records
 
-    def find_company_routes_by_origin(self, origin_id: str) -> list[CompanyRoute]:
-        return self._company_routes.get_company_route_by_origin(origin_id)
-
     def get_alternate_records(self) -> list[AlternateRecord]:
         return self._alternate_records.records
-
-    def find_alternate_records_by_point(self, point_id: str) -> list[AlternateRecord]:
-        return self._alternate_records.get_alternate_records_by_point(point_id)
 
     def get_taas(self) -> list[TAA]:
         return self._taas.records
 
-    def find_taa(self, airport_id: str, iap_id: str) -> TAA:
-        return self._taas.get_taa_by_id(airport_id, iap_id)
-
     def get_mlss(self) -> list[MLS]:
         return self._mlss.records
 
-    def find_mls(self, facility_id: str, mls_id: str) -> MLS:
-        return self._mlss.get_mls_by_id(facility_id, mls_id)
-
     def get_terminal_markers(self) -> list[TerminalMarker]:
         return self._terminal_markers.records
-
-    def find_terminal_marker(self, facility_id: str, marker_id: str) -> TerminalMarker:
-        return self._terminal_markers.get_marker_by_id(facility_id, marker_id)
 
     def get_path_points(self) -> list[PathPoint]:
         return self._path_points.records
@@ -715,19 +646,8 @@ class CIFP:
     def get_flight_plannings(self) -> list[FlightPlanning]:
         return self._flight_plannings.records
 
-    def find_flight_plannings_for_airport(
-        self, airport_id: str
-    ) -> list[FlightPlanning]:
-        return self._flight_plannings.get_flight_planning_by_airport_id(airport_id)
-
     def get_msas(self) -> list[MSA]:
         return self._msas.records
-
-    def find_msas_for_airport(self, airport_id: str) -> list[MSA]:
-        return self._msas.get_msa_by_id(airport_id)
-
-    def find_gls(self, facility_id: str, gls_id: str) -> GLS:
-        return self._glss.get_gls_by_id(facility_id, gls_id)
 
     def get_terminal_comms(self) -> list[TerminalComm]:
         return self._terminal_comms.records
@@ -735,29 +655,14 @@ class CIFP:
     def get_fir_uir(self) -> list[FIRUIR]:
         return self._fir_uirs.records
 
-    def find_fir_uir(self, fir_uir_id: str) -> list[FIRUIR]:
-        return self._fir_uirs.get_fir_uir_by_id(fir_uir_id)
-
     def get_cruise_tables(self) -> list[CruiseTable]:
         return self._cruise_tables.records
 
     def get_reference_tables(self) -> list[ReferenceTable]:
         return self._reference_tables.records
 
-    def find_reference_table_by_id(self, table_id: str) -> ReferenceTable:
-        return self._reference_tables.get_reference_table_by_id(table_id)
-
     def get_controlled(self) -> list[Controlled]:
         return self._controlleds.records
 
-    def find_controlled(self, center_id: str) -> list[Controlled]:
-        return self._controlleds.get_controlled_by_id(center_id)
-
     def get_restrictive(self) -> list[Restrictive]:
         return self._restrictives.records
-
-    def find_restrictive_match(self, restrictive_name: str) -> list:
-        return self._restrictives.get_restrictive_match(restrictive_name)
-
-    def find_restrictive(self, restrictive_id: str) -> list[Restrictive]:
-        return self._restrictives.get_restrictive_by_id(restrictive_id)

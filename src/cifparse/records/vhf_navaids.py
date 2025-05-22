@@ -98,13 +98,6 @@ class VHFNavaids:
             vhf_navaid = VHFNavaid(vhf_navaid_partition)
             self.records.append(vhf_navaid)
 
-    def get_navaid_by_id(self, vhf_navaid_id: str) -> VHFNavaid:
-        result = None
-        for record in self.records:
-            if record.has_primary() and record.primary.vhf_id == vhf_navaid_id:
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

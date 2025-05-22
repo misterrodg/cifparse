@@ -52,13 +52,6 @@ class AirwayMarkers:
             marker = AirwayMarker(marker_partition)
             self.records.append(marker)
 
-    def get_marker_by_id(self, marker_id: str) -> AirwayMarker:
-        result = None
-        for record in self.records:
-            if record.has_primary() and record.primary.marker_id == marker_id:
-                result = record
-        return result
-
     def to_db(self, db_cursor: Cursor) -> None:
         primary = []
         continuation = []

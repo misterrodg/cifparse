@@ -61,17 +61,6 @@ class Runways:
             runway = Runway(runway_partition)
             self.records.append(runway)
 
-    def get_runway_by_id(self, airport_id: str, runway_id: str) -> Runway:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.airport_id == airport_id
-                and record.primary.runway_id == runway_id
-            ):
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

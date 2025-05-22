@@ -82,16 +82,6 @@ class HeliWaypoints:
             )
             self.records.append(heli_waypoint)
 
-    def get_heli_waypoint_by_id(self, heli_waypoint_id: str) -> HeliWaypoint:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.heli_waypoint_id == heli_waypoint_id
-            ):
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

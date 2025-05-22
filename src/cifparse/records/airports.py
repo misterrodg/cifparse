@@ -78,13 +78,6 @@ class Airports:
             airport = Airport(airport_partition)
             self.records.append(airport)
 
-    def get_airport_by_id(self, airport_id: str) -> Airport:
-        result = None
-        for record in self.records:
-            if record.has_primary() and record.primary.airport_id == airport_id:
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

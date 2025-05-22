@@ -82,13 +82,6 @@ class Waypoints:
             waypoint = Waypoint(waypoint_partition, self.is_terminal)
             self.records.append(waypoint)
 
-    def get_waypoint_by_id(self, waypoint_id: str) -> Waypoint:
-        result = None
-        for record in self.records:
-            if record.has_primary() and record.primary.waypoint_id == waypoint_id:
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

@@ -52,13 +52,6 @@ class ReferenceTables:
             reference_table = ReferenceTable(reference_table_partition)
             self.records.append(reference_table)
 
-    def get_reference_table_by_id(self, table_id: str) -> ReferenceTable:
-        result = None
-        for record in self.records:
-            if record.has_primary() and record.primary.table_id == table_id:
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

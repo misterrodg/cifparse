@@ -52,17 +52,6 @@ class TAAs:
             taa = TAA(taa_partition)
             self.records.append(taa)
 
-    def get_taa_by_id(self, airport_id: str, iaf_point_id: str) -> TAA:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.airport_id == airport_id
-                and record.primary.iaf_point_id == iaf_point_id
-            ):
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

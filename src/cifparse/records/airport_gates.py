@@ -52,17 +52,6 @@ class Gates:
             gate = Gate(gate_partition)
             self.records.append(gate)
 
-    def get_gate_by_id(self, airport_id: str, gate_id: str) -> Gate:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.airport_id == airport_id
-                and record.primary.gate_id == gate_id
-            ):
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

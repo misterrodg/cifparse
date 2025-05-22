@@ -52,13 +52,6 @@ class Controlleds:
             controlled = Controlled(controlled_partition)
             self.records.append(controlled)
 
-    def get_controlled_by_id(self, controlled_id: str) -> list[Controlled]:
-        result = []
-        for record in self.records:
-            if record.has_primary() and record.primary.center_id == controlled_id:
-                result.append(record)
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

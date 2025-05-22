@@ -52,17 +52,6 @@ class GLSs:
             gls = GLS(gls_partition)
             self.records.append(gls)
 
-    def get_gls_by_id(self, fac_id: str, gls_id: str) -> GLS:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.fac_id == fac_id
-                and record.primary.gls_id == gls_id
-            ):
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

@@ -52,13 +52,6 @@ class MSAs:
             msa = MSA(msa_partition)
             self.records.append(msa)
 
-    def get_msa_by_id(self, airport_id: str) -> list[MSA]:
-        result = []
-        for record in self.records:
-            if record.has_primary() and record.primary.airport_id == airport_id:
-                result.append(record)
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

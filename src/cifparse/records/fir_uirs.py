@@ -52,13 +52,6 @@ class FIRUIRs:
             fir_uir = FIRUIR(fir_uir_partition)
             self.records.append(fir_uir)
 
-    def get_fir_uir_by_id(self, vhf_fir_uir_id: str) -> list[FIRUIR]:
-        result = []
-        for record in self.records:
-            if record.has_primary() and record.primary.fir_uir_id == vhf_fir_uir_id:
-                result.append(record)
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

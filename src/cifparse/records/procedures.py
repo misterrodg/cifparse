@@ -88,17 +88,6 @@ class ProcedurePoints:
             procedure = ProcedurePoint(procedure_partition)
             self.records.append(procedure)
 
-    def get_procedure_by_id(self, airport_id: str, procedure_id: str) -> ProcedurePoint:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.fac_id == airport_id
-                and record.primary.procedure_id == procedure_id
-            ):
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

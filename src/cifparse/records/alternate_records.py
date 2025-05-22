@@ -32,13 +32,6 @@ class AlternateRecords:
             alternate_record = AlternateRecord(alternate_record_line)
             self.records.append(alternate_record)
 
-    def get_alternate_records_by_point(self, point_id: str) -> list[AlternateRecord]:
-        result = []
-        for record in self.records:
-            if record.has_primary() and record.primary.point_id == point_id:
-                result.append(record)
-        return
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

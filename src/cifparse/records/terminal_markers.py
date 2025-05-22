@@ -52,17 +52,6 @@ class TerminalMarkers:
             marker = TerminalMarker(marker_partition)
             self.records.append(marker)
 
-    def get_marker_by_id(self, facility_id: str, marker_id: str) -> TerminalMarker:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.facility_id == facility_id
-                and record.primary.locator_id == marker_id
-            ):
-                result = record
-        return result
-
     def to_db(self, db_cursor: Cursor) -> None:
         primary = []
         continuation = []

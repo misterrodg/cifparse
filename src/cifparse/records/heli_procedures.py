@@ -88,19 +88,6 @@ class HeliProcedures:
             heli_procedure = HeliProcedure(heli_procedure_partition)
             self.records.append(heli_procedure)
 
-    def get_heli_procedure_by_id(
-        self, heliport_id, heli_procedure_id: str
-    ) -> HeliProcedure:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.fac_id == heliport_id
-                and record.primary.heli_procedure_id == heli_procedure_id
-            ):
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

@@ -78,13 +78,6 @@ class Heliports:
             heliport = Heliport(heliport_partition)
             self.records.append(heliport)
 
-    def get_heliport_by_id(self, heliport_id: str) -> Heliport:
-        result = None
-        for record in self.records:
-            if record.has_primary() and record.primary.heliport_id == heliport_id:
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

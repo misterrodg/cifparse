@@ -111,30 +111,6 @@ class AirwayRestrictions:
             airway_restriction = AirwayRestriction(airway_restriction_partition)
             self.records.append(airway_restriction)
 
-    def get_airway_restrictions_by_id(self, airway_id: str) -> list[AirwayRestriction]:
-        result = []
-        for record in self.records:
-            if (
-                (
-                    record.has_alt_exc_primary()
-                    and record.alt_exc_primary.route_id == airway_id
-                )
-                or (
-                    record.has_closure_primary()
-                    and record.closure_primary.route_id == airway_id
-                )
-                or (
-                    record.has_cruise_primary()
-                    and record.cruise_primary.route_id == airway_id
-                )
-                or (
-                    record.has_note_primary()
-                    and record.note_primary.route_id == airway_id
-                )
-            ):
-                result.append(record)
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

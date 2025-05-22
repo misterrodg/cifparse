@@ -52,13 +52,6 @@ class HeliMSAs:
             heli_msa = HeliMSA(heli_msa_partition)
             self.records.append(heli_msa)
 
-    def get_heli_msa_by_id(self, airport_id: str) -> list[HeliMSA]:
-        result = []
-        for record in self.records:
-            if record.has_primary() and record.primary.airport_id == airport_id:
-                result.append(record)
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

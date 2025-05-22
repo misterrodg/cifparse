@@ -61,17 +61,6 @@ class LOC_GSs:
             loc_gs = LOC_GS(loc_gs_partition)
             self.records.append(loc_gs)
 
-    def get_loc_gs_by_id(self, airport_id: str, loc_gs_id: str) -> LOC_GS:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.airport_id == airport_id
-                and record.primary.loc_id == loc_gs_id
-            ):
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:

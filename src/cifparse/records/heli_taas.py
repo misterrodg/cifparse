@@ -52,17 +52,6 @@ class HeliTAAs:
             heli_taa = HeliTAA(heli_taa_partition)
             self.records.append(heli_taa)
 
-    def get_heli_taa_by_id(self, heliport_id: str, iaf_point_id: str) -> HeliTAA:
-        result = None
-        for record in self.records:
-            if (
-                record.has_primary()
-                and record.primary.heliport_id == heliport_id
-                and record.primary.iaf_point_id == iaf_point_id
-            ):
-                result = record
-        return result
-
     def to_dict(self) -> list[dict]:
         result = []
         for record in self.records:
