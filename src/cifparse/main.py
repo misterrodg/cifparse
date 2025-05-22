@@ -649,6 +649,9 @@ class CIFP:
     def get_msas(self) -> list[MSA]:
         return self._msas.records
 
+    def get_glss(self) -> list[GLS]:
+        return self._glss.records
+
     def get_terminal_comms(self) -> list[TerminalComm]:
         return self._terminal_comms.records
 
