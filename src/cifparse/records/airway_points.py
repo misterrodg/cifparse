@@ -76,7 +76,7 @@ class AirwayPoints:
             airway = AirwayPoint(airway_partition)
             self.records.append(airway)
 
-    def get_airway_points_by_id(self, airway_id: str) -> AirwayPoint:
+    def get_airway_points_by_id(self, airway_id: str) -> list[AirwayPoint]:
         result = []
         for record in self.records:
             if record.has_primary() and record.primary.point_id == airway_id:

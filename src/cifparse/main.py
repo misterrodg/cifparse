@@ -592,7 +592,7 @@ class CIFP:
     def get_airway_points(self) -> list[AirwayPoint]:
         return self._airway_points.records
 
-    def find_airway_points(self, airway_id: str) -> AirwayPoint:
+    def find_airway_points(self, airway_id: str) -> list[AirwayPoint]:
         return self._airway_points.get_airway_points_by_id(airway_id)
 
     def get_preferred_routes(self) -> list[PreferredRoute]:
@@ -652,7 +652,7 @@ class CIFP:
     def get_gates(self) -> list[Gate]:
         return self._gates.records
 
-    def get_gate_by_id(self, airport_id: str, gate_id: str) -> Gate:
+    def find_gate_by_id(self, airport_id: str, gate_id: str) -> Gate:
         return self._gates.get_gate_by_id(airport_id, gate_id)
 
     def get_terminal_waypoints(self) -> list[Waypoint]:
@@ -726,7 +726,7 @@ class CIFP:
     def find_msas_for_airport(self, airport_id: str) -> list[MSA]:
         return self._msas.get_msa_by_id(airport_id)
 
-    def get_gls(self, facility_id: str, gls_id: str) -> GLS:
+    def find_gls(self, facility_id: str, gls_id: str) -> GLS:
         return self._glss.get_gls_by_id(facility_id, gls_id)
 
     def get_terminal_comms(self) -> list[TerminalComm]:
@@ -744,7 +744,7 @@ class CIFP:
     def get_reference_tables(self) -> list[ReferenceTable]:
         return self._reference_tables.records
 
-    def get_reference_table_by_id(self, table_id: str) -> ReferenceTable:
+    def find_reference_table_by_id(self, table_id: str) -> ReferenceTable:
         return self._reference_tables.get_reference_table_by_id(table_id)
 
     def get_controlled(self) -> list[Controlled]:
