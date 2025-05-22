@@ -670,8 +670,8 @@ class CIFP:
     def get_runways(self) -> list[Runway]:
         return self._runways.records
 
-    def find_runway(self, runway_id: str) -> Runway:
-        return self._runways.get_runway_by_id(runway_id)
+    def find_runway(self, airport_id: str, runway_id: str) -> Runway:
+        return self._runways.get_runway_by_id(airport_id, runway_id)
 
     def get_loc_gss(self) -> list[LOC_GS]:
         return self._loc_gss.records
