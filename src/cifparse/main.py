@@ -20,7 +20,7 @@ from .records.heli_msas import HeliMSA, HeliMSAs
 from .records.heli_terminal_comms import HeliTerminalComm, HeliTerminalComms
 from .records.airports import Airport, Airports
 from .records.airport_gates import Gate, Gates
-from .records.procedure_points import ProcedurePoint, ProcedurePoints
+from .records.procedures import ProcedurePoint, ProcedurePoints
 from .records.runways import Runway, Runways
 from .records.loc_gss import LOC_GS, LOC_GSs
 from .records.company_routes import CompanyRoute, CompanyRoutes

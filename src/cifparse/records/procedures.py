@@ -5,12 +5,12 @@ from .appl_table import a_table
 from .record_base import RecordBase
 from .table_base import process_table
 
-from .procedure_point.primary import Primary
-from .procedure_point.continuation import Continuation
-from .procedure_point.simulation import Simulation
-from .procedure_point.planning import Planning
-from .procedure_point.planning_continuation import PlanningContinuation
-from .procedure_point.widths import w_pri, w_con, w_sim, w_pla
+from .procedure.primary import Primary
+from .procedure.continuation import Continuation
+from .procedure.simulation import Simulation
+from .procedure.planning import Planning
+from .procedure.planning_continuation import PlanningContinuation
+from .procedure.widths import w_pri, w_con, w_sim, w_pla
 
 from sqlite3 import Cursor
 
