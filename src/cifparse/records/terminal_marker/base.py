@@ -40,7 +40,7 @@ class Base(TableBase):
         self.facility_region = extract_field(line, w_bas.facility_region)
         self.sub_code = extract_field(line, w_bas.sub_code)
         self.loc_id = extract_field(line, w_bas.loc_id)
-        self.marker_type = extract_field(line, w_bas.marker_type)
+        self.marker_type = extract_field(line, w_bas.marker_type, False)
         self.record_number = convert_record_number(
             extract_field(line, w_bas.record_number)
         )

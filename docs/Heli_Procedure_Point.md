@@ -17,7 +17,7 @@ The Heli Procedure object comprises the following fields:
 - fix_sec_code: The section code of the fix.
 - fix_sub_code: The subsection code of the fix.
 - cont_rec_no: An identifier for additional available data.
-- desc_code: The description code, used in parsing.
+- desc_code: The description code, used in parsing.\*
 - turn_direction: The direction of the turn.
 - rnp: The RNP requirement for the leg.
 - path_term: The path termination.
@@ -52,3 +52,5 @@ The Heli Procedure object comprises the following fields:
 - rte_qual_2: The second route qualifier (denotes approach types).
 - record_number: The CIFP record number.
 - cycle_data: The cycle ID of when the record was added/updated.
+
+\* Column-based field. May contain intentional leading or trailing spaces.

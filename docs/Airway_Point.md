@@ -14,7 +14,7 @@ The Airway Point object comprises the following fields:
 - point_sec_code: The section code of the point.
 - point_sub_code: The subsection of the point.
 - cont_rec_no: An identifier for additional available data.
-- desc_code: The description code, used in parsing.
+- desc_code: The description code, used in parsing.\*
 - bound_code: The code of the boundary being crossed.
 - route_type: The airway type.
 - level: The level of the airway (high, low, or both).
@@ -38,3 +38,5 @@ The Airway Point object comprises the following fields:
 - fix_radius: The fixed radius transition value.
 - record_number: The CIFP record number.
 - cycle_data: The cycle ID of when the record was added/updated.
+
+\* Column-based field. May contain intentional leading or trailing spaces.

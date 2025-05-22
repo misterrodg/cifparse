@@ -106,7 +106,7 @@ class Primary(Base):
             extract_field(line, w_pri.max_alt)
         )
         self.time_zone = extract_field(line, w_pri.time_zone)
-        self.aircraft_use = extract_field(line, w_pri.aircraft_use)
+        self.aircraft_use = extract_field(line, w_pri.aircraft_use, False)
         self.direction = extract_field(line, w_pri.direction)
         self.alt_desc = extract_field(line, w_pri.alt_desc)
         self.fl_1, self.alt_1 = convert_altitude_fl(extract_field(line, w_pri.alt_1))

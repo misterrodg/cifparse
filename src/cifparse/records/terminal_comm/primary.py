@@ -78,7 +78,7 @@ class Primary(Base):
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
         self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.serv_ind = extract_field(line, w_pri.serv_ind)
+        self.serv_ind = extract_field(line, w_pri.serv_ind, False)
         self.radar = extract_field(line, w_pri.radar)
         self.modulation = extract_field(line, w_pri.modulation)
         self.sig_em = extract_field(line, w_pri.sig_em)

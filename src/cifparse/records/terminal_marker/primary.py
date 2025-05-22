@@ -60,7 +60,7 @@ class Primary(Base):
         )
         self.locator_lat = convert_lat_dms(extract_field(line, w_pri.locator_lat))
         self.locator_lon = convert_lon_dms(extract_field(line, w_pri.locator_lon))
-        self.locator_class = extract_field(line, w_pri.locator_class)
+        self.locator_class = extract_field(line, w_pri.locator_class, False)
         self.locator_fac_char = extract_field(line, w_pri.locator_fac_char)
         self.locator_id = extract_field(line, w_pri.locator_id)
         self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))

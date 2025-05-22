@@ -15,7 +15,7 @@ The Enroute Communication object comprises the following fields:
 - gt: An guard (G) versus transmit (T) identifier.
 - freq_unit: The frequency unit ID.
 - cont_rec_no: An identifier for additional available data.
-- serv_ind: An identifier for the services provided on the frequency.
+- serv_ind: An identifier for the services provided on the frequency.\*
 - radar: A boolean for if the frequency is associated with a radar facility.
 - modulation: The modulation type ID.
 - sig_em: The signal emission type ID.
@@ -35,3 +35,5 @@ The Enroute Communication object comprises the following fields:
 - remote_sub_code: The sub_code of the facility used as an RCO, if defined.
 - record_number: The CIFP record number.
 - cycle_data: The cycle ID of when the record was added/updated.
+
+\* Column-based field. May contain intentional leading or trailing spaces.

@@ -32,7 +32,7 @@ The Preferred Routes object comprises the following fields:
 - max_alt: The second minimum altitude.
 - max_fl: A boolean value to note that `max_alt` is a Flight Level.
 - time_zone: The time zone.
-- aircraft_use: The aircraft use group.
+- aircraft_use: The aircraft use group.\*
 - direct: The direction restriction.
 - alt_desc: The altitude descriptor.
 - alt_1: The minimum altitude.
@@ -41,3 +41,5 @@ The Preferred Routes object comprises the following fields:
 - fl_2: A boolean value to note that `alt_2` is a Flight Level.
 - record_number: The CIFP record number.
 - cycle_data: The cycle ID of when the record was added/updated.
+
+\* Column-based field. May contain intentional leading or trailing spaces.

@@ -43,8 +43,8 @@ class Primary(Base):
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
         self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.type = extract_field(line, w_pri.type)
-        self.usage = extract_field(line, w_pri.usage)
+        self.type = extract_field(line, w_pri.type, False)
+        self.usage = extract_field(line, w_pri.usage, False)
         self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
         self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
         self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))

@@ -55,7 +55,7 @@ class Primary(Base):
         super().from_line(line)
         self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
         self.frequency = convert_frequency(extract_field(line, w_pri.frequency))
-        self.nav_class = extract_field(line, w_pri.nav_class)
+        self.nav_class = extract_field(line, w_pri.nav_class, False)
         self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
         self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
         self.dme_id = extract_field(line, w_pri.dme_id)

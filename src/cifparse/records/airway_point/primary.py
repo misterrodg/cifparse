@@ -70,7 +70,7 @@ class Primary(Base):
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
         self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.desc_code = extract_field(line, w_pri.desc_code)
+        self.desc_code = extract_field(line, w_pri.desc_code, False)
         self.bound_code = extract_field(line, w_pri.bound_code)
         self.route_type = extract_field(line, w_pri.route_type)
         self.level = extract_field(line, w_pri.level)

@@ -12,7 +12,7 @@ The NDB Navaid object comprises the following fields:
 - ndb_region: The ICAO region of the VHF navaid.
 - frequency: The frequency.
 - cont_rec_no: An identifier for additional available data.
-- nav_class: The class of NDB.
+- nav_class: The class of NDB.\*
 - lat: The latitude of the NDB.
 - lon: The longitude of the NDB.
 - mag_var: The magnetic variation.
@@ -20,3 +20,5 @@ The NDB Navaid object comprises the following fields:
 - ndb_name: The name of the NDB.
 - record_number: The CIFP record number.
 - cycle_data: The cycle ID of when the record was added/updated.
+
+\* Column-based field. May contain intentional leading or trailing spaces.

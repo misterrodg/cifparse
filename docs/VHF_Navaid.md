@@ -12,7 +12,7 @@ The VHF Navaid object comprises the following fields:
 - vhf_region: The ICAO region of the VHF navaid.
 - frequency: The frequency.
 - cont_rec_no: An identifier for additional available data.
-- nav_class: The class of navaid.
+- nav_class: The class of navaid.\*
 - lat: The latitude of the navaid.
 - lon: The longitude of the navaid.
 - dme_id: The ID of the DME.
@@ -27,3 +27,5 @@ The VHF Navaid object comprises the following fields:
 - vhf_name: The name of the VHF navaid.
 - record_number: The CIFP record number.
 - cycle_data: The cycle ID of when the record was added/updated.
+
+\* Column-based field. May contain intentional leading or trailing spaces.
