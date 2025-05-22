@@ -12,6 +12,8 @@ The Waypoint object comprises the following fields:
 - environment_region: The region of the environment.
 - environment_sub_code: The sub code of the environment.
 - waypoint_id: The ICAO code of the waypoint.
+- waypoint_region: The region of the waypoint.
+- cont_rec_no: An identifier for additional available data.
 - type: The waypoint type
 - usage: The use type (e.g. high, low, or both).
 - lat: The waypoint latitude.
