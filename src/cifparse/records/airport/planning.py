@@ -32,8 +32,7 @@ class Planning(Base):
 
     def from_line(self, line: str) -> "Planning":
         super().from_line(line)
-        cont_rec_no = extract_field(line, w_pla.cont_rec_no)
-        self.cont_rec_no = translate_cont_rec_no(cont_rec_no)
+        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pla.cont_rec_no))
         self.application = extract_field(line, w_pla.application)
         self.fir_ident = extract_field(line, w_pla.fir_ident)
         self.uir_ident = extract_field(line, w_pla.uir_ident)

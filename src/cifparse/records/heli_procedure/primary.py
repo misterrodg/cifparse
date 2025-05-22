@@ -98,8 +98,7 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        cont_rec_no = extract_field(line, w_pri.cont_rec_no)
-        self.cont_rec_no = translate_cont_rec_no(cont_rec_no)
+        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
         self.desc_code = extract_field(line, w_pri.desc_code)
         self.turn_direction = extract_field(line, w_pri.turn_direction)
         self.rnp = convert_rnp(extract_field(line, w_pri.rnp))
