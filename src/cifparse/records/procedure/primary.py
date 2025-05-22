@@ -110,7 +110,7 @@ class Primary(Base):
         self.theta = convert_theta(extract_field(line, w_pri.theta))
         self.rho = convert_rho(extract_field(line, w_pri.rho))
         self.true, self.course = convert_bearing(extract_field(line, w_pri.course))
-        self.dist_time, self.time = convert_distance_time(
+        self.time, self.dist_time = convert_distance_time(
             extract_field(line, w_pri.dist_time)
         )
         self.rec_vhf_sec_code = extract_field(line, w_pri.rec_vhf_sec_code)
