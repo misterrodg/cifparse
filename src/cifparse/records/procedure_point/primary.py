@@ -94,7 +94,7 @@ class Primary(Base):
         self.rte_qual_2 = None
 
     def __repr__(self):
-        return f"{self.__class__.__name__}: {self.procedure_id}, {self.transition_id}'"
+        return f"{self.__class__.__name__}: {self.procedure_id}, {self.transition_id}"
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
