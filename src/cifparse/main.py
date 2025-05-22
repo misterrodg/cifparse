@@ -664,8 +664,8 @@ class CIFP:
     def get_procedures(self) -> list[ProcedurePoint]:
         return self._procedures.records
 
-    def find_procedure(self, procedure_id: str) -> ProcedurePoint:
-        return self._procedures.get_procedure_by_id(procedure_id)
+    def find_procedure(self, airport_id: str, procedure_id: str) -> ProcedurePoint:
+        return self._procedures.get_procedure_by_id(airport_id, procedure_id)
 
     def get_runways(self) -> list[Runway]:
         return self._runways.records
