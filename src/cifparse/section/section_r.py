@@ -12,10 +12,10 @@ class SectionR:
         self.subsection_a = []
 
         for line in lines:
-            if extract_field(line, __w_pri.sub_code) == " ":
+            if extract_field(line, __w_pri.sub_code, False) == " ":
                 self.subsection__.append(line)
                 continue
-            if extract_field(line, a_w_pri.sub_code) == "A":
+            if extract_field(line, a_w_pri.sub_code, False) == "A":
                 self.subsection_a.append(line)
                 continue
 
