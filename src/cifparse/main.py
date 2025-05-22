@@ -735,7 +735,7 @@ class CIFP:
     def get_fir_uir(self) -> list[FIRUIR]:
         return self._fir_uirs.records
 
-    def find_fir_uir(self, fir_uir_id: str) -> FIRUIR:
+    def find_fir_uir(self, fir_uir_id: str) -> list[FIRUIR]:
         return self._fir_uirs.get_fir_uir_by_id(fir_uir_id)
 
     def get_cruise_tables(self) -> list[CruiseTable]:
