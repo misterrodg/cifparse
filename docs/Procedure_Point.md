@@ -39,7 +39,7 @@ The Procedure object comprises the following fields:
 - alt_2: The second altitude for the leg.
 - fl_2: The second flight level for the leg.
 - trans_alt: The transition altitude.
-- speed_limit_1: The speed limit.
+- speed_limit: The speed limit.
 - vert_angle: The vertical angle.
 - center_fix: The center fix for an RTF leg.
 - mult_code: The multiple code, used in parsing.
@@ -47,7 +47,7 @@ The Procedure object comprises the following fields:
 - center_fix_sec_code: The center fix section code.
 - center_fix_sub_code: The center fix subsection code.
 - gns_fms_id: The GNS/FMS ID.
-- speed_limit_2: The second speed limit.
+- speed_desc: The second speed limit descriptor.
 - rte_qual_1: The route qualifier (specifies requirements).
 - rte_qual_2: The second route qualifier (denotes approach types).
 - record_number: The CIFP record number.

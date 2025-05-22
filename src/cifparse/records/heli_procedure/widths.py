@@ -49,7 +49,7 @@ class PrimaryIndices(BaseIndices):
         self.alt_1 = (84, 89)
         self.alt_2 = (89, 94)
         self.trans_alt = (94, 99)
-        self.speed_limit_1 = (99, 102)
+        self.speed_limit = (99, 102)
         self.vertical_angle = (102, 106)
         self.center_fix = (106, 111)
         self.multiple_code = (111, 112)
@@ -57,7 +57,7 @@ class PrimaryIndices(BaseIndices):
         self.center_fix_sec_code = (114, 115)
         self.center_fix_sub_code = (115, 116)
         self.gns_fms_id = (116, 117)
-        self.speed_limit_2 = (117, 118)
+        self.speed_desc = (117, 118)
         self.rte_qual_1 = (118, 119)
         self.rte_qual_2 = (119, 120)
         # PAD 3
