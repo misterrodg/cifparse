@@ -8,7 +8,7 @@ class BaseIndices:
         self.fac_region = (10, 12)
         self.fac_sub_code = (12, 13)
         self.procedure_id = (13, 19)
-        self.route_type = (19, 20)
+        self.procedure_type = (19, 20)
         self.transition_id = (20, 25)
         # PAD 1
         self.seq_no = (26, 29)

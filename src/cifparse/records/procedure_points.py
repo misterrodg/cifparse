@@ -149,6 +149,6 @@ class ProcedurePoints:
         drop_statement = f"DROP TABLE IF EXISTS {table_name};"
         db_cursor.execute(drop_statement)
 
-        create_statement = f"CREATE TABLE {table_name} AS SELECT DISTINCT st, area, sec_code, fac_id, fac_region, fac_sub_code, procedure_id, route_type, transition_id FROM procedure_points;"
+        create_statement = f"CREATE TABLE {table_name} AS SELECT DISTINCT st, area, sec_code, fac_id, fac_region, fac_sub_code, procedure_id, procedure_type, transition_id FROM procedure_points;"
         db_cursor.execute(create_statement)
         return

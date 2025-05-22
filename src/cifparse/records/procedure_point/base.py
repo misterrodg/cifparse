@@ -12,7 +12,7 @@ class Base(TableBase):
     fac_region: str
     fac_sub_code: str
     procedure_id: str
-    route_type: str
+    procedure_type: str
     transition_id: str
     seq_no: int
     fix_id: str
@@ -31,7 +31,7 @@ class Base(TableBase):
         self.fac_region = None
         self.fac_sub_code = None
         self.procedure_id = None
-        self.route_type = None
+        self.procedure_type = None
         self.transition_id = None
         self.seq_no = None
         self.fix_id = None
@@ -52,7 +52,7 @@ class Base(TableBase):
         self.fac_region = extract_field(line, w_bas.fac_region)
         self.fac_sub_code = extract_field(line, w_bas.fac_sub_code)
         self.procedure_id = extract_field(line, w_bas.procedure_id)
-        self.route_type = extract_field(line, w_bas.route_type)
+        self.procedure_type = extract_field(line, w_bas.procedure_type)
         self.transition_id = extract_field(line, w_bas.transition_id)
         self.seq_no = extract_field(line, w_bas.seq_no)
         self.fix_id = extract_field(line, w_bas.fix_id)
@@ -74,7 +74,7 @@ class Base(TableBase):
             "fac_region",
             "fac_sub_code",
             "procedure_id",
-            "route_type",
+            "procedure_type",
             "transition_id",
             "seq_no",
             "fix_id",
@@ -104,7 +104,7 @@ class Base(TableBase):
             "fac_region": clean_value(self.fac_region),
             "fac_sub_code": clean_value(self.fac_sub_code),
             "procedure_id": clean_value(self.procedure_id),
-            "route_type": clean_value(self.route_type),
+            "procedure_type": clean_value(self.procedure_type),
             "transition_id": clean_value(self.transition_id),
             "seq_no": clean_value(self.seq_no),
             "fix_id": clean_value(self.fix_id),

@@ -9,7 +9,7 @@ The Heli Procedure object comprises the following fields:
 - fac_region: The ICAO region of the associated facility.
 - fac_sub_code: The subsection code of the associated facility.
 - procedure_id: The ID (or computer code) of the procedure.
-- route_type: The route type (e.g. SID, STAR, IAP)
+- procedure_type: The procedure type (e.g. SID, STAR, IAP)
 - transition_id: The ID (or computer code) of the associated transition.
 - seq_no: The sequence number of the point in the procedure.
 - fix_id: The ICAO code of the fix.
