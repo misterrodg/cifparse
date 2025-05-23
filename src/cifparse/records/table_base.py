@@ -3,7 +3,7 @@ from cifparse.functions.sql import translate_sql_types
 from abc import ABC, abstractmethod
 
 from sqlite3 import Cursor
-import typing
+from typing import get_type_hints
 
 
 class TableBase(ABC):
@@ -27,7 +27,7 @@ class TableBase(ABC):
         if not include_types:
             return fields
         result = []
-        hints = typing.get_type_hints(self.__class__)
+        hints = get_type_hints(self.__class__)
         for field in fields:
             if field in hints:
                 result.append(
