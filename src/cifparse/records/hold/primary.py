@@ -6,7 +6,7 @@ from .widths import w_pri
 
 class Primary(Base):
     cont_rec_no: str
-    true: int
+    true: bool
     in_course: float
     turn_dir: str
     leg_length: int

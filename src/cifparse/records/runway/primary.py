@@ -8,7 +8,7 @@ class Primary(Base):
     cont_rec_no: int
     length: int
     bearing: float
-    true: int
+    true: bool
     lat: float
     lon: float
     gradient: float

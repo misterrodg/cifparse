@@ -10,7 +10,7 @@ class Primary(Base):
     runway_id: str
     loc_lat: float
     loc_lon: float
-    true: int
+    true: bool
     loc_bearing: float
     gs_lat: float
     gs_lon: float

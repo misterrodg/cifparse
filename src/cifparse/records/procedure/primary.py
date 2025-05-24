@@ -17,7 +17,7 @@ class Primary(Base):
     theta: float
     rho: float
     course: float
-    true: int
+    true: bool
     dist_time: float
     time: int
     rec_vhf_sec_code: str

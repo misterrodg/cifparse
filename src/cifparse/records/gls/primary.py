@@ -8,7 +8,7 @@ class Primary(Base):
     cont_rec_no: int
     gls_channel: str
     runway_id: str
-    true: int
+    true: bool
     gls_bearing: float
     station_lat: float
     station_lon: float

@@ -16,7 +16,7 @@ class Primary(Base):
     arc_radius: float
     theta: float
     rho: float
-    true: int
+    true: bool
     course: float
     time: int
     dist_time: float

@@ -12,7 +12,7 @@ class Primary(Base):
     lat: float
     lon: float
     true_bearing: float
-    true: int
+    true: bool
     mag_var: float
     fac_elev: int
     datum_code: str

@@ -10,7 +10,7 @@ class Continuation(Base):
     fac_char: str
     baz_lat: float
     baz_lon: float
-    true: int
+    true: bool
     baz_mag_bearing: float
     dp_lat: float
     dp_lon: float
