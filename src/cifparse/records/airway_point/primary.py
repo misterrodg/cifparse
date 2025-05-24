@@ -11,7 +11,7 @@ class Primary(Base):
     route_type: str
     level: str
     direct: str
-    tc_ind: str
+    cruise_id: str
     eu_ind: str
     rec_vhf: str
     rec_vhf_region: str
@@ -40,7 +40,7 @@ class Primary(Base):
         self.route_type = None
         self.level = None
         self.direct = None
-        self.tc_ind = None
+        self.cruise_id = None
         self.eu_ind = None
         self.rec_vhf = None
         self.rec_vhf_region = None
@@ -72,7 +72,7 @@ class Primary(Base):
         self.route_type = extract_field(line, w_pri.route_type)
         self.level = extract_field(line, w_pri.level)
         self.direct = extract_field(line, w_pri.direct)
-        self.tc_ind = extract_field(line, w_pri.tc_ind)
+        self.cruise_id = extract_field(line, w_pri.cruise_id)
         self.eu_ind = extract_field(line, w_pri.eu_ind)
         self.rec_vhf = extract_field(line, w_pri.rec_vhf)
         self.rec_vhf_region = extract_field(line, w_pri.rec_vhf_region)
@@ -99,7 +99,7 @@ class Primary(Base):
                 "route_type",
                 "level",
                 "direct",
-                "tc_ind",
+                "cruise_id",
                 "eu_ind",
                 "rec_vhf",
                 "rec_vhf_region",
@@ -134,7 +134,7 @@ class Primary(Base):
             "route_type": clean_value(self.route_type),
             "level": clean_value(self.level),
             "direct": clean_value(self.direct),
-            "tc_ind": clean_value(self.tc_ind),
+            "cruise_id": clean_value(self.cruise_id),
             "eu_ind": clean_value(self.eu_ind),
             "rec_vhf": clean_value(self.rec_vhf),
             "rec_vhf_region": clean_value(self.rec_vhf_region),

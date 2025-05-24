@@ -19,7 +19,7 @@ The Airway Point object comprises the following fields:
 - route_type: The airway type.
 - level: The level of the airway (high, low, or both).
 - direct: A one-way restriction in relation to the sequence numbers (forward or backward). Blank if none.
-- tc_ind: The cruise table indicator.
+- cruise_id: The cruise table indicator.
 - eu_ind: The EU indicator.
 - rec_vhf: The ID of the recommended navaid.
 - rec_vhf_region: The ICAO region of the recommended navaid.

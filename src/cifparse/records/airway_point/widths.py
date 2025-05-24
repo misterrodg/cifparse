@@ -33,7 +33,7 @@ class PrimaryIndices(BaseIndices):
         self.route_type = (44, 45, field_57)
         self.level = (45, 46, field_519)
         self.direct = (46, 47, field_5115)
-        self.tc_ind = (47, 49, field_5134)
+        self.cruise_id = (47, 49, field_5134)
         self.eu_ind = (49, 50, field_5164)
         self.rec_vhf = (50, 54, field_523)
         self.rec_vhf_region = (54, 56, field_514)

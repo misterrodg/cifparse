@@ -39,7 +39,7 @@ class PrimaryIndices(BaseIndices):
         self.fir_upper_limit = (80, 85, field_5121)
         self.uir_lower_limit = (85, 90, field_5121)
         self.uir_upper_limit = (90, 95, field_5121)
-        self.tc_ind = (95, 97, field_5134)
+        self.cruise_id = (95, 97, field_5134)
         # PAD 1
         self.fir_uir_name = (98, 123, field_5125)
 

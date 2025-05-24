@@ -21,7 +21,7 @@ class Primary(Base):
     fir_upper_limit: str
     uir_lower_limit: str
     uir_upper_limit: str
-    tc_ind: str
+    cruise_id: str
     fir_uir_name: str
 
     def __init__(self):
@@ -42,7 +42,7 @@ class Primary(Base):
         self.fir_upper_limit = None
         self.uir_lower_limit = None
         self.uir_upper_limit = None
-        self.tc_ind = None
+        self.cruise_id = None
         self.fir_uir_name = None
 
     def __repr__(self):
@@ -66,7 +66,7 @@ class Primary(Base):
         self.fir_upper_limit = extract_field(line, w_pri.fir_upper_limit)
         self.uir_lower_limit = extract_field(line, w_pri.uir_lower_limit)
         self.uir_upper_limit = extract_field(line, w_pri.uir_upper_limit)
-        self.tc_ind = extract_field(line, w_pri.tc_ind)
+        self.cruise_id = extract_field(line, w_pri.cruise_id)
         self.fir_uir_name = extract_field(line, w_pri.fir_uir_name)
         return self
 
@@ -91,7 +91,7 @@ class Primary(Base):
                 "fir_upper_limit",
                 "uir_lower_limit",
                 "uir_upper_limit",
-                "tc_ind",
+                "cruise_id",
                 "fir_uir_name",
             ]
         )
@@ -118,7 +118,7 @@ class Primary(Base):
             "fir_upper_limit": clean_value(self.fir_upper_limit),
             "uir_lower_limit": clean_value(self.uir_lower_limit),
             "uir_upper_limit": clean_value(self.uir_upper_limit),
-            "tc_ind": clean_value(self.tc_ind),
+            "cruise_id": clean_value(self.cruise_id),
             "fir_uir_name": clean_value(self.fir_uir_name),
         }
         return {**leading_dict, **this_dict, **trailing_dict}
