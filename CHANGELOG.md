@@ -1,5 +1,9 @@
 ## Changelog
 
+### [2.0.0] - 2025-05-22
+
+- Major update to parsing, record recognition, and record types. See [MIGRATION.md](./MIGRATION.md) for details.
+
 ### [1.0.1] - 2025-04-24
 
 - Minor fixes to SQL statements.

@@ -6,6 +6,7 @@ A python parser for the FAA CIFP.
 
 | Version | Description                                                         | Release Date |
 | ------- | ------------------------------------------------------------------- | ------------ |
+| 2.0.0   | Major update. See [MIGRATION.md](./MIGRATION.md) for details.       | 2025-05-22   |
 | 1.0.1   | Minor fixes to SQL statements.                                      | 2025-04-24   |
 | 1.0.0   | Updated table handling to include additional detail and data types. | 2024-12-11   |
 | 0.9.3   | Updated procedure handling (breaking changes) and database support. | 2024-11-15   |
@@ -38,19 +39,48 @@ import cifparse
 # Initialize the parser:
 from cifparse import CIFP
 
-# Set the path to where you have the CIFP file:
+# Set the relative path to where you have the CIFP file:
 c = CIFP("FAACIFP18")
 
 # Parse the data in the file:
 c.parse()
-# ...or to save time, parse only a specific subset:
-c.parse_airports()
+# ...or parse only a specific subset by using any combination of the following:
+c.parse_moras()
+c.parse_vhf_navaids()
+c.parse_ndb_navaids()
+c.parse_enroute_waypoints()
+c.parse_airway_markers()
+c.parse_holds()
+c.parse_airway_points()
+c.parse_preferred_routes()
+c.parse_airway_restrictions()
+c.parse_enroute_comms()
 c.parse_heliports()
-c.parse_ndbs()
-c.parse_airways()
-c.parse_vhf_dmes()
-c.parse_waypoints()
+c.parse_heli_terminal_waypoints()
+c.parse_heli_procedures()
+c.parse_heli_taas()
+c.parse_heli_msas()
+c.parse_heli_terminal_comms()
+c.parse_airports()
+c.parse_gates()
+c.parse_terminal_waypoints()
+c.parse_procedures()
+c.parse_runways()
+c.parse_loc_gss()
+c.parse_company_routes()
+c.parse_alternate_records()
+c.parse_taas()
+c.parse_mlss()
+c.parse_terminal_markers()
+c.parse_path_points()
+c.parse_flight_plannings()
+c.parse_msas()
+c.parse_glss()
+c.parse_terminal_comms()
+c.parse_cruise_tables()
+c.parse_reference_tables()
 c.parse_controlled()
+c.parse_fir_uir()
 c.parse_restrictive()
 ```
 
@@ -59,34 +89,42 @@ c.parse_restrictive()
 After parsing the data, the results will be in the CIFP object, accessible via getters that return lists of the objects.
 
 ```python
-all_airports = c.get_airports()
+all_moras = c.get_moras()
+all_vhf_navaids = c.get_vhf_navaids()
+all_ndb_navaids = c.get_ndb_navaids()
+all_enroute_waypoints = c.get_enroute_waypoints()
+all_airway_markers = c.get_airway_markers()
+all_holds = c.get_holds()
+all_airway_points = c.get_airway_points()
+all_preferred_routes = c.get_preferred_routes()
+all_airway_restrictions = c.get_airway_restrictions()
+all_enroute_comms = c.get_enroute_comms()
 all_heliports = c.get_heliports()
-all_airways = c.get_airways()
-all_ndbs = c.get_ndbs()
-all_vordmes = c.get_vhf_dmes()
-all_waypoints = c.get_waypoints()
+all_heli_terminal_waypoints = c.get_heli_terminal_waypoints()
+all_heli_procedures = c.get_heli_procedures()
+all_heli_taas = c.get_heli_taas()
+all_heli_msas = c.get_heli_msas()
+all_heli_terminal_comms = c.get_heli_terminal_comms()
+all_airports = c.get_airports()
+all_gates = c.get_gates()
+all_terminal_waypoints = c.get_terminal_waypoints()
+all_procedures = c.get_procedures()
+all_runways = c.get_runways()
+all_loc_gss = c.get_loc_gss()
+all_company_routes = c.get_company_routes()
+all_alternate_records = c.get_alternate_records()
+all_taas = c.get_taas()
+all_mlss = c.get_mlss()
+all_terminal_markers = c.get_terminal_markers()
+all_path_points = c.get_path_points()
+all_flight_plannings = c.get_flight_plannings()
+all_msas = c.get_msas()
+all_terminal_comms = c.get_terminal_comms()
+all_fir_uir = c.get_fir_uir()
+all_cruise_tables = c.get_cruise_tables()
+all_reference_tables = c.get_reference_tables()
 all_controlled = c.get_controlled()
 all_restrictive = c.get_restrictive()
-```
-
-#### Working with Specific Items
-
-```python
-airport = c.find_airport("KIAD")
-heliport = c.find_heliport("DC03")
-airway = c.find_airway("J146")
-ndb = c.find_ndb("GTN")
-vor = c.find_vhf_dme("AML")
-fix = c.find_waypoint("RAVNN")
-dc_class_b = c.find_controlled("KDCA")
-roa_class_c = c.find_controlled("KROA")
-cho_class_d = c.find_controlled("KCHO")
-moa = c.find_restrictive("DEMO 1 MOA")
-
-# Because the Alert, MOA, Restricted, and Warning airspace can occasionally be named oddly,
-# there is an additional helper function that finds all matches of a particular substring:
-all_5314 = c.find_restrictive_match("5314")
-# Returns: [R-5314A, R-5314B, R-5314C, R-5314D, R-5314E, R-5314F, R-5314H, R-5314J]
 ```
 
 #### Exporting Data
@@ -96,10 +134,15 @@ all_5314 = c.find_restrictive_match("5314")
 Each object has its own `to_dict()` method. This is useful when you need to dump the data to json:
 
 ```python
+from cifparse import CIFP
+import json
+
 c = CIFP("FAACIFP18")
-airport = c.find_airport("KIAD")
+c.parse_airports()
+airports = c.get_airports()
+airport_dicts = [item.to_dict() for item in airports]
 with open("output.json", "w") as json_file:
-    json.dump(airport.to_dict(), json_file, indent=2)
+    json.dump(airport_dicts, json_file, indent=2)
 ```
 
 ##### Database
@@ -107,25 +150,12 @@ with open("output.json", "w") as json_file:
 Each object has its own `to_db()` method. This is useful when you would like the data to persist, or query it using standard database methods:
 
 ```python
-import sqlite3
-
-connection = sqlite.connect("FAACIFP18.db")
-cursor = connection.cursor()
-
 c = CIFP("FAACIFP18")
-c.initialize_database(cursor)
 c.parse()
-c.to_db(cursor)
-
-connection.commit()
-connection.close()
+c.to_db("FAACIFP18.db")
 ```
 
-NOTE: The resulting tables are somewhat less-optimally normalized than they could be. This is mostly to allow flexibility in querying. For example, the `airway_points` table can be queried directly, or it can be queried via `airways` with a join to `airway_points`. There is limited additional information, but it could also help to get higher level overviews of the underlying data. Airspace follows a similar principle.
-
-### Example File
-
-An example file is provided in the [Examples](./examples/) directory. It demonstrates parsing all of the CIFP data, finding an airport within the data, and then looping through the SID and STAR data to create a geoJSON file for each.
+NOTE: The resulting tables are somewhat less-optimally normalized than they could be. This is mostly to allow flexibility in querying. For example, the `airway_points` table can be queried directly to retrieve all points on the airways, or a summary can be found on `airways` in a way similar to using `SELECT DISTINCT ...` on a subset of fields. Airspace follows a similar principle.
 
 ### CIFP Objects
 
