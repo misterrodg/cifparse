@@ -22,7 +22,7 @@ class Primary(Base):
     alt_1: int
     fl_2: bool
     alt_2: int
-    limit_speed: int
+    speed_limit: int
     cruise_id: str
     speed_desc: str
 
@@ -45,7 +45,7 @@ class Primary(Base):
         self.alt_1 = None
         self.fl_2 = None
         self.alt_2 = None
-        self.limit_speed = None
+        self.speed_limit = None
         self.cruise_id = None
         self.speed_desc = None
 
@@ -68,7 +68,7 @@ class Primary(Base):
         self.alt_desc = extract_field(line, w_pri.alt_desc)
         self.fl_1, self.alt_1 = extract_field(line, w_pri.alt_1)
         self.fl_2, self.alt_2 = extract_field(line, w_pri.alt_2)
-        self.limit_speed = extract_field(line, w_pri.limit_speed)
+        self.speed_limit = extract_field(line, w_pri.speed_limit)
         self.cruise_id = extract_field(line, w_pri.cruise_id)
         self.speed_desc = extract_field(line, w_pri.speed_desc)
         return self
@@ -95,7 +95,7 @@ class Primary(Base):
                 "alt_1",
                 "fl_2",
                 "alt_2",
-                "limit_speed",
+                "speed_limit",
                 "cruise_id",
                 "speed_desc",
             ]
@@ -124,7 +124,7 @@ class Primary(Base):
             "alt_1": clean_value(self.alt_1),
             "fl_2": clean_value(self.fl_2),
             "alt_2": clean_value(self.alt_2),
-            "limit_speed": clean_value(self.limit_speed),
+            "speed_limit": clean_value(self.speed_limit),
             "cruise_id": clean_value(self.cruise_id),
             "speed_desc": clean_value(self.speed_desc),
         }

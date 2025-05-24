@@ -55,7 +55,7 @@ class PrimaryIndices(BaseIndices):
         self.alt_desc = (107, 108, field_529)
         self.alt_1 = (108, 111, field_5240)
         self.alt_2 = (111, 114, field_5240)
-        self.limit_speed = (114, 117, field_572)
+        self.speed_limit = (114, 117, field_572)
         self.cruise_id = (117, 119, field_5134)
         self.speed_desc = (119, 120, field_5261)
         # PAD 3

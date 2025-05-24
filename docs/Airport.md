@@ -19,7 +19,7 @@ The Airport object comprises the following fields:
 - lon: The airport reference point longitude.
 - mag_var: The magnetic variation.
 - elevation: The field elevation.
-- limit_speed: The speed limit.
+- speed_limit: The speed limit.
 - rec_vhf: The recommended/associated navaid.
 - rec_vhf_region: The region of the recommended/associated navaid.
 - transition_alt: The transition altitude.

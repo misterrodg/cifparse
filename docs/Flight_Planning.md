@@ -44,7 +44,7 @@ The Flight Planning object comprises the following fields:
 - fl_1: A boolean value to note that `alt_1` is a Flight Level.
 - alt_2: The second minimum altitude.
 - fl_2: A boolean value to note that `alt_2` is a Flight Level.
-- limit_speed: The speed limit.
+- speed_limit: The speed limit.
 - cruise_id: The ID of the associated cruise table.
 - speed_desc: The speed descriptor.
 - record_number: The CIFP record number.

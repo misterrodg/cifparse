@@ -15,7 +15,7 @@ class Primary(Base):
     lon: float
     mag_var: float
     elevation: int
-    limit_speed: int
+    speed_limit: int
     rec_vhf: str
     rec_vhf_region: str
     transition_alt: int
@@ -39,7 +39,7 @@ class Primary(Base):
         self.lon = None
         self.mag_var = None
         self.elevation = None
-        self.limit_speed = None
+        self.speed_limit = None
         self.rec_vhf = None
         self.rec_vhf_region = None
         self.transition_alt = None
@@ -65,7 +65,7 @@ class Primary(Base):
         self.lon = extract_field(line, w_pri.lon)
         self.mag_var = extract_field(line, w_pri.mag_var)
         self.elevation = extract_field(line, w_pri.elevation)
-        self.limit_speed = extract_field(line, w_pri.limit_speed)
+        self.speed_limit = extract_field(line, w_pri.speed_limit)
         self.rec_vhf = extract_field(line, w_pri.rec_vhf)
         self.rec_vhf_region = extract_field(line, w_pri.rec_vhf_region)
         self.transition_alt = extract_field(line, w_pri.transition_alt)
@@ -93,7 +93,7 @@ class Primary(Base):
                 "lon",
                 "mag_var",
                 "elevation",
-                "limit_speed",
+                "speed_limit",
                 "rec_vhf",
                 "rec_vhf_region",
                 "transition_alt",
@@ -123,7 +123,7 @@ class Primary(Base):
             "lon": clean_value(self.lon),
             "mag_var": clean_value(self.mag_var),
             "elevation": clean_value(self.elevation),
-            "limit_speed": clean_value(self.limit_speed),
+            "speed_limit": clean_value(self.speed_limit),
             "rec_vhf": clean_value(self.rec_vhf),
             "rec_vhf_region": clean_value(self.rec_vhf_region),
             "transition_alt": clean_value(self.transition_alt),

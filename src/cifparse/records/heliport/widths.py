@@ -32,7 +32,7 @@ class PrimaryIndices(BaseIndices):
         self.lon = (41, 51, field_537)
         self.mag_var = (51, 56, field_539)
         self.elevation = (56, 61, field_555)
-        self.limit_speed = (61, 64, field_572)
+        self.speed_limit = (61, 64, field_572)
         self.rec_vhf = (64, 68, field_523)
         self.rec_vhf_region = (68, 70, field_514)
         self.transition_alt = (70, 75, field_553)
