@@ -22,20 +22,20 @@ class Base(TableBase):
 
     def __init__(self, table_name: str):
         super().__init__(table_name)
-        self.st = (0, 1)
-        self.area = (1, 4)
-        self.sec_code = (4, 5)
-        self.sub_code = (5, 6)
-        self.center_region = (6, 8)
-        self.airspace_type = (8, 9)
-        self.center_id = (9, 14)
-        self.center_sec_code = (14, 15)
-        self.center_sub_code = (15, 16)
-        self.airspace_class = (16, 17)
-        self.mult_code = (19, 20)
-        self.seq_no = (20, 24)
-        self.record_number = (123, 128)
-        self.cycle_data = (128, 132)
+        self.st = None
+        self.area = None
+        self.sec_code = None
+        self.sub_code = None
+        self.center_region = None
+        self.airspace_type = None
+        self.center_id = None
+        self.center_sec_code = None
+        self.center_sub_code = None
+        self.airspace_class = None
+        self.mult_code = None
+        self.seq_no = None
+        self.record_number = None
+        self.cycle_data = None
 
     def __repr__(self):
         return f"{self.__class__.__name__}: {self.center_id}"
