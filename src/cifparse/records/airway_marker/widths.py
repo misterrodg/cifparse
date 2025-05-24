@@ -26,7 +26,7 @@ class PrimaryIndices(BaseIndices):
         self.marker_code = (22, 26, field_5111)
         # PAD 1
         self.shape = (27, 28, field_5112)
-        self.environment = (28, 29, field_5113)
+        self.environment_id = (28, 29, field_5113)
         # PAD 3
         self.lat = (32, 41, field_536)
         self.lon = (41, 51, field_537)

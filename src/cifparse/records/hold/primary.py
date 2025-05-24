@@ -38,7 +38,7 @@ class Primary(Base):
         self.hold_name = None
 
     def __repr__(self):
-        return f"{self.__class__.__hold_name__}: {self.environment}, {self.fix_id}"
+        return f"{self.__class__.__hold_name__}: {self.environment_id}, {self.fix_id}"
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)

@@ -16,7 +16,7 @@ class Continuation(Base):
         self.notes = None
 
     def __repr__(self):
-        return f"{self.__class__.__name__}: {self.environment}, {self.fix_id}, {self.notes}"
+        return f"{self.__class__.__name__}: {self.environment_id}, {self.fix_id}, {self.notes}"
 
     def from_line(self, line: str) -> "Continuation":
         super().from_line(line)

@@ -8,7 +8,7 @@ The Waypoint object comprises the following fields:
 - area: The world region (e.g. `USA` or `CAN`).
 - sec_code: The section code, used in parsing.
 - sub_code: The subsection code, used in parsing.
-- environment: The waypoint environment (e.g. `ENRT` for airway waypoints or an airport ID if associated with an airport).
+- environment_id: The waypoint environment (e.g. `ENRT` for airway waypoints or an airport ID if associated with an airport).
 - environment_region: The region of the environment.
 - environment_sub_code: The sub code of the environment.
 - waypoint_id: The ICAO code of the waypoint.

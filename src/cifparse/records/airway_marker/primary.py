@@ -8,7 +8,7 @@ class Primary(Base):
     cont_rec_no: int
     marker_code: str
     shape: str
-    environment: str
+    environment_id: str
     lat: float
     lon: float
     true_bearing: float
@@ -23,7 +23,7 @@ class Primary(Base):
         self.cont_rec_no = None
         self.marker_code = None
         self.shape = None
-        self.environment = None
+        self.environment_id = None
         self.lat = None
         self.lon = None
         self.true_bearing = None
@@ -40,7 +40,7 @@ class Primary(Base):
         self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
         self.marker_code = extract_field(line, w_pri.marker_code)
         self.shape = extract_field(line, w_pri.shape)
-        self.environment = extract_field(line, w_pri.environment)
+        self.environment_id = extract_field(line, w_pri.environment_id)
         self.lat = extract_field(line, w_pri.lat)
         self.lon = extract_field(line, w_pri.lon)
         self.true_bearing = extract_field(line, w_pri.true_bearing)
@@ -57,7 +57,7 @@ class Primary(Base):
                 "cont_rec_no",
                 "marker_code",
                 "shape",
-                "environment",
+                "environment_id",
                 "lat",
                 "lon",
                 "true_bearing",
@@ -77,7 +77,7 @@ class Primary(Base):
             "cont_rec_no": clean_value(self.cont_rec_no),
             "marker_code": clean_value(self.marker_code),
             "shape": clean_value(self.shape),
-            "environment": clean_value(self.environment),
+            "environment_id": clean_value(self.environment_id),
             "lat": clean_value(self.lat),
             "lon": clean_value(self.lon),
             "true_bearing": clean_value(self.true_bearing),

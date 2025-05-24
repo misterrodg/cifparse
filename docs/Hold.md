@@ -6,7 +6,7 @@ The Hold object comprises the following fields:
 - area: The world region (e.g. `USA` or `CAN`).
 - sec_code: The section code, used in parsing.
 - sub_code: The subsection code, used in parsing.
-- environment: The waypoint environment (e.g. `ENRT` for airway waypoints or an airport ID if associated with an airport).
+- environment_id: The waypoint environment (e.g. `ENRT` for airway waypoints or an airport ID if associated with an airport).
 - environment_region: The region of the environment.
 - dup_ind: An indication that there are multiple holds for the given point.
 - point_id: The ID of the hold point.

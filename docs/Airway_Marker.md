@@ -11,7 +11,7 @@ The Airway Marker object comprises the following fields:
 - cont_rec_no: An identifier for additional available data.
 - marker_code: The marker code.
 - shape: The marker shape.
-- environment: The marker environment - high or low.
+- environment_id: The marker environment - high or low.
 - lat: The latitude of the marker.
 - lon: The longitude of the marker.
 - true_bearing: The true bearing of the marker.

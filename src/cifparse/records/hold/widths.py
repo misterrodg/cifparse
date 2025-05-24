@@ -7,7 +7,7 @@ class BaseIndices:
         self.area = (1, 4, field_53)
         self.sec_code = (4, 5, field_54)
         self.sub_code = (5, 6, field_55)
-        self.environment = (6, 10, field_541)
+        self.environment_id = (6, 10, field_541)
         self.environment_region = (10, 12, field_514)
         # PAD 15
         self.dup_ind = (27, 29, field_5114)

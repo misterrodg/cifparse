@@ -9,7 +9,7 @@ class Base(TableBase):
     area: str
     sec_code: str
     sub_code: str
-    environment: str
+    environment_id: str
     environment_region: str
     environment_sub_code: str
     waypoint_id: str
@@ -23,7 +23,7 @@ class Base(TableBase):
         self.area = None
         self.sec_code = None
         self.sub_code = None
-        self.environment = None
+        self.environment_id = None
         self.environment_region = None
         self.environment_sub_code = None
         self.waypoint_id = None
@@ -39,7 +39,7 @@ class Base(TableBase):
         self.area = extract_field(line, w_bas.area)
         self.sec_code = extract_field(line, w_bas.sec_code)
         self.sub_code = extract_field(line, w_bas.sub_code)
-        self.environment = extract_field(line, w_bas.environment)
+        self.environment_id = extract_field(line, w_bas.environment_id)
         self.environment_region = extract_field(line, w_bas.environment_region)
         self.environment_sub_code = extract_field(line, w_bas.environment_sub_code)
         self.waypoint_id = extract_field(line, w_bas.waypoint_id)
@@ -54,7 +54,7 @@ class Base(TableBase):
             "area",
             "sec_code",
             "sub_code",
-            "environment",
+            "environment_id",
             "environment_region",
             "environment_sub_code",
             "waypoint_id",
@@ -79,7 +79,7 @@ class Base(TableBase):
             "area": clean_value(self.area),
             "sec_code": clean_value(self.sec_code),
             "sub_code": clean_value(self.sub_code),
-            "environment": clean_value(self.environment),
+            "environment_id": clean_value(self.environment_id),
             "environment_region": clean_value(self.environment_region),
             "environment_sub_code": clean_value(self.environment_sub_code),
             "waypoint_id": clean_value(self.waypoint_id),

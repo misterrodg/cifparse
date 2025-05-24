@@ -9,7 +9,7 @@ class Base(TableBase):
     area: str
     sec_code: str
     sub_code: str
-    environment: str
+    environment_id: str
     environment_region: str
     dup_ind: str
     point_id: str
@@ -25,7 +25,7 @@ class Base(TableBase):
         self.area = None
         self.sec_code = None
         self.sub_code = None
-        self.environment = None
+        self.environment_id = None
         self.environment_region = None
         self.dup_ind = None
         self.point_id = None
@@ -36,14 +36,14 @@ class Base(TableBase):
         self.cycle_data = None
 
     def __repr__(self):
-        return f"{self.__class__.__name__}: {self.environment}, {self.point_id}"
+        return f"{self.__class__.__name__}: {self.environment_id}, {self.point_id}"
 
     def from_line(self, line: str) -> "Base":
         self.st = extract_field(line, w_bas.st)
         self.area = extract_field(line, w_bas.area)
         self.sec_code = extract_field(line, w_bas.sec_code)
         self.sub_code = extract_field(line, w_bas.sub_code)
-        self.environment = extract_field(line, w_bas.environment)
+        self.environment_id = extract_field(line, w_bas.environment_id)
         self.environment_region = extract_field(line, w_bas.environment_region)
         self.dup_ind = extract_field(line, w_bas.dup_ind)
         self.point_id = extract_field(line, w_bas.point_id)
@@ -60,7 +60,7 @@ class Base(TableBase):
             "area",
             "sec_code",
             "sub_code",
-            "environment",
+            "environment_id",
             "environment_region",
             "dup_ind",
             "point_id",
@@ -87,7 +87,7 @@ class Base(TableBase):
             "area": clean_value(self.area),
             "sec_code": clean_value(self.sec_code),
             "sub_code": clean_value(self.sub_code),
-            "environment": clean_value(self.environment),
+            "environment_id": clean_value(self.environment_id),
             "environment_region": clean_value(self.environment_region),
             "dup_ind": clean_value(self.dup_ind),
             "point_id": clean_value(self.point_id),
