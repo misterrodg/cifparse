@@ -8,7 +8,7 @@ class Base(TableBase):
     st: str
     area: str
     sec_code: str
-    heliport: str
+    heliport_id: str
     heliport_region: str
     heliport_sub_code: str
     waypoint_id: str
@@ -21,7 +21,7 @@ class Base(TableBase):
         self.st = None
         self.area = None
         self.sec_code = None
-        self.heliport = None
+        self.heliport_id = None
         self.heliport_region = None
         self.heliport_sub_code = None
         self.waypoint_id = None
@@ -36,7 +36,7 @@ class Base(TableBase):
         self.st = extract_field(line, w_bas.st)
         self.area = extract_field(line, w_bas.area)
         self.sec_code = extract_field(line, w_bas.sec_code)
-        self.heliport = extract_field(line, w_bas.heliport)
+        self.heliport_id = extract_field(line, w_bas.heliport_id)
         self.heliport_region = extract_field(line, w_bas.heliport_region)
         self.heliport_sub_code = extract_field(line, w_bas.heliport_sub_code)
         self.waypoint_id = extract_field(line, w_bas.waypoint_id)
@@ -50,7 +50,7 @@ class Base(TableBase):
             "st",
             "area",
             "sec_code",
-            "heliport",
+            "heliport_id",
             "heliport_region",
             "heliport_sub_code",
             "waypoint_id",
@@ -74,7 +74,7 @@ class Base(TableBase):
             "st": clean_value(self.st),
             "area": clean_value(self.area),
             "sec_code": clean_value(self.sec_code),
-            "heliport": clean_value(self.heliport),
+            "heliport_id": clean_value(self.heliport_id),
             "heliport_region": clean_value(self.heliport_region),
             "heliport_sub_code": clean_value(self.heliport_sub_code),
             "waypoint_id": clean_value(self.waypoint_id),

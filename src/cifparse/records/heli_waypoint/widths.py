@@ -7,7 +7,7 @@ class BaseIndices:
         self.area = (1, 4, field_53)
         self.sec_code = (4, 5, field_54)
         # PAD 1
-        self.heliport = (6, 10, field_541)
+        self.heliport_id = (6, 10, field_541)
         self.heliport_region = (10, 12, field_514)
         self.heliport_sub_code = (12, 13, field_55)
         self.waypoint_id = (13, 18, field_513)

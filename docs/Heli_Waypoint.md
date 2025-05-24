@@ -7,7 +7,7 @@ The Heli Waypoint object comprises the following fields:
 - st: A standard (S) versus tailored (T) identifier.
 - area: The world region (e.g. `USA` or `CAN`).
 - sec_code: The section code, used in parsing.
-- heliport: The associated heliport.
+- heliport_id: The associated heliport.
 - heliport_region: The region of the heliport.
 - heliport_sub_code: The sub code of the heliport.
 - waypoint_id: The ICAO code of the waypoint.
