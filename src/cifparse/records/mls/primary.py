@@ -1,17 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_angle,
-    convert_bearing,
-    convert_distance,
-    convert_elevation,
-    convert_el_angle,
-    convert_int,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_mag_var,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -23,8 +10,8 @@ class Primary(Base):
     runway_id: str
     mls_lat: float
     mls_lon: float
-    mls_bearing: float
     true: int
+    mls_bearing: float
     el_lat: float
     el_lon: float
     mls_dist: int
@@ -51,6 +38,7 @@ class Primary(Base):
         self.runway_id = None
         self.mls_lat = None
         self.mls_lon = None
+        self.true = None
         self.mls_bearing = None
         self.el_lat = None
         self.el_lon = None
@@ -76,28 +64,26 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
         self.channel = extract_field(line, w_pri.channel)
         self.runway_id = extract_field(line, w_pri.runway_id)
-        self.mls_lat = convert_lat_dms(extract_field(line, w_pri.mls_lat))
-        self.mls_lon = convert_lon_dms(extract_field(line, w_pri.mls_lon))
-        self.true, self.mls_bearing = convert_bearing(
-            extract_field(line, w_pri.mls_bearing)
-        )
-        self.el_lat = convert_lat_dms(extract_field(line, w_pri.el_lat))
-        self.el_lon = convert_lon_dms(extract_field(line, w_pri.el_lon))
-        self.mls_dist = convert_distance(extract_field(line, w_pri.mls_dist))
+        self.mls_lat = extract_field(line, w_pri.mls_lat)
+        self.mls_lon = extract_field(line, w_pri.mls_lon)
+        self.true, self.mls_bearing = extract_field(line, w_pri.mls_bearing)
+        self.el_lat = extract_field(line, w_pri.el_lat)
+        self.el_lon = extract_field(line, w_pri.el_lon)
+        self.mls_dist = extract_field(line, w_pri.mls_dist)
         self.plus_minus = extract_field(line, w_pri.plus_minus)
-        self.el_thr_dist = convert_distance(extract_field(line, w_pri.el_thr_dist))
-        self.pro_right = convert_int(extract_field(line, w_pri.pro_right))
-        self.pro_left = convert_int(extract_field(line, w_pri.pro_left))
-        self.cov_right = convert_int(extract_field(line, w_pri.cov_right))
-        self.cov_left = convert_int(extract_field(line, w_pri.cov_left))
-        self.el_angle = convert_el_angle(extract_field(line, w_pri.el_angle))
-        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
-        self.el_elevation = convert_elevation(extract_field(line, w_pri.el_elevation))
-        self.nom_el_angle = convert_angle(extract_field(line, w_pri.nom_el_angle))
-        self.min_el_angle = convert_angle(extract_field(line, w_pri.min_el_angle))
+        self.el_thr_dist = extract_field(line, w_pri.el_thr_dist)
+        self.pro_right = extract_field(line, w_pri.pro_right)
+        self.pro_left = extract_field(line, w_pri.pro_left)
+        self.cov_right = extract_field(line, w_pri.cov_right)
+        self.cov_left = extract_field(line, w_pri.cov_left)
+        self.el_angle = extract_field(line, w_pri.el_angle)
+        self.mag_var = extract_field(line, w_pri.mag_var)
+        self.el_elevation = extract_field(line, w_pri.el_elevation)
+        self.nom_el_angle = extract_field(line, w_pri.nom_el_angle)
+        self.min_el_angle = extract_field(line, w_pri.min_el_angle)
         self.support_fac = extract_field(line, w_pri.support_fac)
         self.support_region = extract_field(line, w_pri.support_region)
         self.support_sec_code = extract_field(line, w_pri.support_sec_code)
@@ -114,6 +100,7 @@ class Primary(Base):
                 "runway_id",
                 "mls_lat",
                 "mls_lon",
+                "true",
                 "mls_bearing",
                 "el_lat",
                 "el_lon",
@@ -147,6 +134,7 @@ class Primary(Base):
             "runway_id": clean_value(self.runway_id),
             "mls_lat": clean_value(self.mls_lat),
             "mls_lon": clean_value(self.mls_lon),
+            "true": clean_value(self.true),
             "mls_bearing": clean_value(self.mls_bearing),
             "el_lat": clean_value(self.el_lat),
             "el_lon": clean_value(self.el_lon),

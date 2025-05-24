@@ -1,14 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_elevation,
-    convert_frequency,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_mag_var,
-    convert_true_bearing,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -50,21 +40,19 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.frequency = convert_frequency(extract_field(line, w_pri.frequency))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.frequency = extract_field(line, w_pri.frequency, self.marker_type)
         self.runway_id = extract_field(line, w_pri.runway_id)
-        self.marker_lat = convert_lat_dms(extract_field(line, w_pri.marker_lat))
-        self.marker_lon = convert_lon_dms(extract_field(line, w_pri.marker_lon))
-        self.true_bearing = convert_true_bearing(
-            extract_field(line, w_pri.true_bearing)
-        )
-        self.locator_lat = convert_lat_dms(extract_field(line, w_pri.locator_lat))
-        self.locator_lon = convert_lon_dms(extract_field(line, w_pri.locator_lon))
-        self.locator_class = extract_field(line, w_pri.locator_class, False)
+        self.marker_lat = extract_field(line, w_pri.marker_lat)
+        self.marker_lon = extract_field(line, w_pri.marker_lon)
+        self.true_bearing = extract_field(line, w_pri.true_bearing)
+        self.locator_lon = extract_field(line, w_pri.locator_lon)
+        self.locator_lat = extract_field(line, w_pri.locator_lat)
+        self.locator_class = extract_field(line, w_pri.locator_class)
         self.locator_fac_char = extract_field(line, w_pri.locator_fac_char)
         self.locator_id = extract_field(line, w_pri.locator_id)
-        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
-        self.fac_elev = convert_elevation(extract_field(line, w_pri.fac_elev))
+        self.mag_var = extract_field(line, w_pri.mag_var)
+        self.fac_elev = extract_field(line, w_pri.fac_elev)
         return self
 
     def ordered_fields(self) -> dict:

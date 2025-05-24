@@ -1,4 +1,4 @@
-from cifparse.functions.record import extract_field, translate_cont_rec_no
+from cifparse.functions.field import extract_field
 from cifparse.functions.records import partition
 
 from .rest_type_table import rt_table
@@ -39,9 +39,7 @@ class AirwayRestriction(RestrictionBase):
         for line in airway_restriction_partition:
             rest_type = extract_field(line, w_aex.rest_type)
             if rest_type == rt_table.altitude_exclusion:
-                cont_rec_no = translate_cont_rec_no(
-                    extract_field(line, w_aex.cont_rec_no)
-                )
+                cont_rec_no = extract_field(line, w_aex.cont_rec_no)
                 if cont_rec_no in [0, 1]:
                     alt_exc_primary = AltExcPrimary()
                     self.alt_exc_primary = alt_exc_primary.from_line(line)
@@ -51,9 +49,7 @@ class AirwayRestriction(RestrictionBase):
                     self.alt_exc_continuation = alt_exc_continuation.from_line(line)
                     continue
             if rest_type == rt_table.cruising_table:
-                cont_rec_no = translate_cont_rec_no(
-                    extract_field(line, w_cru.cont_rec_no)
-                )
+                cont_rec_no = extract_field(line, w_cru.cont_rec_no)
                 if cont_rec_no in [0, 1]:
                     cruise_primary = CruisePrimary()
                     self.cruise_primary = cruise_primary.from_line(line)
@@ -63,17 +59,13 @@ class AirwayRestriction(RestrictionBase):
                     self.cruise_continuation = cruise_continuation.from_line(line)
                     continue
             if rest_type == rt_table.seasonal_restriction:
-                cont_rec_no = translate_cont_rec_no(
-                    extract_field(line, w_clo.cont_rec_no)
-                )
+                cont_rec_no = extract_field(line, w_clo.cont_rec_no)
                 if cont_rec_no in [0, 1]:
                     closure_primary = ClosurePrimary()
                     self.closure_primary = closure_primary.from_line(line)
                     continue
             if rest_type == rt_table.note_restriction:
-                cont_rec_no = translate_cont_rec_no(
-                    extract_field(line, w_not.cont_rec_no)
-                )
+                cont_rec_no = extract_field(line, w_not.cont_rec_no)
                 if cont_rec_no in [0, 1]:
                     note_primary = NotePrimary()
                     self.note_primary = note_primary.from_line(line)

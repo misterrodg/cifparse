@@ -1,4 +1,4 @@
-from cifparse.functions.record import clean_value, extract_field, translate_cont_rec_no
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_aex
@@ -80,7 +80,7 @@ class AltExcPrimary(Base):
 
     def from_line(self, line: str) -> "AltExcPrimary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_aex.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_aex.cont_rec_no)
         self.start_point_id = extract_field(line, w_aex.start_point_id)
         self.start_point_region = extract_field(line, w_aex.end_point_region)
         self.start_point_sec_code = extract_field(line, w_aex.end_point_sec_code)

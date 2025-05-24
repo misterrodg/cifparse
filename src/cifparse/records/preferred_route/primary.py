@@ -1,9 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_altitude_fl,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -81,7 +76,7 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
         self.fix_id = extract_field(line, w_pri.fix_id)
         self.fix_region = extract_field(line, w_pri.fix_region)
         self.fix_sec_code = extract_field(line, w_pri.fix_sec_code)
@@ -99,18 +94,14 @@ class Primary(Base):
         self.term_region = extract_field(line, w_pri.term_region)
         self.term_sec_code = extract_field(line, w_pri.term_sec_code)
         self.term_sub_code = extract_field(line, w_pri.term_sub_code)
-        self.min_fl, self.min_alt = convert_altitude_fl(
-            extract_field(line, w_pri.min_alt)
-        )
-        self.max_fl, self.max_alt = convert_altitude_fl(
-            extract_field(line, w_pri.max_alt)
-        )
+        self.min_fl, self.min_alt = extract_field(line, w_pri.min_alt)
+        self.max_fl, self.max_alt = extract_field(line, w_pri.max_alt)
         self.time_zone = extract_field(line, w_pri.time_zone)
-        self.aircraft_use = extract_field(line, w_pri.aircraft_use, False)
+        self.aircraft_use = extract_field(line, w_pri.aircraft_use)
         self.direction = extract_field(line, w_pri.direction)
         self.alt_desc = extract_field(line, w_pri.alt_desc)
-        self.fl_1, self.alt_1 = convert_altitude_fl(extract_field(line, w_pri.alt_1))
-        self.fl_2, self.alt_2 = convert_altitude_fl(extract_field(line, w_pri.alt_2))
+        self.fl_1, self.alt_1 = extract_field(line, w_pri.alt_1)
+        self.fl_2, self.alt_2 = extract_field(line, w_pri.alt_2)
         return self
 
     def ordered_fields(self) -> list:

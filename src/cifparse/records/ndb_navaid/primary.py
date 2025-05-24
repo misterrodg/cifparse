@@ -1,12 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_frequency,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_mag_var,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -38,12 +30,12 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.frequency = convert_frequency(extract_field(line, w_pri.frequency))
-        self.nav_class = extract_field(line, w_pri.nav_class, False)
-        self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
-        self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
-        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.frequency = extract_field(line, w_pri.frequency, "NDB")
+        self.nav_class = extract_field(line, w_pri.nav_class)
+        self.lat = extract_field(line, w_pri.lat)
+        self.lon = extract_field(line, w_pri.lon)
+        self.mag_var = extract_field(line, w_pri.mag_var)
         self.datum_code = extract_field(line, w_pri.datum_code)
         self.ndb_name = extract_field(line, w_pri.ndb_name)
         return self

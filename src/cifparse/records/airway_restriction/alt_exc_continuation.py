@@ -1,4 +1,4 @@
-from cifparse.functions.record import clean_value, extract_field, translate_cont_rec_no
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_aec
@@ -62,7 +62,7 @@ class AltExcContinuation(Base):
 
     def from_line(self, line: str) -> "AltExcContinuation":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_aec.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_aec.cont_rec_no)
         self.application = extract_field(line, w_aec.application)
         self.time_zone = extract_field(line, w_aec.time_zone)
         self.daylight_ind = extract_field(line, w_aec.daylight_ind)

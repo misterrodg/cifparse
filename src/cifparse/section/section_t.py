@@ -1,4 +1,4 @@
-from cifparse.functions.record import extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.cruise_table.widths import w_pri as c_w_pri
 from cifparse.records.reference_table.widths import w_pri as g_w_pri
 

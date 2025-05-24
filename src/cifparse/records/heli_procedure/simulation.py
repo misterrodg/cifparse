@@ -1,8 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_sim
@@ -38,7 +34,7 @@ class Simulation(Base):
 
     def from_line(self, line: str) -> "Simulation":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_sim.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_sim.cont_rec_no)
         self.application = extract_field(line, w_sim.application)
         self.fas_block = extract_field(line, w_sim.fas_block)
         self.fas_service = extract_field(line, w_sim.fas_service)

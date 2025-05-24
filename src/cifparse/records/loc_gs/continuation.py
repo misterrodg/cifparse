@@ -1,4 +1,4 @@
-from cifparse.functions.record import clean_value, extract_field, translate_cont_rec_no
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_con
@@ -22,7 +22,7 @@ class Continuation(Base):
 
     def from_line(self, line: str) -> "Continuation":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_con.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_con.cont_rec_no)
         self.application = extract_field(line, w_con.application)
         self.notes = extract_field(line, w_con.notes)
         return self

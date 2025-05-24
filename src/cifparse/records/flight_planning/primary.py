@@ -1,12 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_altitude_fl,
-    convert_course,
-    convert_speed,
-    convert_yn,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -23,9 +15,12 @@ class Primary(Base):
     description: str
     ltc: str
     rpt: str
+    true: bool
     out_mag_crs: float
     alt_desc: str
+    fl_1: bool
     alt_1: int
+    fl_2: bool
     alt_2: int
     limit_speed: int
     cruise_id: str
@@ -43,9 +38,12 @@ class Primary(Base):
         self.description = None
         self.ltc = None
         self.rpt = None
+        self.true = None
         self.out_mag_crs = None
         self.alt_desc = None
+        self.fl_1 = None
         self.alt_1 = None
+        self.fl_2 = None
         self.alt_2 = None
         self.limit_speed = None
         self.cruise_id = None
@@ -56,21 +54,21 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
         self.noe = extract_field(line, w_pri.noe)
         self.turbo = extract_field(line, w_pri.turbo)
-        self.rnav = convert_yn(extract_field(line, w_pri.rnav))
+        self.rnav = extract_field(line, w_pri.rnav)
         self.atc_wc = extract_field(line, w_pri.atc_wc)
         self.atc_id = extract_field(line, w_pri.atc_id)
         self.time_zone = extract_field(line, w_pri.time_zone)
         self.description = extract_field(line, w_pri.description)
         self.ltc = extract_field(line, w_pri.ltc)
         self.rpt = extract_field(line, w_pri.rpt)
-        self.out_mag_crs = convert_course(extract_field(line, w_pri.out_mag_crs))
+        self.true, self.out_mag_crs = extract_field(line, w_pri.out_mag_crs)
         self.alt_desc = extract_field(line, w_pri.alt_desc)
-        self.fl_1, self.alt_1 = convert_altitude_fl(extract_field(line, w_pri.alt_1))
-        self.fl_2, self.alt_2 = convert_altitude_fl(extract_field(line, w_pri.alt_2))
-        self.limit_speed = convert_speed(extract_field(line, w_pri.limit_speed))
+        self.fl_1, self.alt_1 = extract_field(line, w_pri.alt_1)
+        self.fl_2, self.alt_2 = extract_field(line, w_pri.alt_2)
+        self.limit_speed = extract_field(line, w_pri.limit_speed)
         self.cruise_id = extract_field(line, w_pri.cruise_id)
         self.speed_desc = extract_field(line, w_pri.speed_desc)
         return self
@@ -90,9 +88,12 @@ class Primary(Base):
                 "description",
                 "ltc",
                 "rpt",
+                "true",
                 "out_mag_crs",
                 "alt_desc",
+                "fl_1",
                 "alt_1",
+                "fl_2",
                 "alt_2",
                 "limit_speed",
                 "cruise_id",
@@ -116,9 +117,12 @@ class Primary(Base):
             "description": clean_value(self.description),
             "ltc": clean_value(self.ltc),
             "rpt": clean_value(self.rpt),
+            "true": clean_value(self.true),
             "out_mag_crs": clean_value(self.out_mag_crs),
             "alt_desc": clean_value(self.alt_desc),
+            "fl_1": clean_value(self.fl_1),
             "alt_1": clean_value(self.alt_1),
+            "fl_2": clean_value(self.fl_2),
             "alt_2": clean_value(self.alt_2),
             "limit_speed": clean_value(self.limit_speed),
             "cruise_id": clean_value(self.cruise_id),

@@ -1,9 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_lat_dms,
-    convert_lon_dms,
-    extract_field,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -80,38 +75,38 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.start_lat = convert_lat_dms(extract_field(line, w_pri.start_lat))
-        self.start_lon = convert_lon_dms(extract_field(line, w_pri.start_lon))
-        self.mora_1 = _translate_mora(extract_field(line, w_pri.mora_1))
-        self.mora_2 = _translate_mora(extract_field(line, w_pri.mora_2))
-        self.mora_3 = _translate_mora(extract_field(line, w_pri.mora_3))
-        self.mora_4 = _translate_mora(extract_field(line, w_pri.mora_4))
-        self.mora_5 = _translate_mora(extract_field(line, w_pri.mora_5))
-        self.mora_6 = _translate_mora(extract_field(line, w_pri.mora_6))
-        self.mora_7 = _translate_mora(extract_field(line, w_pri.mora_7))
-        self.mora_8 = _translate_mora(extract_field(line, w_pri.mora_8))
-        self.mora_9 = _translate_mora(extract_field(line, w_pri.mora_9))
-        self.mora_10 = _translate_mora(extract_field(line, w_pri.mora_10))
-        self.mora_11 = _translate_mora(extract_field(line, w_pri.mora_11))
-        self.mora_12 = _translate_mora(extract_field(line, w_pri.mora_12))
-        self.mora_13 = _translate_mora(extract_field(line, w_pri.mora_13))
-        self.mora_14 = _translate_mora(extract_field(line, w_pri.mora_14))
-        self.mora_15 = _translate_mora(extract_field(line, w_pri.mora_15))
-        self.mora_16 = _translate_mora(extract_field(line, w_pri.mora_16))
-        self.mora_17 = _translate_mora(extract_field(line, w_pri.mora_17))
-        self.mora_18 = _translate_mora(extract_field(line, w_pri.mora_18))
-        self.mora_19 = _translate_mora(extract_field(line, w_pri.mora_19))
-        self.mora_20 = _translate_mora(extract_field(line, w_pri.mora_20))
-        self.mora_21 = _translate_mora(extract_field(line, w_pri.mora_21))
-        self.mora_22 = _translate_mora(extract_field(line, w_pri.mora_22))
-        self.mora_23 = _translate_mora(extract_field(line, w_pri.mora_23))
-        self.mora_24 = _translate_mora(extract_field(line, w_pri.mora_24))
-        self.mora_25 = _translate_mora(extract_field(line, w_pri.mora_25))
-        self.mora_26 = _translate_mora(extract_field(line, w_pri.mora_26))
-        self.mora_27 = _translate_mora(extract_field(line, w_pri.mora_27))
-        self.mora_28 = _translate_mora(extract_field(line, w_pri.mora_28))
-        self.mora_29 = _translate_mora(extract_field(line, w_pri.mora_29))
-        self.mora_30 = _translate_mora(extract_field(line, w_pri.mora_30))
+        self.start_lat = extract_field(line, w_pri.start_lat)
+        self.start_lon = extract_field(line, w_pri.start_lon)
+        self.mora_1 = extract_field(line, w_pri.mora_1)
+        self.mora_2 = extract_field(line, w_pri.mora_2)
+        self.mora_3 = extract_field(line, w_pri.mora_3)
+        self.mora_4 = extract_field(line, w_pri.mora_4)
+        self.mora_5 = extract_field(line, w_pri.mora_5)
+        self.mora_6 = extract_field(line, w_pri.mora_6)
+        self.mora_7 = extract_field(line, w_pri.mora_7)
+        self.mora_8 = extract_field(line, w_pri.mora_8)
+        self.mora_9 = extract_field(line, w_pri.mora_9)
+        self.mora_10 = extract_field(line, w_pri.mora_10)
+        self.mora_11 = extract_field(line, w_pri.mora_11)
+        self.mora_12 = extract_field(line, w_pri.mora_12)
+        self.mora_13 = extract_field(line, w_pri.mora_13)
+        self.mora_14 = extract_field(line, w_pri.mora_14)
+        self.mora_15 = extract_field(line, w_pri.mora_15)
+        self.mora_16 = extract_field(line, w_pri.mora_16)
+        self.mora_17 = extract_field(line, w_pri.mora_17)
+        self.mora_18 = extract_field(line, w_pri.mora_18)
+        self.mora_19 = extract_field(line, w_pri.mora_19)
+        self.mora_20 = extract_field(line, w_pri.mora_20)
+        self.mora_21 = extract_field(line, w_pri.mora_21)
+        self.mora_22 = extract_field(line, w_pri.mora_22)
+        self.mora_23 = extract_field(line, w_pri.mora_23)
+        self.mora_24 = extract_field(line, w_pri.mora_24)
+        self.mora_25 = extract_field(line, w_pri.mora_25)
+        self.mora_26 = extract_field(line, w_pri.mora_26)
+        self.mora_27 = extract_field(line, w_pri.mora_27)
+        self.mora_28 = extract_field(line, w_pri.mora_28)
+        self.mora_29 = extract_field(line, w_pri.mora_29)
+        self.mora_30 = extract_field(line, w_pri.mora_30)
         return self
 
     def ordered_fields(self) -> list:
@@ -194,9 +189,3 @@ class Primary(Base):
             "mora_30": clean_value(self.mora_30),
         }
         return {**leading_dict, **this_dict, **trailing_dict}
-
-
-def _translate_mora(mora_string: str) -> int:
-    if mora_string == "UNK" or not mora_string.isnumeric():
-        return -1
-    return int(mora_string)

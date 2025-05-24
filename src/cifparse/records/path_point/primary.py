@@ -1,15 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_angle,
-    convert_distance,
-    convert_elevation,
-    convert_ellipsoidal_height,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_width,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -63,28 +52,25 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
         self.route_ind = extract_field(line, w_pri.route_ind)
         self.sbas_spi = extract_field(line, w_pri.sbas_spi)
         self.ref_path_data_sel = extract_field(line, w_pri.ref_path_data_sel)
         self.ref_path_data_id = extract_field(line, w_pri.ref_path_data_id)
         self.app_pd = extract_field(line, w_pri.app_pd)
-        self.ltp_lat = convert_lat_dms(extract_field(line, w_pri.ltp_lat))
-        self.ltp_lon = convert_lon_dms(extract_field(line, w_pri.ltp_lon))
-        self.ltp_ellipsoid_height = convert_ellipsoidal_height(
-            extract_field(line, w_pri.ltp_ellipsoid_height)
-        )
-        self.gpa = convert_angle(extract_field(line, w_pri.gpa))
-        self.fpap_lat = convert_lat_dms(extract_field(line, w_pri.fpap_lat))
-        self.fpap_lon = convert_lon_dms(extract_field(line, w_pri.fpap_lon))
-        self.course_width = convert_angle(extract_field(line, w_pri.course_width))
-        self.length_offset = convert_distance(extract_field(line, w_pri.length_offset))
-        self.path_point_tch = convert_elevation(
-            extract_field(line, w_pri.path_point_tch)
-        )
-        self.tch_ind = extract_field(line, w_pri.tch_ind)
-        self.hal = convert_width(extract_field(line, w_pri.hal))
-        self.val = convert_width(extract_field(line, w_pri.val))
+        self.ltp_lat = extract_field(line, w_pri.ltp_lat)
+        self.ltp_lon = extract_field(line, w_pri.ltp_lon)
+        self.ltp_ellipsoid_height = extract_field(line, w_pri.ltp_ellipsoid_height)
+        self.gpa = extract_field(line, w_pri.gpa)
+        self.fpap_lat = extract_field(line, w_pri.fpap_lat)
+        self.fpap_lon = extract_field(line, w_pri.fpap_lon)
+        self.course_width = extract_field(line, w_pri.course_width)
+        self.length_offset = extract_field(line, w_pri.length_offset)
+        tch_type = extract_field(line, w_pri.tch_ind)
+        self.path_point_tch = extract_field(line, w_pri.path_point_tch, tch_type)
+        self.tch_ind = tch_type
+        self.hal = extract_field(line, w_pri.hal)
+        self.val = extract_field(line, w_pri.val)
         self.crc = extract_field(line, w_pri.crc)
 
     def ordered_fields(self) -> list:

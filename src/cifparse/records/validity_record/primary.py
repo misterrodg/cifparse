@@ -1,4 +1,4 @@
-from cifparse.functions.record import clean_value
+from cifparse.functions.field import clean_value
 from cifparse.records.table_base import TableBase
 
 

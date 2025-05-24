@@ -27,17 +27,19 @@ The Heli Procedure object comprises the following fields:
 - arc_radius: The arc radius for RTF legs.
 - theta: The magnetic bearing to the `fix_id` from the `rec_vhf`.
 - rho: The distance to the `fix_id` from the `rec_vhf`.
+- true: A boolean value to note that `course` is true rather than magnetic.
 - course: The course.
+- time: A boolean value to note that `dist_time` is a time rather than a distance.
 - dist_time: The distance or time of the leg.
 - time: A boolean value to note that `dist_time` is a time.
 - rec_vhf_sec_code: The section code of the recommended/associated navaid.
 - rec_vhf_sub_code: The subsection code of the recommended/associated navaid.
 - alt_desc: The altitude descriptor.
 - atc: An ATC override marker.
-- alt_1: The altitude for the leg.
 - fl_1: The flight level for the leg.
-- alt_2: The second altitude for the leg.
+- alt_1: The altitude for the leg.
 - fl_2: The second flight level for the leg.
+- alt_2: The second altitude for the leg.
 - trans_alt: The transition altitude.
 - speed_limit: The speed limit.
 - vert_angle: The vertical angle.

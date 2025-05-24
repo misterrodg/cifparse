@@ -1,12 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_elevation,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_mag_var,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -19,7 +11,6 @@ class Primary(Base):
     lat: float
     lon: float
     mag_var: float
-    elevation: int
     datum_code: str
     name_indicator: str
     name_description: str
@@ -32,7 +23,6 @@ class Primary(Base):
         self.lat = None
         self.lon = None
         self.mag_var = None
-        self.elevation = None
         self.datum_code = None
         self.name_indicator = None
         self.name_description = None
@@ -42,13 +32,12 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.type = extract_field(line, w_pri.type, False)
-        self.usage = extract_field(line, w_pri.usage, False)
-        self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
-        self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
-        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
-        self.elevation = convert_elevation(extract_field(line, w_pri.elevation))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.type = extract_field(line, w_pri.type)
+        self.usage = extract_field(line, w_pri.usage)
+        self.lat = extract_field(line, w_pri.lat)
+        self.lon = extract_field(line, w_pri.lon)
+        self.mag_var = extract_field(line, w_pri.mag_var)
         self.datum_code = extract_field(line, w_pri.datum_code)
         self.name_indicator = extract_field(line, w_pri.name_indicator)
         self.name_description = extract_field(line, w_pri.name_description)
@@ -65,7 +54,6 @@ class Primary(Base):
                 "lat",
                 "lon",
                 "mag_var",
-                "elevation",
                 "datum_code",
                 "name_indicator",
                 "name_description",
@@ -84,7 +72,6 @@ class Primary(Base):
             "lat": clean_value(self.lat),
             "lon": clean_value(self.lon),
             "mag_var": clean_value(self.mag_var),
-            "elevation": clean_value(self.elevation),
             "datum_code": clean_value(self.datum_code),
             "name_indicator": clean_value(self.name_indicator),
             "name_description": clean_value(self.name_description),

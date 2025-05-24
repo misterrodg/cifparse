@@ -1,4 +1,4 @@
-from cifparse.functions.record import clean_value, extract_field, translate_cont_rec_no
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pla
@@ -13,7 +13,7 @@ class Planning(Base):
     se_date: str
     as_ind: str
     as_heliport_id: str
-    as_code: str
+    as_region: str
 
     def __init__(self):
         super().__init__("heliport_plannings")
@@ -25,14 +25,14 @@ class Planning(Base):
         self.se_date = None
         self.as_ind = None
         self.as_heliport_id = None
-        self.as_code = None
+        self.as_region = None
 
     def __repr__(self):
         return f"{self.__class__.__name__}: {self.heliport_id}, {self.fir_ident}, {self.uir_ident}"
 
     def from_line(self, line: str) -> "Planning":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pla.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_pla.cont_rec_no)
         self.application = extract_field(line, w_pla.application)
         self.fir_ident = extract_field(line, w_pla.fir_ident)
         self.uir_ident = extract_field(line, w_pla.uir_ident)
@@ -40,7 +40,7 @@ class Planning(Base):
         self.se_date = extract_field(line, w_pla.se_date)
         self.as_ind = extract_field(line, w_pla.as_ind)
         self.as_heliport_id = extract_field(line, w_pla.as_heliport_id)
-        self.as_code = extract_field(line, w_pla.as_code)
+        self.as_region = extract_field(line, w_pla.as_region)
         return self
 
     def ordered_fields(self) -> list:
@@ -56,7 +56,7 @@ class Planning(Base):
                 "se_date",
                 "as_ind",
                 "as_heliport_id",
-                "as_code",
+                "as_region",
             ]
         )
         result.extend(super().ordered_trailing())
@@ -74,6 +74,6 @@ class Planning(Base):
             "se_date": clean_value(self.se_date),
             "as_ind": clean_value(self.as_ind),
             "as_heliport_id": clean_value(self.as_heliport_id),
-            "as_code": clean_value(self.as_code),
+            "as_region": clean_value(self.as_region),
         }
         return {**leading_dict, **this_dict, **trailing_dict}

@@ -1,15 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_angle,
-    convert_bearing,
-    convert_elevation,
-    convert_elevation_wgs84,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_mag_var,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -19,8 +8,8 @@ class Primary(Base):
     cont_rec_no: int
     gls_channel: str
     runway_id: str
-    gls_bearing: float
     true: int
+    gls_bearing: float
     station_lat: float
     station_lon: float
     gls_id: str
@@ -38,8 +27,8 @@ class Primary(Base):
         self.cont_rec_no = None
         self.gls_channel = None
         self.runway_id = None
-        self.gls_bearing = None
         self.true = None
+        self.gls_bearing = None
         self.station_lat = None
         self.station_lon = None
         self.gls_id = None
@@ -59,23 +48,21 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
         self.gls_channel = extract_field(line, w_pri.gls_bearing)
         self.runway_id = extract_field(line, w_pri.runway_id)
-        self.true, self.gls_bearing = convert_bearing(
-            extract_field(line, w_pri.gls_bearing)
-        )
-        self.station_lat = convert_lat_dms(extract_field(line, w_pri.station_lat))
-        self.station_lon = convert_lon_dms(extract_field(line, w_pri.station_lon))
+        self.true, self.gls_bearing = extract_field(line, w_pri.gls_bearing)
+        self.station_lat = extract_field(line, w_pri.station_lat)
+        self.station_lon = extract_field(line, w_pri.station_lon)
         self.gls_id = extract_field(line, w_pri.gls_id)
         self.svc_vol = extract_field(line, w_pri.svc_vol)
         self.tdma_slots = extract_field(line, w_pri.tdma_slots)
-        self.min_elev_angle = convert_angle(extract_field(line, w_pri.min_elev_angle))
-        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
-        self.station_elev = convert_elevation(extract_field(line, w_pri.station_elev))
+        self.min_elev_angle = extract_field(line, w_pri.min_elev_angle)
+        self.mag_var = extract_field(line, w_pri.mag_var)
+        self.station_elev = extract_field(line, w_pri.station_elev)
         self.datum_code = extract_field(line, w_pri.datum_code)
         self.station_type = extract_field(line, w_pri.station_type)
-        self.wgs84_elev = convert_elevation_wgs84(extract_field(line, w_pri.wgs84_elev))
+        self.wgs84_elev = extract_field(line, w_pri.wgs84_elev)
         return self
 
     def ordered_fields(self) -> list:
@@ -86,8 +73,8 @@ class Primary(Base):
                 "cont_rec_no",
                 "gls_channel",
                 "runway_id",
-                "gls_bearing",
                 "true",
+                "gls_bearing",
                 "station_lat",
                 "station_lon",
                 "gls_id",
@@ -111,8 +98,8 @@ class Primary(Base):
             "cont_rec_no": clean_value(self.cont_rec_no),
             "gls_channel": clean_value(self.gls_channel),
             "runway_id": clean_value(self.runway_id),
-            "gls_bearing": clean_value(self.gls_bearing),
             "true": clean_value(self.true),
+            "gls_bearing": clean_value(self.gls_bearing),
             "station_lat": clean_value(self.station_lat),
             "station_lon": clean_value(self.station_lon),
             "gls_id": clean_value(self.gls_id),

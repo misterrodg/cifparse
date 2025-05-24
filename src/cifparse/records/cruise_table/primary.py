@@ -1,8 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_course,
-    extract_field,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -48,8 +44,8 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.course_from = convert_course(extract_field(line, w_pri.course_from))
-        self.course_to = convert_course(extract_field(line, w_pri.course_to))
+        self.course_from = extract_field(line, w_pri.course_from)
+        self.course_to = extract_field(line, w_pri.course_to)
         self.mt_ind = extract_field(line, w_pri.mt_ind)
         self.level_from_1 = extract_field(line, w_pri.level_from_1)
         self.vert_sep_1 = extract_field(line, w_pri.vert_sep_1)

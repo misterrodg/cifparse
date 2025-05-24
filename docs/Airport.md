@@ -10,6 +10,7 @@ The Airport object comprises the following fields:
 - sub_code: The subsection code, used in parsing.
 - iata: The IATA code of the airport.
 - cont_rec_no: The continuation record number, used in parsing.
+- fl: A boolean value to note that `limit_alt` is true rather than magnetic.
 - limit_alt: The speed limit altitude.
 - longest: The longest runway length.
 - is_ifr: An IFR capability marker.

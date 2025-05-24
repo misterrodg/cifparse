@@ -1,4 +1,4 @@
-from cifparse.functions.record import clean_value, convert_record_number, extract_field
+from cifparse.functions.field import clean_value, extract_field
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -41,9 +41,7 @@ class Base(TableBase):
         self.sub_code = extract_field(line, w_bas.sub_code)
         self.gls_ref_id = extract_field(line, w_bas.gls_ref_id)
         self.gls_cat = extract_field(line, w_bas.gls_cat)
-        self.record_number = convert_record_number(
-            extract_field(line, w_bas.record_number)
-        )
+        self.record_number = extract_field(line, w_bas.record_number)
         self.cycle_data = extract_field(line, w_bas.cycle_data)
         return self
 

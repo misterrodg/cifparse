@@ -1,12 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_altitude,
-    convert_angle,
-    convert_elevation,
-    convert_rnp,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_con
@@ -56,21 +48,21 @@ class Continuation(Base):
 
     def from_line(self, line: str) -> "Continuation":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_con.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_con.cont_rec_no)
         self.application = extract_field(line, w_con.application)
-        self.dh_cat_a = convert_altitude(extract_field(line, w_con.dh_cat_a))
-        self.dh_cat_b = convert_altitude(extract_field(line, w_con.dh_cat_b))
-        self.dh_cat_c = convert_altitude(extract_field(line, w_con.dh_cat_c))
-        self.dh_cat_d = convert_altitude(extract_field(line, w_con.dh_cat_d))
-        self.mda_cat_a = convert_altitude(extract_field(line, w_con.mda_cat_a))
-        self.mda_cat_b = convert_altitude(extract_field(line, w_con.mda_cat_b))
-        self.mda_cat_c = convert_altitude(extract_field(line, w_con.mda_cat_c))
-        self.mda_cat_d = convert_altitude(extract_field(line, w_con.mda_cat_d))
-        self.tch = convert_elevation(extract_field(line, w_con.tch))
+        self.dh_cat_a = extract_field(line, w_con.dh_cat_a)
+        self.dh_cat_b = extract_field(line, w_con.dh_cat_b)
+        self.dh_cat_c = extract_field(line, w_con.dh_cat_c)
+        self.dh_cat_d = extract_field(line, w_con.dh_cat_d)
+        self.mda_cat_a = extract_field(line, w_con.mda_cat_a)
+        self.mda_cat_b = extract_field(line, w_con.mda_cat_b)
+        self.mda_cat_c = extract_field(line, w_con.mda_cat_c)
+        self.mda_cat_d = extract_field(line, w_con.mda_cat_d)
+        self.tch = extract_field(line, w_con.tch)
         self.alt_desc = extract_field(line, w_con.alt_desc)
-        self.loc_alt = convert_altitude(extract_field(line, w_con.loc_alt))
-        self.vert_angle = convert_angle(extract_field(line, w_con.vert_angle))
-        self.rnp = convert_rnp(extract_field(line, w_con.rnp))
+        self.loc_alt = extract_field(line, w_con.loc_alt)
+        self.vert_angle = extract_field(line, w_con.vert_angle)
+        self.rnp = extract_field(line, w_con.rnp)
         self.rte_qual_1 = extract_field(line, w_con.rte_qual_1)
         self.rte_qual_2 = extract_field(line, w_con.rte_qual_2)
         return self

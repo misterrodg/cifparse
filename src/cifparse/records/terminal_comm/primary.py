@@ -1,13 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_altitude_fl,
-    convert_elevation,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_mag_var,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -77,20 +68,20 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.serv_ind = extract_field(line, w_pri.serv_ind, False)
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.serv_ind = extract_field(line, w_pri.serv_ind)
         self.radar = extract_field(line, w_pri.radar)
         self.modulation = extract_field(line, w_pri.modulation)
         self.sig_em = extract_field(line, w_pri.sig_em)
-        self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
-        self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
-        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
-        self.fac_elev = convert_elevation(extract_field(line, w_pri.fac_elev))
+        self.lat = extract_field(line, w_pri.lat)
+        self.lon = extract_field(line, w_pri.lon)
+        self.mag_var = extract_field(line, w_pri.mag_var)
+        self.fac_elev = extract_field(line, w_pri.fac_elev)
         self.h24_ind = extract_field(line, w_pri.h24_ind)
         self.sector = extract_field(line, w_pri.sector)
         self.alt_desc = extract_field(line, w_pri.alt_desc)
-        self.fl_1, self.alt_1 = convert_altitude_fl(extract_field(line, w_pri.alt_1))
-        self.fl_2, self.alt_2 = convert_altitude_fl(extract_field(line, w_pri.alt_2))
+        self.fl_1, self.alt_1 = extract_field(line, w_pri.alt_1)
+        self.fl_2, self.alt_2 = extract_field(line, w_pri.alt_2)
         self.sector_fac = extract_field(line, w_pri.sector_fac)
         self.sector_region = extract_field(line, w_pri.sector_region)
         self.sector_sec_code = extract_field(line, w_pri.sector_sec_code)

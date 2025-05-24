@@ -1,7 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    extract_field,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri

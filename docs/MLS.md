@@ -15,6 +15,7 @@ The MLS object comprises the following fields:
 - runway_id: The associated runway ID.
 - mls_lat: The MLS antenna array latitude.
 - mls_lon: The MLS antenna array longitude.
+- true: A boolean value to note that `mls_bearing` is true rather than magnetic.
 - mls_bearing: The bearing of the MLS.
 - el_lat: The elevation antenna latitude.
 - el_lon: The elevation antenna longitude.

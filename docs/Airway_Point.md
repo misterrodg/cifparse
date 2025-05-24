@@ -26,15 +26,18 @@ The Airway Point object comprises the following fields:
 - rnp: The RNP value.
 - theta: The magnetic bearing to the `point_id` from the `rec_vhf`.
 - rho: The distance to the `point_id` from the `rec_vhf`.
+- out_true: A boolean value to note that `out_mag_crs` is true rather than magnetic.
 - out_mag_crs: The outbound magnetic course.
+- time: A boolean value to note that `from_dist` is time rather than distance.
 - from_dist: The distance from this point to the next.
+- in_true: A boolean value to note that `in_mag_crs` is true rather than magnetic.
 - in_mag_crs: The inbound magnetic course.
-- min_alt_1: The minimum altitude.
 - min_fl_1: A boolean value to note that `min_alt_1` is a Flight Level.
-- min_alt_2: The second minimum altitude.
+- min_alt_1: The minimum altitude.
 - min_fl_2: A boolean value to note that `min_alt_2` is a Flight Level.
-- max_alt: The maximum altitude.
+- min_alt_2: The second minimum altitude.
 - max_fl: A boolean value to note that `max_alt` is a Flight Level.
+- max_alt: The maximum altitude.
 - fix_radius: The fixed radius transition value.
 - record_number: The CIFP record number.
 - cycle_data: The cycle ID of when the record was added/updated.

@@ -1,8 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_record_number,
-    extract_field,
-)
+from cifparse.functions.field import clean_value, extract_field
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -48,9 +44,7 @@ class Base(TableBase):
         self.point_sec_code = extract_field(line, w_bas.point_sec_code)
         self.point_sub_code = extract_field(line, w_bas.point_sub_code)
         self.art = extract_field(line, w_bas.art)
-        self.record_number = convert_record_number(
-            extract_field(line, w_bas.record_number)
-        )
+        self.record_number = extract_field(line, w_bas.record_number)
         self.cycle_data = extract_field(line, w_bas.cycle_data)
         return self
 

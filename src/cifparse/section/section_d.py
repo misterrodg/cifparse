@@ -1,4 +1,4 @@
-from cifparse.functions.record import extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.ndb_navaid.widths import w_pri as n_w_pri
 from cifparse.records.vhf_navaid.widths import w_pri as v_w_pri
 

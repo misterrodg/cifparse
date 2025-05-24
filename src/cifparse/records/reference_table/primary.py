@@ -1,8 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -44,7 +40,7 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
         self.pref_route_id_1 = extract_field(line, w_pri.pref_route_id_1)
         self.et_ind_1 = extract_field(line, w_pri.et_ind_1)
         self.pref_route_id_2 = extract_field(line, w_pri.pref_route_id_2)

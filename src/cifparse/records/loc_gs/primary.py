@@ -1,16 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_angle,
-    convert_bearing,
-    convert_distance,
-    convert_elevation,
-    convert_frequency,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_mag_var,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -22,8 +10,8 @@ class Primary(Base):
     runway_id: str
     loc_lat: float
     loc_lon: float
-    loc_bearing: float
     true: int
+    loc_bearing: float
     gs_lat: float
     gs_lon: float
     loc_dist: int
@@ -46,8 +34,8 @@ class Primary(Base):
         self.runway_id = None
         self.loc_lat = None
         self.loc_lon = None
-        self.loc_bearing = None
         self.true = None
+        self.loc_bearing = None
         self.gs_lat = None
         self.gs_lon = None
         self.loc_dist = None
@@ -68,24 +56,22 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.frequency = convert_frequency(extract_field(line, w_pri.frequency))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.frequency = extract_field(line, w_pri.frequency)
         self.runway_id = extract_field(line, w_pri.runway_id)
-        self.loc_lat = convert_lat_dms(extract_field(line, w_pri.loc_lat))
-        self.loc_lon = convert_lon_dms(extract_field(line, w_pri.loc_lon))
-        self.true, self.loc_bearing = convert_bearing(
-            extract_field(line, w_pri.loc_bearing)
-        )
-        self.gs_lat = convert_lat_dms(extract_field(line, w_pri.gs_lat))
-        self.gs_lon = convert_lon_dms(extract_field(line, w_pri.gs_lon))
-        self.loc_dist = convert_distance(extract_field(line, w_pri.loc_dist))
+        self.loc_lat = extract_field(line, w_pri.loc_lat)
+        self.loc_lon = extract_field(line, w_pri.loc_lon)
+        self.true, self.loc_bearing = extract_field(line, w_pri.loc_bearing)
+        self.gs_lat = extract_field(line, w_pri.gs_lat)
+        self.gs_lon = extract_field(line, w_pri.gs_lon)
+        self.loc_dist = extract_field(line, w_pri.loc_dist)
         self.plus_minus = extract_field(line, w_pri.plus_minus)
-        self.gs_thr_dist = convert_distance(extract_field(line, w_pri.gs_thr_dist))
-        self.loc_width = convert_angle(extract_field(line, w_pri.loc_width))
-        self.gs_angle = convert_angle(extract_field(line, w_pri.gs_angle))
-        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
-        self.tch = convert_elevation(extract_field(line, w_pri.tch))
-        self.gs_elevation = convert_elevation(extract_field(line, w_pri.gs_elevation))
+        self.gs_thr_dist = extract_field(line, w_pri.gs_thr_dist)
+        self.loc_width = extract_field(line, w_pri.loc_width)
+        self.gs_angle = extract_field(line, w_pri.gs_angle)
+        self.mag_var = extract_field(line, w_pri.mag_var)
+        self.tch = extract_field(line, w_pri.tch)
+        self.gs_elevation = extract_field(line, w_pri.gs_elevation)
         self.support_fac = extract_field(line, w_pri.support_fac)
         self.support_region = extract_field(line, w_pri.support_region)
         self.support_sec_code = extract_field(line, w_pri.support_sec_code)
@@ -102,8 +88,8 @@ class Primary(Base):
                 "runway_id",
                 "loc_lat",
                 "loc_lon",
-                "loc_bearing",
                 "true",
+                "loc_bearing",
                 "gs_lat",
                 "gs_lon",
                 "loc_dist",
@@ -132,8 +118,8 @@ class Primary(Base):
             "runway_id": clean_value(self.runway_id),
             "loc_lat": clean_value(self.loc_lat),
             "loc_lon": clean_value(self.loc_lon),
-            "loc_bearing": clean_value(self.loc_bearing),
             "true": clean_value(self.true),
+            "loc_bearing": clean_value(self.loc_bearing),
             "gs_lat": clean_value(self.gs_lat),
             "gs_lon": clean_value(self.gs_lon),
             "loc_dist": clean_value(self.loc_dist),

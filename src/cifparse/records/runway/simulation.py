@@ -1,10 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_elevation,
-    convert_true_bearing,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_sim
@@ -32,14 +26,12 @@ class Simulation(Base):
 
     def from_line(self, line: str) -> "Simulation":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_sim.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_sim.cont_rec_no)
         self.application = extract_field(line, w_sim.application)
-        self.true_bearing = convert_true_bearing(
-            extract_field(line, w_sim.true_bearing)
-        )
+        self.true_bearing = extract_field(line, w_sim.true_bearing)
         self.source = extract_field(line, w_sim.source)
         self.location = extract_field(line, w_sim.location)
-        self.tdz_elev = convert_elevation(extract_field(line, w_sim.tdz_elev))
+        self.tdz_elev = extract_field(line, w_sim.tdz_elev)
         return self
 
     def ordered_fields(self) -> dict:

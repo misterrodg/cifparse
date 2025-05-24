@@ -1,13 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_true_bearing,
-    convert_elevation,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_mag_var,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -46,17 +37,15 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
         self.marker_code = extract_field(line, w_pri.marker_code)
         self.shape = extract_field(line, w_pri.shape)
         self.environment = extract_field(line, w_pri.environment)
-        self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
-        self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
-        self.true_bearing = convert_true_bearing(
-            extract_field(line, w_pri.true_bearing)
-        )
-        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
-        self.fac_elev = convert_elevation(extract_field(line, w_pri.fac_elev))
+        self.lat = extract_field(line, w_pri.lat)
+        self.lon = extract_field(line, w_pri.lon)
+        self.true_bearing = extract_field(line, w_pri.true_bearing)
+        self.mag_var = extract_field(line, w_pri.mag_var)
+        self.fac_elev = extract_field(line, w_pri.fac_elev)
         self.datum_code = extract_field(line, w_pri.datum_code)
         self.marker_name = extract_field(line, w_pri.marker_name)
 

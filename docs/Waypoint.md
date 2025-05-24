@@ -19,7 +19,6 @@ The Waypoint object comprises the following fields:
 - lat: The waypoint latitude.
 - lon: The waypoint longitude.
 - mag_var: The magnetic variation.
-- elevation: The elevation of the waypoint.
 - datum_code: The reference system used in surveying.
 - name_indicator: The name indicator of the waypoint.\*
 - name_description: The description of the name.

@@ -1,13 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_arc_bearing,
-    convert_distance,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_yn,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -59,19 +50,19 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
         self.adj_fir_id = extract_field(line, w_pri.adj_fir_id)
         self.adj_uir_id = extract_field(line, w_pri.adj_uir_id)
         self.rus = extract_field(line, w_pri.rus)
         self.rua = extract_field(line, w_pri.rua)
-        self.entry = convert_yn(extract_field(line, w_pri.entry))
+        self.entry = extract_field(line, w_pri.entry)
         self.boundary_via = extract_field(line, w_pri.boundary_via)
-        self.fir_uir_lat = convert_lat_dms(extract_field(line, w_pri.fir_uir_lat))
-        self.fir_uir_lon = convert_lon_dms(extract_field(line, w_pri.fir_uir_lon))
-        self.arc_lat = convert_lat_dms(extract_field(line, w_pri.arc_lat))
-        self.arc_lon = convert_lon_dms(extract_field(line, w_pri.arc_lon))
-        self.arc_dist = convert_distance(extract_field(line, w_pri.arc_dist))
-        self.arc_bearing = convert_arc_bearing(extract_field(line, w_pri.arc_bearing))
+        self.fir_uir_lat = extract_field(line, w_pri.fir_uir_lat)
+        self.fir_uir_lon = extract_field(line, w_pri.fir_uir_lon)
+        self.arc_lat = extract_field(line, w_pri.arc_lat)
+        self.arc_lon = extract_field(line, w_pri.arc_lon)
+        self.arc_dist = extract_field(line, w_pri.arc_dist)
+        self.arc_bearing = extract_field(line, w_pri.arc_bearing)
         self.fir_upper_limit = extract_field(line, w_pri.fir_upper_limit)
         self.uir_lower_limit = extract_field(line, w_pri.uir_lower_limit)
         self.uir_upper_limit = extract_field(line, w_pri.uir_upper_limit)

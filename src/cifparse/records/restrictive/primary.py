@@ -1,12 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_arc_bearing,
-    convert_distance,
-    convert_lat_dms,
-    convert_lon_dms,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -54,17 +46,17 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
         self.level = extract_field(line, w_pri.level)
         self.time_zone = extract_field(line, w_pri.time_zone)
         self.notam = extract_field(line, w_pri.notam)
         self.boundary_via = extract_field(line, w_pri.boundary_via)
-        self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
-        self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
-        self.arc_lat = convert_lat_dms(extract_field(line, w_pri.arc_lat))
-        self.arc_lon = convert_lon_dms(extract_field(line, w_pri.arc_lon))
-        self.arc_dist = convert_distance(extract_field(line, w_pri.arc_dist))
-        self.arc_bearing = convert_arc_bearing(extract_field(line, w_pri.arc_bearing))
+        self.lat = extract_field(line, w_pri.lat)
+        self.lon = extract_field(line, w_pri.lon)
+        self.arc_lat = extract_field(line, w_pri.arc_lat)
+        self.arc_lon = extract_field(line, w_pri.arc_lon)
+        self.arc_dist = extract_field(line, w_pri.arc_dist)
+        self.arc_bearing = extract_field(line, w_pri.arc_bearing)
         self.lower_limit = extract_field(line, w_pri.lower_limit)
         self.lower_unit = extract_field(line, w_pri.lower_unit)
         self.upper_limit = extract_field(line, w_pri.upper_limit)

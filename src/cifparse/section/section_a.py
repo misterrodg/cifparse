@@ -1,4 +1,4 @@
-from cifparse.functions.record import extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.mora.widths import w_pri
 
 

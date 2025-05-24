@@ -1,4 +1,4 @@
-from cifparse.functions.record import extract_field, translate_cont_rec_no
+from cifparse.functions.field import extract_field
 from cifparse.functions.records import partition
 
 from .appl_table import a_table
@@ -21,7 +21,7 @@ class TAA(RecordBase):
         self.continuation = []
 
         for line in taa_partition:
-            cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
+            cont_rec_no = extract_field(line, w_pri.cont_rec_no)
             if cont_rec_no in [0, 1]:
                 primary = Primary()
                 self.primary = primary.from_line(line)

@@ -1,4 +1,4 @@
-from cifparse.functions.record import clean_value, extract_field, translate_cont_rec_no
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_com
@@ -28,7 +28,7 @@ class Combined(Base):
 
     def from_line(self, line: str) -> "Combined":
         super().from_lien(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_com.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_com.cont_rec_no)
         self.application = extract_field(line, w_com.application)
         self.time_zone = extract_field(line, w_com.time_zone)
         self.notam = extract_field(line, w_com.notam)

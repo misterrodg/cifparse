@@ -1,4 +1,4 @@
-from cifparse.functions.record import extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.waypoint.widths import w_pri as a_w_pri
 from cifparse.records.airway_marker.widths import w_pri as m_w_pri
 from cifparse.records.hold.widths import w_pri as p_w_pri

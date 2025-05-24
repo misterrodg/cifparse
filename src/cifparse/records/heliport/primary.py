@@ -1,16 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_altitude,
-    convert_altitude_fl,
-    convert_elevation,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_mag_var,
-    convert_speed,
-    convert_yn,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -18,8 +6,8 @@ from .widths import w_pri
 
 class Primary(Base):
     cont_rec_no: int
-    limit_alt: str
     fl: int
+    limit_alt: str
     datum_code: str
     is_ifr: int
     lat: float
@@ -41,8 +29,8 @@ class Primary(Base):
     def __init__(self):
         super().__init__("heliports")
         self.cont_rec_no = None
-        self.limit_alt = None
         self.fl = None
+        self.limit_alt = None
         self.datum_code = None
         self.is_ifr = None
         self.lat = None
@@ -66,25 +54,19 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.limit_alt, self.fl = convert_altitude_fl(
-            extract_field(line, w_pri.limit_alt)
-        )
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.fl, self.limit_alt = extract_field(line, w_pri.limit_alt)
         self.datum_code = extract_field(line, w_pri.datum_code)
-        self.is_ifr = convert_yn(extract_field(line, w_pri.is_ifr))
-        self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
-        self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
-        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
-        self.elevation = convert_elevation(extract_field(line, w_pri.elevation))
-        self.limit_speed = convert_speed(extract_field(line, w_pri.limit_speed))
+        self.is_ifr = extract_field(line, w_pri.is_ifr)
+        self.lat = extract_field(line, w_pri.lat)
+        self.lon = extract_field(line, w_pri.lon)
+        self.mag_var = extract_field(line, w_pri.mag_var)
+        self.elevation = extract_field(line, w_pri.elevation)
+        self.limit_speed = extract_field(line, w_pri.limit_speed)
         self.rec_vhf = extract_field(line, w_pri.rec_vhf)
         self.rec_vhf_region = extract_field(line, w_pri.rec_vhf_region)
-        self.transition_alt = convert_altitude(
-            extract_field(line, w_pri.transition_alt)
-        )
-        self.transition_level = convert_altitude(
-            extract_field(line, w_pri.transition_level)
-        )
+        self.transition_alt = extract_field(line, w_pri.transition_alt)
+        self.transition_level = extract_field(line, w_pri.transition_level)
         self.usage = extract_field(line, w_pri.usage)
         self.time_zone = extract_field(line, w_pri.time_zone)
         self.daylight_ind = extract_field(line, w_pri.daylight_ind)
@@ -99,6 +81,7 @@ class Primary(Base):
         result.extend(
             [
                 "cont_rec_no",
+                "fl",
                 "limit_alt",
                 "datum_code",
                 "is_ifr",
@@ -127,6 +110,7 @@ class Primary(Base):
         trailing_dict = super().get_trailing_dict()
         this_dict = {
             "cont_rec_no": clean_value(self.cont_rec_no),
+            "fl": clean_value(self.fl),
             "limit_alt": clean_value(self.limit_alt),
             "datum_code": clean_value(self.datum_code),
             "is_ifr": clean_value(self.is_ifr),

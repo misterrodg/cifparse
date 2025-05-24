@@ -1,13 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_elevation,
-    convert_frequency,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_mag_var,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -53,16 +44,16 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.frequency = convert_frequency(extract_field(line, w_pri.frequency))
-        self.nav_class = extract_field(line, w_pri.nav_class, False)
-        self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
-        self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.frequency = extract_field(line, w_pri.frequency, "VOR")
+        self.nav_class = extract_field(line, w_pri.nav_class)
+        self.lat = extract_field(line, w_pri.lat)
+        self.lon = extract_field(line, w_pri.lon)
         self.dme_id = extract_field(line, w_pri.dme_id)
-        self.dme_lat = convert_lat_dms(extract_field(line, w_pri.dme_lat))
-        self.dme_lon = convert_lon_dms(extract_field(line, w_pri.dme_lon))
-        self.mag_var = convert_mag_var(extract_field(line, w_pri.mag_var))
-        self.dme_elevation = convert_elevation(extract_field(line, w_pri.dme_elevation))
+        self.dme_lat = extract_field(line, w_pri.dme_lat)
+        self.dme_lon = extract_field(line, w_pri.dme_lon)
+        self.mag_var = extract_field(line, w_pri.mag_var)
+        self.dme_elevation = extract_field(line, w_pri.dme_elevation)
         self.figure_of_merit = extract_field(line, w_pri.figure_of_merit)
         self.dme_bias = extract_field(line, w_pri.dme_bias)
         self.frequency_protection = extract_field(line, w_pri.frequency_protection)

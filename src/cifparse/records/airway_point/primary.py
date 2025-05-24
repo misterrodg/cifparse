@@ -1,13 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_altitude_fl,
-    convert_course,
-    convert_distance,
-    convert_radius,
-    convert_rnp,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -27,15 +18,18 @@ class Primary(Base):
     rnp: float
     theta: float
     rho: float
+    out_true: bool
     out_mag_crs: float
+    time: bool
     from_dist: float
+    in_true: bool
     in_mag_crs: float
-    min_alt_1: int
     min_fl_1: int
-    min_alt_2: int
+    min_alt_1: int
     min_fl_2: int
-    max_alt: int
+    min_alt_2: int
     max_fl: int
+    max_alt: int
     fix_radius: float
 
     def __init__(self):
@@ -53,15 +47,18 @@ class Primary(Base):
         self.rnp = None
         self.theta = None
         self.rho = None
+        self.out_true = None
         self.out_mag_crs = None
+        self.time = None
         self.from_dist = None
+        self.in_true = None
         self.in_mag_crs = None
-        self.min_alt_1 = None
         self.min_fl_1 = None
-        self.min_alt_2 = None
+        self.min_alt_1 = None
         self.min_fl_2 = None
-        self.max_alt = None
+        self.min_alt_2 = None
         self.max_fl = None
+        self.max_alt = None
         self.fix_radius = None
 
     def __repr__(self):
@@ -69,8 +66,8 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.desc_code = extract_field(line, w_pri.desc_code, False)
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.desc_code = extract_field(line, w_pri.desc_code)
         self.bound_code = extract_field(line, w_pri.bound_code)
         self.route_type = extract_field(line, w_pri.route_type)
         self.level = extract_field(line, w_pri.level)
@@ -79,22 +76,16 @@ class Primary(Base):
         self.eu_ind = extract_field(line, w_pri.eu_ind)
         self.rec_vhf = extract_field(line, w_pri.rec_vhf)
         self.rec_vhf_region = extract_field(line, w_pri.rec_vhf_region)
-        self.rnp = convert_rnp(extract_field(line, w_pri.rnp))
+        self.rnp = extract_field(line, w_pri.rnp)
         self.theta = extract_field(line, w_pri.theta)
         self.rho = extract_field(line, w_pri.rho)
-        self.out_mag_crs = convert_course(extract_field(line, w_pri.out_mag_crs))
-        self.from_dist = convert_distance(extract_field(line, w_pri.from_dist))
-        self.in_mag_crs = convert_course(extract_field(line, w_pri.in_mag_crs))
-        self.min_alt_1, self.min_fl_1 = convert_altitude_fl(
-            extract_field(line, w_pri.min_alt_1)
-        )
-        self.min_alt_2, self.min_fl_2 = convert_altitude_fl(
-            extract_field(line, w_pri.min_alt_2)
-        )
-        self.max_alt, self.max_fl = convert_altitude_fl(
-            extract_field(line, w_pri.max_alt)
-        )
-        self.fix_radius = convert_radius(extract_field(line, w_pri.fix_radius))
+        self.out_true, self.out_mag_crs = extract_field(line, w_pri.out_mag_crs)
+        self.time, self.from_dist = extract_field(line, w_pri.from_dist)
+        self.in_true, self.in_mag_crs = extract_field(line, w_pri.in_mag_crs)
+        self.min_fl_1, self.min_alt_1 = extract_field(line, w_pri.min_alt_1)
+        self.min_fl_2, self.min_alt_2 = extract_field(line, w_pri.min_alt_2)
+        self.max_fl, self.max_alt = extract_field(line, w_pri.max_alt)
+        self.fix_radius = extract_field(line, w_pri.fix_radius)
         return self
 
     def ordered_fields(self) -> list:
@@ -115,8 +106,11 @@ class Primary(Base):
                 "rnp",
                 "theta",
                 "rho",
+                "out_true",
                 "out_mag_crs",
+                "time",
                 "from_dist",
+                "in_true",
                 "in_mag_crs",
                 "min_alt_1",
                 "min_fl_1",
@@ -147,8 +141,11 @@ class Primary(Base):
             "rnp": clean_value(self.rnp),
             "theta": clean_value(self.theta),
             "rho": clean_value(self.rho),
+            "out_true": clean_value(self.out_true),
             "out_mag_crs": clean_value(self.out_mag_crs),
+            "time": clean_value(self.time),
             "from_dist": clean_value(self.from_dist),
+            "in_true": clean_value(self.in_true),
             "in_mag_crs": clean_value(self.in_mag_crs),
             "min_alt_1": clean_value(self.min_alt_1),
             "min_fl_1": clean_value(self.min_fl_1),

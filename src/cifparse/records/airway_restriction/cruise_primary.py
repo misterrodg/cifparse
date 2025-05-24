@@ -1,4 +1,4 @@
-from cifparse.functions.record import clean_value, extract_field, translate_cont_rec_no
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_cru
@@ -50,7 +50,7 @@ class CruisePrimary(Base):
 
     def from_line(self, line: str) -> "CruisePrimary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_cru.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_cru.cont_rec_no)
         self.start_point_id = extract_field(line, w_cru.start_point_id)
         self.start_point_region = extract_field(line, w_cru.start_point_region)
         self.start_point_sec_code = extract_field(line, w_cru.start_point_sec_code)

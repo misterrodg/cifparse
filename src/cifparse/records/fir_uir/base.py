@@ -1,9 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_record_number,
-    convert_seq_no,
-    extract_field,
-)
+from cifparse.functions.field import clean_value, extract_field
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -45,10 +40,8 @@ class Base(TableBase):
         self.fir_uir_id = extract_field(line, w_bas.fir_uir_id)
         self.fir_uir_addr = extract_field(line, w_bas.fir_uir_addr)
         self.fir_uir_ind = extract_field(line, w_bas.fir_uir_ind)
-        self.seq_no = convert_seq_no(extract_field(line, w_bas.seq_no))
-        self.record_number = convert_record_number(
-            extract_field(line, w_bas.record_number)
-        )
+        self.seq_no = extract_field(line, w_bas.seq_no)
+        self.record_number = extract_field(line, w_bas.record_number)
         self.cycle_data = extract_field(line, w_bas.cycle_data)
         return self
 

@@ -1,4 +1,4 @@
-from cifparse.functions.record import extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.airport.widths import w_pri as a_w_pri
 from cifparse.records.airport_gate.widths import w_pri as b_w_pri
 from cifparse.records.waypoint.widths import w_pri as c_w_pri

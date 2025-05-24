@@ -1,17 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_bearing,
-    convert_distance,
-    convert_elevation,
-    convert_ellipsoidal_height,
-    convert_gradient,
-    convert_lat_dms,
-    convert_lon_dms,
-    convert_length,
-    convert_width,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -65,27 +52,21 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.length = convert_length(extract_field(line, w_pri.length))
-        self.true, self.bearing = convert_bearing(extract_field(line, w_pri.bearing))
-        self.lat = convert_lat_dms(extract_field(line, w_pri.lat))
-        self.lon = convert_lon_dms(extract_field(line, w_pri.lon))
-        self.gradient = convert_gradient(extract_field(line, w_pri.gradient))
-        self.ellipsoidal_height = convert_ellipsoidal_height(
-            extract_field(line, w_pri.ellipsoidal_height)
-        )
-        self.threshold_elevation = convert_elevation(
-            extract_field(line, w_pri.threshold_elevation)
-        )
-        self.displaced_threshold = convert_distance(
-            extract_field(line, w_pri.displaced_threshold)
-        )
-        self.tch = convert_elevation(extract_field(line, w_pri.tch))
-        self.width = convert_width(extract_field(line, w_pri.width))
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.length = extract_field(line, w_pri.length)
+        self.true, self.bearing = extract_field(line, w_pri.bearing)
+        self.lat = extract_field(line, w_pri.lat)
+        self.lon = extract_field(line, w_pri.lon)
+        self.gradient = extract_field(line, w_pri.gradient)
+        self.ellipsoidal_height = extract_field(line, w_pri.ellipsoidal_height)
+        self.threshold_elevation = extract_field(line, w_pri.threshold_elevation)
+        self.displaced_threshold = extract_field(line, w_pri.displaced_threshold)
+        self.tch = extract_field(line, w_pri.tch)
+        self.width = extract_field(line, w_pri.width)
         self.tch_id = extract_field(line, w_pri.tch_id)
         self.ls_ident_1 = extract_field(line, w_pri.ls_ident_1)
         self.cat_1 = extract_field(line, w_pri.cat_1)
-        self.stopway = convert_distance(extract_field(line, w_pri.stopway))
+        self.stopway = extract_field(line, w_pri.stopway)
         self.ls_ident_2 = extract_field(line, w_pri.ls_ident_2)
         self.cat_2 = extract_field(line, w_pri.cat_2)
         self.description = extract_field(line, w_pri.description)

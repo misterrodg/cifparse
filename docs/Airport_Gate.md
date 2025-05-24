@@ -12,7 +12,6 @@ The Airport Gate object comprises the following fields:
 - cont_rec_no: An identifier for additional available data.
 - lat: The latitude of the gate.
 - lon: The longitude of the gate.
-- mag_hdg: The magnetic heading of the gate.
 - gate_name: The name of the gate.
 - record_number: The CIFP record number.
 - cycle_data: The cycle ID of when the record was added/updated.

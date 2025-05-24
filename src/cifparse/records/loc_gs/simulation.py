@@ -1,10 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_angle,
-    convert_true_bearing,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_sim
@@ -42,14 +36,12 @@ class Simulation(Base):
 
     def from_line(self, line: str) -> "Simulation":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_sim.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_sim.cont_rec_no)
         self.application = extract_field(line, w_sim.application)
         self.fac_char = extract_field(line, w_sim.fac_char)
-        self.true_bearing = convert_true_bearing(
-            extract_field(line, w_sim.true_bearing)
-        )
+        self.true_bearing = extract_field(line, w_sim.true_bearing)
         self.source = extract_field(line, w_sim.source)
-        self.beam_width = convert_angle(extract_field(line, w_sim.beam_width))
+        self.beam_width = extract_field(line, w_sim.beam_width)
         self.app_ident_1 = extract_field(line, w_sim.app_ident_1)
         self.app_ident_2 = extract_field(line, w_sim.app_ident_2)
         self.app_ident_3 = extract_field(line, w_sim.app_ident_3)

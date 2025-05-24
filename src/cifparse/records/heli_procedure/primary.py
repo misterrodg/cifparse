@@ -1,18 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_altitude,
-    convert_altitude_fl,
-    convert_angle,
-    convert_bearing,
-    convert_distance_time,
-    convert_radius,
-    convert_rnp,
-    convert_rho,
-    convert_speed,
-    convert_theta,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -30,18 +16,18 @@ class Primary(Base):
     arc_radius: float
     theta: float
     rho: float
-    course: float
     true: int
-    dist_time: float
+    course: float
     time: int
+    dist_time: float
     rec_vhf_sec_code: str
     rec_vhf_sub_code: str
     alt_desc: str
     atc: str
-    alt_1: int
     fl_1: int
-    alt_2: int
+    alt_1: int
     fl_2: int
+    alt_2: int
     trans_alt: int
     speed_limit: int
     vert_angle: float
@@ -68,18 +54,18 @@ class Primary(Base):
         self.arc_radius = None
         self.theta = None
         self.rho = None
-        self.course = None
         self.true = None
-        self.dist_time = None
+        self.course = None
         self.time = None
+        self.dist_time = None
         self.rec_vhf_sec_code = None
         self.rec_vhf_sub_code = None
         self.alt_desc = None
         self.atc = None
-        self.alt_1 = None
         self.fl_1 = None
-        self.alt_2 = None
+        self.alt_1 = None
         self.fl_2 = None
+        self.alt_2 = None
         self.trans_alt = None
         self.speed_limit = None
         self.vert_angle = None
@@ -98,37 +84,35 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.desc_code = extract_field(line, w_pri.desc_code, False)
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.desc_code = extract_field(line, w_pri.desc_code)
         self.turn_direction = extract_field(line, w_pri.turn_direction)
-        self.rnp = convert_rnp(extract_field(line, w_pri.rnp))
+        self.rnp = extract_field(line, w_pri.rnp)
         self.path_term = extract_field(line, w_pri.path_term)
         self.tdv = extract_field(line, w_pri.tdv)
         self.rec_vhf = extract_field(line, w_pri.rec_vhf)
         self.rec_vhf_region = extract_field(line, w_pri.rec_vhf_region)
-        self.arc_radius = convert_radius(extract_field(line, w_pri.arc_radius), -3)
-        self.theta = convert_theta(extract_field(line, w_pri.theta))
-        self.rho = convert_rho(extract_field(line, w_pri.rho))
-        self.true, self.course = convert_bearing(extract_field(line, w_pri.course))
-        self.dist_time, self.time = convert_distance_time(
-            extract_field(line, w_pri.dist_time)
-        )
+        self.arc_radius = extract_field(line, w_pri.arc_radius)
+        self.theta = extract_field(line, w_pri.theta)
+        self.rho = extract_field(line, w_pri.rho)
+        self.true, self.course = extract_field(line, w_pri.course)
+        self.time, self.dist_time = extract_field(line, w_pri.dist_time)
         self.rec_vhf_sec_code = extract_field(line, w_pri.rec_vhf_sec_code)
         self.rec_vhf_sub_code = extract_field(line, w_pri.rec_vhf_sub_code)
         self.alt_desc = extract_field(line, w_pri.alt_desc)
         self.atc = extract_field(line, w_pri.atc)
-        self.fl_1, self.alt_1 = convert_altitude_fl(extract_field(line, w_pri.alt_1))
-        self.fl_2, self.alt_2 = convert_altitude_fl(extract_field(line, w_pri.alt_2))
-        self.trans_alt = convert_altitude(extract_field(line, w_pri.trans_alt))
-        self.speed_limit = convert_speed(extract_field(line, w_pri.speed_limit))
-        self.vert_angle = convert_angle(extract_field(line, w_pri.vertical_angle))
+        self.fl_1, self.alt_1 = extract_field(line, w_pri.alt_1)
+        self.fl_2, self.alt_2 = extract_field(line, w_pri.alt_2)
+        self.trans_alt = extract_field(line, w_pri.trans_alt)
+        self.speed_limit = extract_field(line, w_pri.speed_limit)
+        self.vert_angle = extract_field(line, w_pri.vertical_angle)
         self.center_fix = extract_field(line, w_pri.center_fix)
         self.mult_code = extract_field(line, w_pri.multiple_code)
         self.center_fix_region = extract_field(line, w_pri.center_fix_region)
         self.center_fix_sec_code = extract_field(line, w_pri.center_fix_sec_code)
         self.center_fix_sub_code = extract_field(line, w_pri.center_fix_sub_code)
         self.gns_fms_id = extract_field(line, w_pri.gns_fms_id)
-        self.speed_desc = convert_speed(extract_field(line, w_pri.speed_desc))
+        self.speed_desc = extract_field(line, w_pri.speed_desc)
         self.rte_qual_1 = extract_field(line, w_pri.rte_qual_1)
         self.rte_qual_2 = extract_field(line, w_pri.rte_qual_2)
         return self
@@ -149,14 +133,17 @@ class Primary(Base):
                 "arc_radius",
                 "theta",
                 "rho",
-                "course",
                 "true",
+                "course",
+                "time",
                 "dist_time",
                 "rec_vhf_sec_code",
                 "rec_vhf_sub_code",
                 "alt_desc",
                 "atc",
+                "fl_1",
                 "alt_1",
+                "fl_2",
                 "alt_2",
                 "trans_alt",
                 "speed_limit",
@@ -190,14 +177,17 @@ class Primary(Base):
             "arc_radius": clean_value(self.arc_radius),
             "theta": clean_value(self.theta),
             "rho": clean_value(self.rho),
-            "course": clean_value(self.course),
             "true": clean_value(self.true),
+            "course": clean_value(self.course),
+            "time": clean_value(self.time),
             "dist_time": clean_value(self.dist_time),
             "rec_vhf_sec_code": clean_value(self.rec_vhf_sec_code),
             "rec_vhf_sub_code": clean_value(self.rec_vhf_sub_code),
             "alt_desc": clean_value(self.alt_desc),
             "atc": clean_value(self.atc),
+            "fl_1": clean_value(self.fl_1),
             "alt_1": clean_value(self.alt_1),
+            "fl_2": clean_value(self.fl_2),
             "alt_2": clean_value(self.alt_2),
             "trans_alt": clean_value(self.trans_alt),
             "speed_limit": clean_value(self.speed_limit),

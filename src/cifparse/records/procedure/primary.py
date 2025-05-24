@@ -1,18 +1,4 @@
-from cifparse.functions.record import (
-    clean_value,
-    convert_altitude,
-    convert_altitude_fl,
-    convert_angle,
-    convert_bearing,
-    convert_distance_time,
-    convert_radius,
-    convert_rnp,
-    convert_rho,
-    convert_speed,
-    convert_theta,
-    extract_field,
-    translate_cont_rec_no,
-)
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -98,37 +84,35 @@ class Primary(Base):
 
     def from_line(self, line: str) -> "Primary":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_pri.cont_rec_no))
-        self.desc_code = extract_field(line, w_pri.desc_code, False)
+        self.cont_rec_no = extract_field(line, w_pri.cont_rec_no)
+        self.desc_code = extract_field(line, w_pri.desc_code)
         self.turn_direction = extract_field(line, w_pri.turn_direction)
-        self.rnp = convert_rnp(extract_field(line, w_pri.rnp))
+        self.rnp = extract_field(line, w_pri.rnp)
         self.path_term = extract_field(line, w_pri.path_term)
         self.tdv = extract_field(line, w_pri.tdv)
         self.rec_vhf = extract_field(line, w_pri.rec_vhf)
         self.rec_vhf_region = extract_field(line, w_pri.rec_vhf_region)
-        self.arc_radius = convert_radius(extract_field(line, w_pri.arc_radius), -3)
-        self.theta = convert_theta(extract_field(line, w_pri.theta))
-        self.rho = convert_rho(extract_field(line, w_pri.rho))
-        self.true, self.course = convert_bearing(extract_field(line, w_pri.course))
-        self.time, self.dist_time = convert_distance_time(
-            extract_field(line, w_pri.dist_time)
-        )
+        self.arc_radius = extract_field(line, w_pri.arc_radius)
+        self.theta = extract_field(line, w_pri.theta)
+        self.rho = extract_field(line, w_pri.rho)
+        self.true, self.course = extract_field(line, w_pri.course)
+        self.time, self.dist_time = extract_field(line, w_pri.dist_time)
         self.rec_vhf_sec_code = extract_field(line, w_pri.rec_vhf_sec_code)
         self.rec_vhf_sub_code = extract_field(line, w_pri.rec_vhf_sub_code)
         self.alt_desc = extract_field(line, w_pri.alt_desc)
         self.atc = extract_field(line, w_pri.atc)
-        self.fl_1, self.alt_1 = convert_altitude_fl(extract_field(line, w_pri.alt_1))
-        self.fl_2, self.alt_2 = convert_altitude_fl(extract_field(line, w_pri.alt_2))
-        self.trans_alt = convert_altitude(extract_field(line, w_pri.trans_alt))
-        self.speed_limit = convert_speed(extract_field(line, w_pri.speed_limit))
-        self.vert_angle = convert_angle(extract_field(line, w_pri.vert_angle))
+        self.fl_1, self.alt_1 = extract_field(line, w_pri.alt_1)
+        self.fl_2, self.alt_2 = extract_field(line, w_pri.alt_2)
+        self.trans_alt = extract_field(line, w_pri.trans_alt)
+        self.speed_limit = extract_field(line, w_pri.speed_limit)
+        self.vert_angle = extract_field(line, w_pri.vert_angle)
         self.center_fix = extract_field(line, w_pri.center_fix)
         self.mult_code = extract_field(line, w_pri.mult_code)
         self.center_fix_region = extract_field(line, w_pri.center_fix_region)
         self.center_fix_sec_code = extract_field(line, w_pri.center_fix_sec_code)
         self.center_fix_sub_code = extract_field(line, w_pri.center_fix_sub_code)
         self.gns_fms_id = extract_field(line, w_pri.gns_fms_id)
-        self.speed_desc = convert_speed(extract_field(line, w_pri.speed_desc))
+        self.speed_desc = extract_field(line, w_pri.speed_desc)
         self.rte_qual_1 = extract_field(line, w_pri.rte_qual_1)
         self.rte_qual_2 = extract_field(line, w_pri.rte_qual_2)
         return self

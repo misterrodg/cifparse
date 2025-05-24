@@ -1,4 +1,4 @@
-from cifparse.functions.record import clean_value, extract_field, translate_cont_rec_no
+from cifparse.functions.field import clean_value, extract_field
 
 from .base import Base
 from .widths import w_tim
@@ -38,7 +38,7 @@ class Time(Base):
 
     def from_line(self, line: str) -> "Time":
         super().from_line(line)
-        self.cont_rec_no = translate_cont_rec_no(extract_field(line, w_tim.cont_rec_no))
+        self.cont_rec_no = extract_field(line, w_tim.cont_rec_no)
         self.application = extract_field(line, w_tim.application)
         self.time_zone = extract_field(line, w_tim.time_zone)
         self.notam = extract_field(line, w_tim.notam)

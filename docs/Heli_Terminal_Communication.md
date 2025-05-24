@@ -24,10 +24,10 @@ The Terminal Communication object comprises the following fields:
 - h24_ind: A boolean value to note that the frequency is available 24 hours in a day.
 - sector: The sector definition, if defined.
 - alt_desc: The altitude descriptor.
-- alt_1: The minimum altitude.
 - fl_1: A boolean value to note that `alt_1` is a Flight Level.
-- alt_2: The second minimum altitude.
+- alt_1: The minimum altitude.
 - fl_2: A boolean value to note that `alt_2` is a Flight Level.
+- alt_2: The second minimum altitude.
 - sector_fac: The associated facility for sectors, if defined.
 - sector_region: The region of the associated facility for sectors, if defined.
 - sector_sec_code: The sec_code of the associated facility for sectors, if defined.
