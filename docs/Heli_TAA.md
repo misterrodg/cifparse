@@ -1,4 +1,4 @@
-# The Heli TAA Object
+# Heli TAA
 
 The Heli TAA object comprises the following fields:
 

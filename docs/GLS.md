@@ -1,4 +1,4 @@
-# The GLS Object
+# GLS
 
 The GLS object comprises the following fields:
 

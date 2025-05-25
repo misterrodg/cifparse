@@ -1,4 +1,4 @@
-# The MSA Object
+# MSA
 
 The MSA object comprises the following fields:
 

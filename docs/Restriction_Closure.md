@@ -1,4 +1,4 @@
-# The Restriction Closure Object
+# Restriction Closure
 
 The Restriction Closure object comprises the following fields:
 

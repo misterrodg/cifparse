@@ -1,4 +1,4 @@
-# The Airway Object
+# Airway
 
 The Airway object comprises the following fields:
 

@@ -1,4 +1,4 @@
-# The Waypoint Object
+# Waypoint
 
 NOTE: The Waypoint object is used in for both Terminal and Enroute waypoints.
 

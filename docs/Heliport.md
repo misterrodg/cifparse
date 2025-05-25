@@ -1,4 +1,4 @@
-# The Heliport Object
+# Heliport
 
 The Heliport object comprises the following fields:
 

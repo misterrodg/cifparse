@@ -1,4 +1,4 @@
-# The TAA Object
+# TAA
 
 The TAA object comprises the following fields:
 

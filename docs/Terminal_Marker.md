@@ -1,4 +1,4 @@
-# The Terminal Marker Object
+# Terminal Marker
 
 The Terminal Marker object comprises the following fields:
 

@@ -1,4 +1,4 @@
-# The Restriction Type Object
+# Restriction Type
 
 The Restriction Type object comprises the following fields:
 

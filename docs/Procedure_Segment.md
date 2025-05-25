@@ -1,4 +1,4 @@
-# The Procedure Segment Object
+# Procedure Segment
 
 The Procedure Segment object comprises the following fields:
 

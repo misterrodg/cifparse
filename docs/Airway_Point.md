@@ -1,4 +1,4 @@
-# The Airway Point Object
+# Airway Point
 
 The Airway Point object comprises the following fields:
 

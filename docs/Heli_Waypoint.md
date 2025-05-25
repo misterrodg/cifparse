@@ -1,4 +1,4 @@
-# The Heli Waypoint Object
+# Heli Waypoint
 
 NOTE: The Heli Waypoint object is used in for both Terminal and Enroute waypoints.
 

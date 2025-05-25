@@ -1,4 +1,4 @@
-# The Flight Planning Object
+# Flight Planning
 
 The Flight Planning object comprises the following fields:
 

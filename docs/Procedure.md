@@ -1,4 +1,4 @@
-# The Procedure Object
+# Procedure
 
 The Procedure object comprises the following fields:
 

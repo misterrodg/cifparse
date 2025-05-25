@@ -1,4 +1,4 @@
-# The Restriction Altitude Object
+# Restriction Altitude
 
 The Restriction Altitude object comprises the following fields:
 

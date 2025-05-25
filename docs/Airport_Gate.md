@@ -1,4 +1,4 @@
-# The Airport Gate Object
+# Airport Gate
 
 The Airport Gate object comprises the following fields:
 

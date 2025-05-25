@@ -1,4 +1,4 @@
-# The Controlled Airspace Point Object
+# Controlled Airspace Point
 
 The Controlled Airspace Point object comprises the following fields:
 

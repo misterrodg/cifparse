@@ -1,6 +1,6 @@
-# The Terminal Communication Object
+# Heli Terminal Communication
 
-The Terminal Communication object comprises the following fields:
+The Heli Terminal Communication object comprises the following fields:
 
 - st: A standard (S) versus tailored (T) identifier.
 - area: The world region (e.g. `USA` or `CAN`).

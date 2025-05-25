@@ -1,4 +1,4 @@
-# The Controlled Airspace Segment Object
+# Controlled Airspace Segment
 
 The Controlled Airspace Segment object comprises the following fields:
 

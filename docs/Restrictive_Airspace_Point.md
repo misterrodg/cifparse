@@ -1,4 +1,4 @@
-# The Restrictive Airspace Point Object
+# Restrictive Airspace Point
 
 The Restrictive Airspace Point object comprises the following fields:
 

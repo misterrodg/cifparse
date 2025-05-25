@@ -1,4 +1,4 @@
-# The Path Point Object
+# Path Point
 
 The Path Point object comprises the following fields:
 

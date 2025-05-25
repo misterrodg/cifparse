@@ -1,4 +1,4 @@
-# The Cruise Table Object
+# Cruise Table
 
 The Cruise Table object comprises the following fields:
 

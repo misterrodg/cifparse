@@ -1,4 +1,4 @@
-# The NDB Navaid Object
+# NDB Navaid
 
 The NDB Navaid object comprises the following fields:
 

@@ -1,4 +1,4 @@
-# The Terminal Communication Object
+# Terminal Communication
 
 The Terminal Communication object comprises the following fields:
 

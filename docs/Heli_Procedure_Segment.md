@@ -1,4 +1,4 @@
-# The Heli Procedure Segment Object
+# Heli Procedure Segment
 
 The Heli Procedure Segment object comprises the following fields:
 

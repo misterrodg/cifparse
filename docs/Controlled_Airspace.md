@@ -1,4 +1,4 @@
-# The Controlled Airspace Object
+# Controlled Airspace
 
 The Controlled Airspace object comprises the following fields:
 

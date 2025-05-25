@@ -1,4 +1,4 @@
-# The Restriction Cruise Object
+# Restriction Cruise
 
 The Restriction Cruise object comprises the following fields:
 

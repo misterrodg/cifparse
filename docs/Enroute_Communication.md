@@ -1,4 +1,4 @@
-# The Enroute Communication Object
+# Enroute Communication
 
 The Enroute Communication object comprises the following fields:
 

@@ -1,4 +1,4 @@
-# The Heli Procedure Object
+# Heli Procedure
 
 The Heli Procedure object comprises the following fields:
 

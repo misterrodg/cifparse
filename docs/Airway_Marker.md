@@ -1,4 +1,4 @@
-# The Airway Marker Object
+# Airway Marker
 
 The Airway Marker object comprises the following fields:
 

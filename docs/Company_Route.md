@@ -1,4 +1,4 @@
-# The Company Route Object
+# Company Route
 
 The Company Route object comprises the following fields:
 

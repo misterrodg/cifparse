@@ -1,4 +1,4 @@
-# The Restrictive Airspace Object
+# Restrictive Airspace
 
 The Restrictive Airspace object comprises the following fields:
 

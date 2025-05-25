@@ -1,4 +1,4 @@
-# The Reference Table Object
+# Reference Table
 
 The Reference Table object comprises the following fields:
 

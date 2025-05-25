@@ -1,4 +1,4 @@
-# The Alternate Record Object
+# Alternate Record
 
 The Alternate Record object comprises the following fields:
 

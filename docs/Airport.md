@@ -1,4 +1,4 @@
-# The Airport Object
+# Airport
 
 The Airport object comprises the following fields:
 

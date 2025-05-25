@@ -1,4 +1,4 @@
-# The Restrictive Airspace Segment Object
+# Restrictive Airspace Segment
 
 The Restrictive Airspace Segment object comprises the following fields:
 

@@ -1,4 +1,4 @@
-# The Preferred Routes Object
+# Preferred Routes
 
 The Preferred Routes object comprises the following fields:
 

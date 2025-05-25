@@ -1,4 +1,4 @@
-# The Runway Object
+# Runway
 
 The Runway object comprises the following fields:
 

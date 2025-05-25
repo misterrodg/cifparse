@@ -1,4 +1,4 @@
-# The Hold Object
+# Hold
 
 The Hold object comprises the following fields:
 

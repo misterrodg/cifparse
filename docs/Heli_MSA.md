@@ -1,4 +1,4 @@
-# The Heli MSA Object
+# Heli MSA
 
 The Heli MSA object comprises the following fields:
 

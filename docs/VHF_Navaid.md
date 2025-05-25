@@ -1,4 +1,4 @@
-# The VHF Navaid Object
+# VHF Navaid
 
 The VHF Navaid object comprises the following fields:
 

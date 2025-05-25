@@ -1,4 +1,4 @@
-# The MLS Object
+# MLS
 
 The MLS object comprises the following fields:
 

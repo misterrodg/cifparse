@@ -1,4 +1,4 @@
-# The MORA Object
+# MORA
 
 The MORA object comprises the following fields:
 

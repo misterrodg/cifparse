@@ -1,4 +1,4 @@
-# The FIR/UIR Object
+# FIR/UIR
 
 The FIR/UIR object comprises the following fields:
 

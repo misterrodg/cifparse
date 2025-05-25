@@ -1,4 +1,4 @@
-# The LOC/GS Object
+# LOC/GS
 
 The LOC/GS object comprises the following fields:
 
