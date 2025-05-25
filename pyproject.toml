@@ -1,6 +1,25 @@
 [build-system]
 requires = [
-    "setuptools>=42",
+    "setuptools>=77.0.3",
     "wheel"
 ]
 build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "cifparse"
+version = "2.0.1"
+authors = [{ name = "misterrodg" }]
+description = "A python parser for the FAA CIFP"
+readme = { file = "README.md", content-type = "text/markdown" }
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+urls = { "Homepage" = "https://github.com/misterrodg/cifparse", "Bug Tracker" = "https://github.com/misterrodg/cifparse/issues" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]
