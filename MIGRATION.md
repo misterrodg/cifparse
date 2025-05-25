@@ -30,7 +30,7 @@ Altitude- and heading-related fields now have additional boolean fields as modif
 
 For altitudes, the altitude value will always be found in a field with `alt` in the name. If that value is a flight level, a `1` will be found in the associated `fl` field. For example, `min_alt_1` will contain the minimum altitude value. If the `min_fl_1` field is `0` or `NULL`, the value is an altitude. If it is `1`, it is a flight level.
 
-Similarly, certain heading fields may be provided in true versus magnetic. If a heading is meant to be true, an associated `true` field will be populated with a `1`. Otherwise, it will be `NULL`.
+Similarly, certain heading fields may be provided in true versus magnetic. If a heading is meant to be true, an associated `true` field will be populated with a `1`. Otherwise, it will be `0` or `NULL`.
 
 Certain fields are now column-based. This means that some will have intentional leading and or trailing spaces. For example, on a VHF Navaid record, if the record is for a low DME with no voice capability, it will be listed as `DLW` (with a leading and trailing space). These fields are marked in the documentation for each type with an asterisk.
 
