@@ -6,6 +6,7 @@ A python parser for the FAA CIFP.
 
 | Version | Description                                                         | Release Date |
 | ------- | ------------------------------------------------------------------- | ------------ |
+| 2.0.1   | Minor fixes to internal module handling.                            | 2025-05-25   |
 | 2.0.0   | Major update. See [MIGRATION.md](./MIGRATION.md) for details.       | 2025-05-22   |
 | 1.0.1   | Minor fixes to SQL statements.                                      | 2025-04-24   |
 | 1.0.0   | Updated table handling to include additional detail and data types. | 2024-12-11   |
