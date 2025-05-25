@@ -28,7 +28,7 @@ Many fields removed from the tables have been moved to other tables, as the orig
 
 Altitude- and heading-related fields now have additional boolean fields as modifiers. This had been irregularly applied in version 1, where airway points had everything in `altitude` fields, whereas procedure points had the data split into `altitude` and `flight_level` fields, depending on if the value was an altitude or flight level.
 
-For altitudes, the altitude value will always be found in a field with `alt` in the name. If that value is a flight level, a `1` will be found in the associated `fl` field. For example, `min_alt_1` will contain the minimum altitude value. If the `min_fl_1` field is `NULL`, the value is an altitude. If it is `1`, it is a flight level.
+For altitudes, the altitude value will always be found in a field with `alt` in the name. If that value is a flight level, a `1` will be found in the associated `fl` field. For example, `min_alt_1` will contain the minimum altitude value. If the `min_fl_1` field is `0` or `NULL`, the value is an altitude. If it is `1`, it is a flight level.
 
 Similarly, certain heading fields may be provided in true versus magnetic. If a heading is meant to be true, an associated `true` field will be populated with a `1`. Otherwise, it will be `NULL`.
 
