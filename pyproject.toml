@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cifparse"
-version = "2.0.3"
+version = "2.0.4"
 authors = [{ name = "misterrodg" }]
 description = "A python parser for the FAA CIFP"
 readme = { file = "README.md", content-type = "text/markdown" }

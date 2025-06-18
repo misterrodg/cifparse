@@ -1,5 +1,9 @@
 ## Changelog
 
+### [2.0.4] - 2025-06-18
+
+- Field parsing fixes.
+
 ### [2.0.3] - 2025-06-18
 
 - Bugfix for NDB field parsing.
