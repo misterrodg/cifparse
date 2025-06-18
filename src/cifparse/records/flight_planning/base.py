@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -159,42 +159,38 @@ class Base(TableBase):
 
     def get_leading_dict(self) -> dict:
         return {
-            "st": clean_value(self.st),
-            "area": clean_value(self.area),
-            "sec_code": clean_value(self.sec_code),
-            "airport_id": clean_value(self.airport_id),
-            "airport_region": clean_value(self.airport_region),
-            "sub_code": clean_value(self.sub_code),
-            "procedure_id": clean_value(self.procedure_id),
-            "procedure_type": clean_value(self.procedure_type),
-            "runway_transition_id": clean_value(self.runway_transition_id),
-            "runway_transition_point": clean_value(self.runway_transition_point),
-            "runway_transition_region": clean_value(self.runway_transition_region),
-            "runway_transition_sec_code": clean_value(self.runway_transition_sec_code),
-            "runway_transition_sub_code": clean_value(self.runway_transition_sub_code),
-            "runway_transition_atd": clean_value(self.runway_transition_atd),
-            "common_point": clean_value(self.common_point),
-            "common_point_region": clean_value(self.common_point_region),
-            "common_point_sec_code": clean_value(self.common_point_sec_code),
-            "common_point_sub_code": clean_value(self.common_point_sub_code),
-            "common_point_atd": clean_value(self.common_point_atd),
-            "enroute_transition_id": clean_value(self.enroute_transition_id),
-            "enroute_transition_point": clean_value(self.enroute_transition_point),
-            "enroute_transition_region": clean_value(self.enroute_transition_region),
-            "enroute_transition_sec_code": clean_value(
-                self.enroute_transition_sec_code
-            ),
-            "enroute_transition_sub_code": clean_value(
-                self.enroute_transition_sub_code
-            ),
-            "enroute_transition_atd": clean_value(self.enroute_transition_atd),
-            "seq_no": clean_value(self.seq_no),
+            "st": self.st,
+            "area": self.area,
+            "sec_code": self.sec_code,
+            "airport_id": self.airport_id,
+            "airport_region": self.airport_region,
+            "sub_code": self.sub_code,
+            "procedure_id": self.procedure_id,
+            "procedure_type": self.procedure_type,
+            "runway_transition_id": self.runway_transition_id,
+            "runway_transition_point": self.runway_transition_point,
+            "runway_transition_region": self.runway_transition_region,
+            "runway_transition_sec_code": self.runway_transition_sec_code,
+            "runway_transition_sub_code": self.runway_transition_sub_code,
+            "runway_transition_atd": self.runway_transition_atd,
+            "common_point": self.common_point,
+            "common_point_region": self.common_point_region,
+            "common_point_sec_code": self.common_point_sec_code,
+            "common_point_sub_code": self.common_point_sub_code,
+            "common_point_atd": self.common_point_atd,
+            "enroute_transition_id": self.enroute_transition_id,
+            "enroute_transition_point": self.enroute_transition_point,
+            "enroute_transition_region": self.enroute_transition_region,
+            "enroute_transition_sec_code": self.enroute_transition_sec_code,
+            "enroute_transition_sub_code": self.enroute_transition_sub_code,
+            "enroute_transition_atd": self.enroute_transition_atd,
+            "seq_no": self.seq_no,
         }
 
     def get_trailing_dict(self) -> dict:
         return {
-            "record_number": clean_value(self.record_number),
-            "cycle_data": clean_value(self.cycle_data),
+            "record_number": self.record_number,
+            "cycle_data": self.cycle_data,
         }
 
     def to_dict(self) -> dict:

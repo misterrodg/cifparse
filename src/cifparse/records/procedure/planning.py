@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pla
@@ -50,10 +50,10 @@ class Planning(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "application": clean_value(self.application),
-            "se_ind": clean_value(self.se_ind),
-            "se_date": clean_value(self.se_date),
-            "leg_dist": clean_value(self.leg_dist),
+            "cont_rec_no": self.cont_rec_no,
+            "application": self.application,
+            "se_ind": self.se_ind,
+            "se_date": self.se_date,
+            "leg_dist": self.leg_dist,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -128,31 +128,31 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "desc_code": clean_value(self.desc_code),
-            "bound_code": clean_value(self.bound_code),
-            "route_type": clean_value(self.route_type),
-            "level": clean_value(self.level),
-            "direct": clean_value(self.direct),
-            "cruise_id": clean_value(self.cruise_id),
-            "eu_ind": clean_value(self.eu_ind),
-            "rec_vhf": clean_value(self.rec_vhf),
-            "rec_vhf_region": clean_value(self.rec_vhf_region),
-            "rnp": clean_value(self.rnp),
-            "theta": clean_value(self.theta),
-            "rho": clean_value(self.rho),
-            "out_true": clean_value(self.out_true),
-            "out_mag_crs": clean_value(self.out_mag_crs),
-            "time": clean_value(self.time),
-            "from_dist": clean_value(self.from_dist),
-            "in_true": clean_value(self.in_true),
-            "in_mag_crs": clean_value(self.in_mag_crs),
-            "min_alt_1": clean_value(self.min_alt_1),
-            "min_fl_1": clean_value(self.min_fl_1),
-            "min_alt_2": clean_value(self.min_alt_2),
-            "min_fl_2": clean_value(self.min_fl_2),
-            "max_alt": clean_value(self.max_alt),
-            "max_fl": clean_value(self.max_fl),
-            "fix_radius": clean_value(self.fix_radius),
+            "cont_rec_no": self.cont_rec_no,
+            "desc_code": self.desc_code,
+            "bound_code": self.bound_code,
+            "route_type": self.route_type,
+            "level": self.level,
+            "direct": self.direct,
+            "cruise_id": self.cruise_id,
+            "eu_ind": self.eu_ind,
+            "rec_vhf": self.rec_vhf,
+            "rec_vhf_region": self.rec_vhf_region,
+            "rnp": self.rnp,
+            "theta": self.theta,
+            "rho": self.rho,
+            "out_true": self.out_true,
+            "out_mag_crs": self.out_mag_crs,
+            "time": self.time,
+            "from_dist": self.from_dist,
+            "in_true": self.in_true,
+            "in_mag_crs": self.in_mag_crs,
+            "min_alt_1": self.min_alt_1,
+            "min_fl_1": self.min_fl_1,
+            "min_alt_2": self.min_alt_2,
+            "min_fl_2": self.min_fl_2,
+            "max_alt": self.max_alt,
+            "max_fl": self.max_fl,
+            "fix_radius": self.fix_radius,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

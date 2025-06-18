@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -129,30 +129,30 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "channel": clean_value(self.channel),
-            "runway_id": clean_value(self.runway_id),
-            "mls_lat": clean_value(self.mls_lat),
-            "mls_lon": clean_value(self.mls_lon),
-            "true": clean_value(self.true),
-            "mls_bearing": clean_value(self.mls_bearing),
-            "el_lat": clean_value(self.el_lat),
-            "el_lon": clean_value(self.el_lon),
-            "mls_dist": clean_value(self.mls_dist),
-            "plus_minus": clean_value(self.plus_minus),
-            "el_thr_dist": clean_value(self.el_thr_dist),
-            "pro_right": clean_value(self.pro_right),
-            "pro_left": clean_value(self.pro_left),
-            "cov_right": clean_value(self.cov_right),
-            "cov_left": clean_value(self.cov_left),
-            "el_angle": clean_value(self.el_angle),
-            "mag_var": clean_value(self.mag_var),
-            "el_elevation": clean_value(self.el_elevation),
-            "nom_el_angle": clean_value(self.nom_el_angle),
-            "min_el_angle": clean_value(self.min_el_angle),
-            "support_fac": clean_value(self.support_fac),
-            "support_region": clean_value(self.support_region),
-            "support_sec_code": clean_value(self.support_sec_code),
-            "support_sub_code": clean_value(self.support_sub_code),
+            "cont_rec_no": self.cont_rec_no,
+            "channel": self.channel,
+            "runway_id": self.runway_id,
+            "mls_lat": self.mls_lat,
+            "mls_lon": self.mls_lon,
+            "true": self.true,
+            "mls_bearing": self.mls_bearing,
+            "el_lat": self.el_lat,
+            "el_lon": self.el_lon,
+            "mls_dist": self.mls_dist,
+            "plus_minus": self.plus_minus,
+            "el_thr_dist": self.el_thr_dist,
+            "pro_right": self.pro_right,
+            "pro_left": self.pro_left,
+            "cov_right": self.cov_right,
+            "cov_left": self.cov_left,
+            "el_angle": self.el_angle,
+            "mag_var": self.mag_var,
+            "el_elevation": self.el_elevation,
+            "nom_el_angle": self.nom_el_angle,
+            "min_el_angle": self.min_el_angle,
+            "support_fac": self.support_fac,
+            "support_region": self.support_region,
+            "support_sec_code": self.support_sec_code,
+            "support_sub_code": self.support_sub_code,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

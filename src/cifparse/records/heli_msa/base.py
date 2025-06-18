@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -83,23 +83,23 @@ class Base(TableBase):
 
     def get_leading_dict(self) -> dict:
         return {
-            "st": clean_value(self.st),
-            "area": clean_value(self.area),
-            "sec_code": clean_value(self.sec_code),
-            "heliport_id": clean_value(self.heliport_id),
-            "heliport_region": clean_value(self.heliport_region),
-            "sub_code": clean_value(self.sub_code),
-            "msa_center": clean_value(self.msa_center),
-            "msa_center_region": clean_value(self.msa_center_region),
-            "msa_center_sec_code": clean_value(self.msa_center_sec_code),
-            "msa_center_sub_code": clean_value(self.msa_center_sub_code),
-            "mult_code": clean_value(self.mult_code),
+            "st": self.st,
+            "area": self.area,
+            "sec_code": self.sec_code,
+            "heliport_id": self.heliport_id,
+            "heliport_region": self.heliport_region,
+            "sub_code": self.sub_code,
+            "msa_center": self.msa_center,
+            "msa_center_region": self.msa_center_region,
+            "msa_center_sec_code": self.msa_center_sec_code,
+            "msa_center_sub_code": self.msa_center_sub_code,
+            "mult_code": self.mult_code,
         }
 
     def get_trailing_dict(self) -> dict:
         return {
-            "record_number": clean_value(self.record_number),
-            "cycle_data": clean_value(self.cycle_data),
+            "record_number": self.record_number,
+            "cycle_data": self.cycle_data,
         }
 
     def to_dict(self) -> dict:

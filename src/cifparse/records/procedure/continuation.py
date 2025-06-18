@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_con
@@ -98,22 +98,22 @@ class Continuation(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "application": clean_value(self.application),
-            "dh_cat_a": clean_value(self.dh_cat_a),
-            "dh_cat_b": clean_value(self.dh_cat_b),
-            "dh_cat_c": clean_value(self.dh_cat_c),
-            "dh_cat_d": clean_value(self.dh_cat_d),
-            "mda_cat_a": clean_value(self.mda_cat_a),
-            "mda_cat_b": clean_value(self.mda_cat_b),
-            "mda_cat_c": clean_value(self.mda_cat_c),
-            "mda_cat_d": clean_value(self.mda_cat_d),
-            "tch": clean_value(self.tch),
-            "alt_desc": clean_value(self.alt_desc),
-            "loc_alt": clean_value(self.loc_alt),
-            "vert_angle": clean_value(self.vert_angle),
-            "rnp": clean_value(self.rnp),
-            "rte_qual_1": clean_value(self.rte_qual_1),
-            "rte_qual_2": clean_value(self.rte_qual_2),
+            "cont_rec_no": self.cont_rec_no,
+            "application": self.application,
+            "dh_cat_a": self.dh_cat_a,
+            "dh_cat_b": self.dh_cat_b,
+            "dh_cat_c": self.dh_cat_c,
+            "dh_cat_d": self.dh_cat_d,
+            "mda_cat_a": self.mda_cat_a,
+            "mda_cat_b": self.mda_cat_b,
+            "mda_cat_c": self.mda_cat_c,
+            "mda_cat_d": self.mda_cat_d,
+            "tch": self.tch,
+            "alt_desc": self.alt_desc,
+            "loc_alt": self.loc_alt,
+            "vert_angle": self.vert_angle,
+            "rnp": self.rnp,
+            "rte_qual_1": self.rte_qual_1,
+            "rte_qual_2": self.rte_qual_2,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

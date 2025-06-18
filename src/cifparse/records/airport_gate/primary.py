@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -46,9 +46,9 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "lat": clean_value(self.lat),
-            "lon": clean_value(self.lon),
-            "gate_name": clean_value(self.gate_name),
+            "cont_rec_no": self.cont_rec_no,
+            "lat": self.lat,
+            "lon": self.lon,
+            "gate_name": self.gate_name,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

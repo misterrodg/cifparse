@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -122,28 +122,28 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "bearing_1": clean_value(self.bearing_1),
-            "min_alt_1": clean_value(self.min_alt_1),
-            "radius_1": clean_value(self.radius_1),
-            "bearing_2": clean_value(self.bearing_2),
-            "min_alt_2": clean_value(self.min_alt_2),
-            "radius_2": clean_value(self.radius_2),
-            "bearing_3": clean_value(self.bearing_3),
-            "min_alt_3": clean_value(self.min_alt_3),
-            "radius_3": clean_value(self.radius_3),
-            "bearing_4": clean_value(self.bearing_4),
-            "min_alt_4": clean_value(self.min_alt_4),
-            "radius_4": clean_value(self.radius_4),
-            "bearing_5": clean_value(self.bearing_5),
-            "min_alt_5": clean_value(self.min_alt_5),
-            "radius_5": clean_value(self.radius_5),
-            "bearing_6": clean_value(self.bearing_6),
-            "min_alt_6": clean_value(self.min_alt_6),
-            "radius_6": clean_value(self.radius_6),
-            "bearing_7": clean_value(self.bearing_7),
-            "min_alt_7": clean_value(self.min_alt_7),
-            "radius_7": clean_value(self.radius_7),
-            "mag_true": clean_value(self.mag_true),
+            "cont_rec_no": self.cont_rec_no,
+            "bearing_1": self.bearing_1,
+            "min_alt_1": self.min_alt_1,
+            "radius_1": self.radius_1,
+            "bearing_2": self.bearing_2,
+            "min_alt_2": self.min_alt_2,
+            "radius_2": self.radius_2,
+            "bearing_3": self.bearing_3,
+            "min_alt_3": self.min_alt_3,
+            "radius_3": self.radius_3,
+            "bearing_4": self.bearing_4,
+            "min_alt_4": self.min_alt_4,
+            "radius_4": self.radius_4,
+            "bearing_5": self.bearing_5,
+            "min_alt_5": self.min_alt_5,
+            "radius_5": self.radius_5,
+            "bearing_6": self.bearing_6,
+            "min_alt_6": self.min_alt_6,
+            "radius_6": self.radius_6,
+            "bearing_7": self.bearing_7,
+            "min_alt_7": self.min_alt_7,
+            "radius_7": self.radius_7,
+            "mag_true": self.mag_true,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -89,20 +89,20 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "course_from": clean_value(self.course_from),
-            "course_to": clean_value(self.course_to),
-            "mt_ind": clean_value(self.mt_ind),
-            "level_from_1": clean_value(self.level_from_1),
-            "vert_sep_1": clean_value(self.vert_sep_1),
-            "level_to_1": clean_value(self.level_to_1),
-            "level_from_2": clean_value(self.level_from_2),
-            "vert_sep_2": clean_value(self.vert_sep_2),
-            "level_to_2": clean_value(self.level_to_2),
-            "level_from_3": clean_value(self.level_from_3),
-            "vert_sep_3": clean_value(self.vert_sep_3),
-            "level_to_3": clean_value(self.level_to_3),
-            "level_from_4": clean_value(self.level_from_4),
-            "vert_sep_4": clean_value(self.vert_sep_4),
-            "level_to_4": clean_value(self.level_to_4),
+            "course_from": self.course_from,
+            "course_to": self.course_to,
+            "mt_ind": self.mt_ind,
+            "level_from_1": self.level_from_1,
+            "vert_sep_1": self.vert_sep_1,
+            "level_to_1": self.level_to_1,
+            "level_from_2": self.level_from_2,
+            "vert_sep_2": self.vert_sep_2,
+            "level_to_2": self.level_to_2,
+            "level_from_3": self.level_from_3,
+            "vert_sep_3": self.vert_sep_3,
+            "level_to_3": self.level_to_3,
+            "level_from_4": self.level_from_4,
+            "vert_sep_4": self.vert_sep_4,
+            "level_to_4": self.level_to_4,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

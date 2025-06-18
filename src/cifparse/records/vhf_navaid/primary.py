@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -90,20 +90,20 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "frequency": clean_value(self.frequency),
-            "nav_class": clean_value(self.nav_class),
-            "lat": clean_value(self.lat),
-            "lon": clean_value(self.lon),
-            "dme_id": clean_value(self.dme_id),
-            "dme_lat": clean_value(self.dme_lat),
-            "dme_lon": clean_value(self.dme_lon),
-            "mag_var": clean_value(self.mag_var),
-            "dme_elevation": clean_value(self.dme_elevation),
-            "figure_of_merit": clean_value(self.figure_of_merit),
-            "dme_bias": clean_value(self.dme_bias),
-            "frequency_protection": clean_value(self.frequency_protection),
-            "datum_code": clean_value(self.datum_code),
-            "vhf_name": clean_value(self.vhf_name),
+            "cont_rec_no": self.cont_rec_no,
+            "frequency": self.frequency,
+            "nav_class": self.nav_class,
+            "lat": self.lat,
+            "lon": self.lon,
+            "dme_id": self.dme_id,
+            "dme_lat": self.dme_lat,
+            "dme_lon": self.dme_lon,
+            "mag_var": self.mag_var,
+            "dme_elevation": self.dme_elevation,
+            "figure_of_merit": self.figure_of_merit,
+            "dme_bias": self.dme_bias,
+            "frequency_protection": self.frequency_protection,
+            "datum_code": self.datum_code,
+            "vhf_name": self.vhf_name,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

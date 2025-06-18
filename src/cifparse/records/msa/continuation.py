@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_con
@@ -42,8 +42,8 @@ class Continuation(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "application": clean_value(self.application),
-            "notes": clean_value(self.notes),
+            "cont_rec_no": self.cont_rec_no,
+            "application": self.application,
+            "notes": self.notes,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

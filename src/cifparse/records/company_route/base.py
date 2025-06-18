@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -95,26 +95,26 @@ class Base(TableBase):
 
     def get_leading_dict(self) -> dict:
         return {
-            "st": clean_value(self.st),
-            "area": clean_value(self.area),
-            "sec_code": clean_value(self.sec_code),
-            "sub_code": clean_value(self.sub_code),
-            "from_1": clean_value(self.from_1),
-            "from_region_1": clean_value(self.from_region_1),
-            "from_sec_code_1": clean_value(self.from_sec_code_1),
-            "from_sub_code_1": clean_value(self.from_sub_code_1),
-            "from_2": clean_value(self.from_2),
-            "from_region_2": clean_value(self.from_region_2),
-            "from_sec_code_2": clean_value(self.from_sec_code_2),
-            "from_sub_code_2": clean_value(self.from_sub_code_2),
-            "company_route_id": clean_value(self.company_route_id),
-            "seq_no": clean_value(self.seq_no),
+            "st": self.st,
+            "area": self.area,
+            "sec_code": self.sec_code,
+            "sub_code": self.sub_code,
+            "from_1": self.from_1,
+            "from_region_1": self.from_region_1,
+            "from_sec_code_1": self.from_sec_code_1,
+            "from_sub_code_1": self.from_sub_code_1,
+            "from_2": self.from_2,
+            "from_region_2": self.from_region_2,
+            "from_sec_code_2": self.from_sec_code_2,
+            "from_sub_code_2": self.from_sub_code_2,
+            "company_route_id": self.company_route_id,
+            "seq_no": self.seq_no,
         }
 
     def get_trailing_dict(self) -> dict:
         return {
-            "record_number": clean_value(self.record_number),
-            "cycle_data": clean_value(self.cycle_data),
+            "record_number": self.record_number,
+            "cycle_data": self.cycle_data,
         }
 
     def to_dict(self) -> dict:

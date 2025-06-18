@@ -1,4 +1,3 @@
-from cifparse.functions.field import clean_value
 from cifparse.records.table_base import TableBase
 
 
@@ -21,7 +20,7 @@ class Primary(TableBase):
 
     def to_dict(self) -> dict:
         return {
-            "cycle_id": clean_value(self.cycle_id),
-            "valid_from": clean_value(self.valid_from),
-            "valid_to": clean_value(self.valid_to),
+            "cycle_id": self.cycle_id,
+            "valid_from": self.valid_from,
+            "valid_to": self.valid_to,
         }

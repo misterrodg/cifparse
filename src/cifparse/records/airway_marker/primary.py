@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -74,16 +74,16 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "marker_code": clean_value(self.marker_code),
-            "shape": clean_value(self.shape),
-            "environment_id": clean_value(self.environment_id),
-            "lat": clean_value(self.lat),
-            "lon": clean_value(self.lon),
-            "true_bearing": clean_value(self.true_bearing),
-            "mag_var": clean_value(self.mag_var),
-            "fac_elev": clean_value(self.fac_elev),
-            "datum_code": clean_value(self.datum_code),
-            "marker_name": clean_value(self.marker_name),
+            "cont_rec_no": self.cont_rec_no,
+            "marker_code": self.marker_code,
+            "shape": self.shape,
+            "environment_id": self.environment_id,
+            "lat": self.lat,
+            "lon": self.lon,
+            "true_bearing": self.true_bearing,
+            "mag_var": self.mag_var,
+            "fac_elev": self.fac_elev,
+            "datum_code": self.datum_code,
+            "marker_name": self.marker_name,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

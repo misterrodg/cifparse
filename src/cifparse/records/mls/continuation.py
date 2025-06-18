@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_con
@@ -109,25 +109,25 @@ class Continuation(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "application": clean_value(self.application),
-            "fac_char": clean_value(self.fac_char),
-            "baz_lat": clean_value(self.baz_lat),
-            "baz_lon": clean_value(self.baz_lon),
-            "true": clean_value(self.true),
-            "baz_mag_bearing": clean_value(self.baz_mag_bearing),
-            "dp_lat": clean_value(self.dp_lat),
-            "dp_lon": clean_value(self.dp_lon),
-            "baz_dist": clean_value(self.baz_dist),
-            "plus_minus": clean_value(self.plus_minus),
-            "pro_right": clean_value(self.pro_right),
-            "pro_left": clean_value(self.pro_left),
-            "cov_right": clean_value(self.cov_right),
-            "cov_left": clean_value(self.cov_left),
-            "baz_true_bearing": clean_value(self.baz_true_bearing),
-            "baz_source": clean_value(self.baz_source),
-            "az_true_bearing": clean_value(self.az_true_bearing),
-            "az_source": clean_value(self.az_source),
-            "tch": clean_value(self.tch),
+            "cont_rec_no": self.cont_rec_no,
+            "application": self.application,
+            "fac_char": self.fac_char,
+            "baz_lat": self.baz_lat,
+            "baz_lon": self.baz_lon,
+            "true": self.true,
+            "baz_mag_bearing": self.baz_mag_bearing,
+            "dp_lat": self.dp_lat,
+            "dp_lon": self.dp_lon,
+            "baz_dist": self.baz_dist,
+            "plus_minus": self.plus_minus,
+            "pro_right": self.pro_right,
+            "pro_left": self.pro_left,
+            "cov_right": self.cov_right,
+            "cov_left": self.cov_left,
+            "baz_true_bearing": self.baz_true_bearing,
+            "baz_source": self.baz_source,
+            "az_true_bearing": self.az_true_bearing,
+            "az_source": self.az_source,
+            "tch": self.tch,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

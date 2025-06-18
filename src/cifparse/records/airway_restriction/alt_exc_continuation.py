@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_aec
@@ -126,29 +126,29 @@ class AltExcContinuation(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "application": clean_value(self.application),
-            "time_zone": clean_value(self.time_zone),
-            "daylight_ind": clean_value(self.daylight_ind),
-            "op_time_1": clean_value(self.op_time_1),
-            "op_time_2": clean_value(self.op_time_2),
-            "op_time_3": clean_value(self.op_time_3),
-            "op_time_4": clean_value(self.op_time_4),
-            "exc_ind": clean_value(self.exc_ind),
-            "alt_desc": clean_value(self.alt_desc),
-            "rest_alt_1": clean_value(self.rest_alt_1),
-            "blk_id_1": clean_value(self.blk_id_1),
-            "rest_alt_2": clean_value(self.rest_alt_2),
-            "blk_id_2": clean_value(self.blk_id_2),
-            "rest_alt_3": clean_value(self.rest_alt_3),
-            "blk_id_3": clean_value(self.blk_id_3),
-            "rest_alt_4": clean_value(self.rest_alt_4),
-            "blk_id_4": clean_value(self.blk_id_4),
-            "rest_alt_5": clean_value(self.rest_alt_5),
-            "blk_id_5": clean_value(self.blk_id_5),
-            "rest_alt_6": clean_value(self.rest_alt_6),
-            "blk_id_6": clean_value(self.blk_id_6),
-            "rest_alt_7": clean_value(self.rest_alt_7),
-            "blk_id_7": clean_value(self.blk_id_7),
+            "cont_rec_no": self.cont_rec_no,
+            "application": self.application,
+            "time_zone": self.time_zone,
+            "daylight_ind": self.daylight_ind,
+            "op_time_1": self.op_time_1,
+            "op_time_2": self.op_time_2,
+            "op_time_3": self.op_time_3,
+            "op_time_4": self.op_time_4,
+            "exc_ind": self.exc_ind,
+            "alt_desc": self.alt_desc,
+            "rest_alt_1": self.rest_alt_1,
+            "blk_id_1": self.blk_id_1,
+            "rest_alt_2": self.rest_alt_2,
+            "blk_id_2": self.blk_id_2,
+            "rest_alt_3": self.rest_alt_3,
+            "blk_id_3": self.blk_id_3,
+            "rest_alt_4": self.rest_alt_4,
+            "blk_id_4": self.blk_id_4,
+            "rest_alt_5": self.rest_alt_5,
+            "blk_id_5": self.blk_id_5,
+            "rest_alt_6": self.rest_alt_6,
+            "blk_id_6": self.blk_id_6,
+            "rest_alt_7": self.rest_alt_7,
+            "blk_id_7": self.blk_id_7,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

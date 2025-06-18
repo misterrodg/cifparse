@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -71,20 +71,20 @@ class Base(TableBase):
 
     def get_leading_dict(self) -> dict:
         return {
-            "st": clean_value(self.st),
-            "area": clean_value(self.area),
-            "sec_code": clean_value(self.sec_code),
-            "facility_id": clean_value(self.facility_id),
-            "facility_region": clean_value(self.facility_region),
-            "sub_code": clean_value(self.sub_code),
-            "loc_id": clean_value(self.loc_id),
-            "marker_type": clean_value(self.marker_type),
+            "st": self.st,
+            "area": self.area,
+            "sec_code": self.sec_code,
+            "facility_id": self.facility_id,
+            "facility_region": self.facility_region,
+            "sub_code": self.sub_code,
+            "loc_id": self.loc_id,
+            "marker_type": self.marker_type,
         }
 
     def get_trailing_dict(self) -> dict:
         return {
-            "record_number": clean_value(self.record_number),
-            "cycle_data": clean_value(self.cycle_data),
+            "record_number": self.record_number,
+            "cycle_data": self.cycle_data,
         }
 
     def to_dict(self) -> dict:

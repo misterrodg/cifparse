@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -83,19 +83,19 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "true": clean_value(self.true),
-            "in_course": clean_value(self.in_course),
-            "turn_dir": clean_value(self.turn_dir),
-            "leg_length": clean_value(self.leg_length),
-            "leg_time": clean_value(self.leg_time),
-            "min_alt": clean_value(self.min_alt),
-            "min_fl": clean_value(self.min_fl),
-            "max_alt": clean_value(self.max_alt),
-            "max_fl": clean_value(self.max_fl),
-            "hold_speed": clean_value(self.hold_speed),
-            "rnp": clean_value(self.rnp),
-            "arc_radius": clean_value(self.arc_radius),
-            "hold_name": clean_value(self.hold_name),
+            "cont_rec_no": self.cont_rec_no,
+            "true": self.true,
+            "in_course": self.in_course,
+            "turn_dir": self.turn_dir,
+            "leg_length": self.leg_length,
+            "leg_time": self.leg_time,
+            "min_alt": self.min_alt,
+            "min_fl": self.min_fl,
+            "max_alt": self.max_alt,
+            "max_fl": self.max_fl,
+            "hold_speed": self.hold_speed,
+            "rnp": self.rnp,
+            "arc_radius": self.arc_radius,
+            "hold_name": self.hold_name,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

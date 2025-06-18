@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -113,26 +113,26 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "frequency": clean_value(self.frequency),
-            "runway_id": clean_value(self.runway_id),
-            "loc_lat": clean_value(self.loc_lat),
-            "loc_lon": clean_value(self.loc_lon),
-            "true": clean_value(self.true),
-            "loc_bearing": clean_value(self.loc_bearing),
-            "gs_lat": clean_value(self.gs_lat),
-            "gs_lon": clean_value(self.gs_lon),
-            "loc_dist": clean_value(self.loc_dist),
-            "plus_minus": clean_value(self.plus_minus),
-            "gs_thr_dist": clean_value(self.gs_thr_dist),
-            "loc_width": clean_value(self.loc_width),
-            "gs_angle": clean_value(self.gs_angle),
-            "mag_var": clean_value(self.mag_var),
-            "tch": clean_value(self.tch),
-            "gs_elevation": clean_value(self.gs_elevation),
-            "support_fac": clean_value(self.support_fac),
-            "support_region": clean_value(self.support_region),
-            "support_sec_code": clean_value(self.support_sec_code),
-            "support_sub_code": clean_value(self.support_sub_code),
+            "cont_rec_no": self.cont_rec_no,
+            "frequency": self.frequency,
+            "runway_id": self.runway_id,
+            "loc_lat": self.loc_lat,
+            "loc_lon": self.loc_lon,
+            "true": self.true,
+            "loc_bearing": self.loc_bearing,
+            "gs_lat": self.gs_lat,
+            "gs_lon": self.gs_lon,
+            "loc_dist": self.loc_dist,
+            "plus_minus": self.plus_minus,
+            "gs_thr_dist": self.gs_thr_dist,
+            "loc_width": self.loc_width,
+            "gs_angle": self.gs_angle,
+            "mag_var": self.mag_var,
+            "tch": self.tch,
+            "gs_elevation": self.gs_elevation,
+            "support_fac": self.support_fac,
+            "support_region": self.support_region,
+            "support_sec_code": self.support_sec_code,
+            "support_sub_code": self.support_sub_code,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

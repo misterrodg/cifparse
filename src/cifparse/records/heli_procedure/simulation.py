@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_sim
@@ -70,15 +70,15 @@ class Simulation(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "application": clean_value(self.application),
-            "fas_block": clean_value(self.fas_block),
-            "fas_service": clean_value(self.fas_service),
-            "l_vnav_block": clean_value(self.l_vnav_block),
-            "l_vnav_service": clean_value(self.l_vnav_service),
-            "lnav_block": clean_value(self.lnav_block),
-            "lnav_service": clean_value(self.lnav_service),
-            "app_rte_type_1": clean_value(self.app_rte_type_1),
-            "app_rte_type_2": clean_value(self.app_rte_type_2),
+            "cont_rec_no": self.cont_rec_no,
+            "application": self.application,
+            "fas_block": self.fas_block,
+            "fas_service": self.fas_service,
+            "l_vnav_block": self.l_vnav_block,
+            "l_vnav_service": self.l_vnav_service,
+            "lnav_block": self.lnav_block,
+            "lnav_service": self.lnav_service,
+            "app_rte_type_1": self.app_rte_type_1,
+            "app_rte_type_2": self.app_rte_type_2,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -87,24 +87,24 @@ class Base(TableBase):
 
     def get_leading_dict(self) -> dict:
         return {
-            "st": clean_value(self.st),
-            "area": clean_value(self.area),
-            "sec_code": clean_value(self.sec_code),
-            "sub_code": clean_value(self.sub_code),
-            "fir_rdo_id": clean_value(self.fir_rdo_id),
-            "fir_uir_addr": clean_value(self.fir_uir_addr),
-            "fir_uir_ind": clean_value(self.fir_uir_ind),
-            "remote_site_name": clean_value(self.remote_site_name),
-            "comm_type": clean_value(self.comm_type),
-            "comm_freq": clean_value(self.comm_freq),
-            "gt": clean_value(self.gt),
-            "freq_unit": clean_value(self.freq_unit),
+            "st": self.st,
+            "area": self.area,
+            "sec_code": self.sec_code,
+            "sub_code": self.sub_code,
+            "fir_rdo_id": self.fir_rdo_id,
+            "fir_uir_addr": self.fir_uir_addr,
+            "fir_uir_ind": self.fir_uir_ind,
+            "remote_site_name": self.remote_site_name,
+            "comm_type": self.comm_type,
+            "comm_freq": self.comm_freq,
+            "gt": self.gt,
+            "freq_unit": self.freq_unit,
         }
 
     def get_trailing_dict(self) -> dict:
         return {
-            "record_number": clean_value(self.record_number),
-            "cycle_data": clean_value(self.cycle_data),
+            "record_number": self.record_number,
+            "cycle_data": self.cycle_data,
         }
 
     def to_dict(self) -> dict:

@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -82,18 +82,18 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "pref_route_id_1": clean_value(self.pref_route_id_1),
-            "et_ind_1": clean_value(self.et_ind_1),
-            "pref_route_id_2": clean_value(self.pref_route_id_2),
-            "et_ind_2": clean_value(self.et_ind_2),
-            "pref_route_id_3": clean_value(self.pref_route_id_3),
-            "et_ind_3": clean_value(self.et_ind_3),
-            "pref_route_id_4": clean_value(self.pref_route_id_4),
-            "et_ind_4": clean_value(self.et_ind_4),
-            "pref_route_id_5": clean_value(self.pref_route_id_5),
-            "et_ind_5": clean_value(self.et_ind_5),
-            "pref_route_id_6": clean_value(self.pref_route_id_6),
-            "et_ind_6": clean_value(self.et_ind_6),
+            "cont_rec_no": self.cont_rec_no,
+            "pref_route_id_1": self.pref_route_id_1,
+            "et_ind_1": self.et_ind_1,
+            "pref_route_id_2": self.pref_route_id_2,
+            "et_ind_2": self.et_ind_2,
+            "pref_route_id_3": self.pref_route_id_3,
+            "et_ind_3": self.et_ind_3,
+            "pref_route_id_4": self.pref_route_id_4,
+            "et_ind_4": self.et_ind_4,
+            "pref_route_id_5": self.pref_route_id_5,
+            "et_ind_5": self.et_ind_5,
+            "pref_route_id_6": self.pref_route_id_6,
+            "et_ind_6": self.et_ind_6,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -106,24 +106,24 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "route_ind": clean_value(self.route_ind),
-            "sbas_spi": clean_value(self.sbas_spi),
-            "ref_path_data_sel": clean_value(self.ref_path_data_sel),
-            "ref_path_data_id": clean_value(self.ref_path_data_id),
-            "app_pd": clean_value(self.app_pd),
-            "ltp_lat": clean_value(self.ltp_lat),
-            "ltp_lon": clean_value(self.ltp_lon),
-            "ltp_ellipsoid_height": clean_value(self.ltp_ellipsoid_height),
-            "gpa": clean_value(self.gpa),
-            "fpap_lat": clean_value(self.fpap_lat),
-            "fpap_lon": clean_value(self.fpap_lon),
-            "course_width": clean_value(self.course_width),
-            "length_offset": clean_value(self.length_offset),
-            "path_point_tch": clean_value(self.path_point_tch),
-            "tch_ind": clean_value(self.tch_ind),
-            "hal": clean_value(self.hal),
-            "val": clean_value(self.val),
-            "crc": clean_value(self.crc),
+            "cont_rec_no": self.cont_rec_no,
+            "route_ind": self.route_ind,
+            "sbas_spi": self.sbas_spi,
+            "ref_path_data_sel": self.ref_path_data_sel,
+            "ref_path_data_id": self.ref_path_data_id,
+            "app_pd": self.app_pd,
+            "ltp_lat": self.ltp_lat,
+            "ltp_lon": self.ltp_lon,
+            "ltp_ellipsoid_height": self.ltp_ellipsoid_height,
+            "gpa": self.gpa,
+            "fpap_lat": self.fpap_lat,
+            "fpap_lon": self.fpap_lon,
+            "course_width": self.course_width,
+            "length_offset": self.length_offset,
+            "path_point_tch": self.path_point_tch,
+            "tch_ind": self.tch_ind,
+            "hal": self.hal,
+            "val": self.val,
+            "crc": self.crc,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -104,24 +104,24 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "serv_ind": clean_value(self.serv_ind),
-            "radar": clean_value(self.radar),
-            "modulation": clean_value(self.modulation),
-            "sig_em": clean_value(self.sig_em),
-            "lat": clean_value(self.lat),
-            "lon": clean_value(self.lon),
-            "mag_var": clean_value(self.mag_var),
-            "fac_elev": clean_value(self.fac_elev),
-            "h24_ind": clean_value(self.h24_ind),
-            "alt_desc": clean_value(self.alt_desc),
-            "alt_1": clean_value(self.alt_1),
-            "fl_1": clean_value(self.fl_1),
-            "alt_2": clean_value(self.alt_2),
-            "fl_2": clean_value(self.fl_2),
-            "remote_fac": clean_value(self.remote_fac),
-            "remote_region": clean_value(self.remote_region),
-            "remote_sec_code": clean_value(self.remote_sec_code),
-            "remote_sub_code": clean_value(self.remote_sub_code),
+            "cont_rec_no": self.cont_rec_no,
+            "serv_ind": self.serv_ind,
+            "radar": self.radar,
+            "modulation": self.modulation,
+            "sig_em": self.sig_em,
+            "lat": self.lat,
+            "lon": self.lon,
+            "mag_var": self.mag_var,
+            "fac_elev": self.fac_elev,
+            "h24_ind": self.h24_ind,
+            "alt_desc": self.alt_desc,
+            "alt_1": self.alt_1,
+            "fl_1": self.fl_1,
+            "alt_2": self.alt_2,
+            "fl_2": self.fl_2,
+            "remote_fac": self.remote_fac,
+            "remote_region": self.remote_region,
+            "remote_sec_code": self.remote_sec_code,
+            "remote_sub_code": self.remote_sub_code,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

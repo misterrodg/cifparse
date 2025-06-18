@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_tim
@@ -78,17 +78,17 @@ class Time(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "application": clean_value(self.application),
-            "time_zone": clean_value(self.time_zone),
-            "notam": clean_value(self.notam),
-            "daylight_ind": clean_value(self.daylight_ind),
-            "op_time_1": clean_value(self.op_time_1),
-            "op_time_2": clean_value(self.op_time_2),
-            "op_time_3": clean_value(self.op_time_3),
-            "op_time_4": clean_value(self.op_time_4),
-            "op_time_5": clean_value(self.op_time_5),
-            "op_time_6": clean_value(self.op_time_6),
-            "op_time_7": clean_value(self.op_time_7),
+            "cont_rec_no": self.cont_rec_no,
+            "application": self.application,
+            "time_zone": self.time_zone,
+            "notam": self.notam,
+            "daylight_ind": self.daylight_ind,
+            "op_time_1": self.op_time_1,
+            "op_time_2": self.op_time_2,
+            "op_time_3": self.op_time_3,
+            "op_time_4": self.op_time_4,
+            "op_time_5": self.op_time_5,
+            "op_time_6": self.op_time_6,
+            "op_time_7": self.op_time_7,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

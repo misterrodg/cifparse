@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_sim
@@ -54,11 +54,11 @@ class Simulation(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "application": clean_value(self.application),
-            "true_bearing": clean_value(self.true_bearing),
-            "source": clean_value(self.source),
-            "location": clean_value(self.location),
-            "tdz_elev": clean_value(self.tdz_elev),
+            "cont_rec_no": self.cont_rec_no,
+            "application": self.application,
+            "true_bearing": self.true_bearing,
+            "source": self.source,
+            "location": self.location,
+            "tdz_elev": self.tdz_elev,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

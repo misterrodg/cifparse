@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -91,25 +91,25 @@ class Base(TableBase):
 
     def get_leading_dict(self) -> dict:
         return {
-            "st": clean_value(self.st),
-            "area": clean_value(self.area),
-            "sec_code": clean_value(self.sec_code),
-            "airport_id": clean_value(self.airport_id),
-            "airport_region": clean_value(self.airport_region),
-            "sub_code": clean_value(self.sub_code),
-            "iap_id": clean_value(self.iap_id),
-            "taa_si": clean_value(self.taa_si),
-            "procedure_turn": clean_value(self.procedure_turn),
-            "iaf_point_id": clean_value(self.iaf_point_id),
-            "iaf_point_region": clean_value(self.iaf_point_region),
-            "iaf_point_sec_code": clean_value(self.iaf_point_sec_code),
-            "iaf_point_sub_code": clean_value(self.iaf_point_sub_code),
+            "st": self.st,
+            "area": self.area,
+            "sec_code": self.sec_code,
+            "airport_id": self.airport_id,
+            "airport_region": self.airport_region,
+            "sub_code": self.sub_code,
+            "iap_id": self.iap_id,
+            "taa_si": self.taa_si,
+            "procedure_turn": self.procedure_turn,
+            "iaf_point_id": self.iaf_point_id,
+            "iaf_point_region": self.iaf_point_region,
+            "iaf_point_sec_code": self.iaf_point_sec_code,
+            "iaf_point_sub_code": self.iaf_point_sub_code,
         }
 
     def get_trailing_dict(self) -> dict:
         return {
-            "record_number": clean_value(self.record_number),
-            "cycle_data": clean_value(self.cycle_data),
+            "record_number": self.record_number,
+            "cycle_data": self.cycle_data,
         }
 
     def to_dict(self) -> dict:

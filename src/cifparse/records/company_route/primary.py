@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -90,20 +90,20 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "via": clean_value(self.via),
-            "path_id": clean_value(self.path_id),
-            "path_area": clean_value(self.path_area),
-            "to_1": clean_value(self.to_1),
-            "to_region_1": clean_value(self.to_region_1),
-            "to_sec_code_1": clean_value(self.to_sec_code_1),
-            "to_sub_code_1": clean_value(self.to_sub_code_1),
-            "runway_transition": clean_value(self.runway_transition),
-            "enroute_transition": clean_value(self.enroute_transition),
-            "cruise_altitude": clean_value(self.cruise_altitude),
-            "term_alt_ref": clean_value(self.term_alt_ref),
-            "term_alt_region": clean_value(self.term_alt_region),
-            "alt_dist": clean_value(self.alt_dist),
-            "cost_index": clean_value(self.cost_index),
-            "enrt_alt_ref": clean_value(self.enrt_alt_ref),
+            "via": self.via,
+            "path_id": self.path_id,
+            "path_area": self.path_area,
+            "to_1": self.to_1,
+            "to_region_1": self.to_region_1,
+            "to_sec_code_1": self.to_sec_code_1,
+            "to_sub_code_1": self.to_sub_code_1,
+            "runway_transition": self.runway_transition,
+            "enroute_transition": self.enroute_transition,
+            "cruise_altitude": self.cruise_altitude,
+            "term_alt_ref": self.term_alt_ref,
+            "term_alt_region": self.term_alt_region,
+            "alt_dist": self.alt_dist,
+            "cost_index": self.cost_index,
+            "enrt_alt_ref": self.enrt_alt_ref,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

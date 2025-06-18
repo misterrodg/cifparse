@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -105,24 +105,24 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "length": clean_value(self.length),
-            "bearing": clean_value(self.bearing),
-            "true": clean_value(self.true),
-            "lat": clean_value(self.lat),
-            "lon": clean_value(self.lon),
-            "gradient": clean_value(self.gradient),
-            "ellipsoidal_height": clean_value(self.ellipsoidal_height),
-            "threshold_elevation": clean_value(self.threshold_elevation),
-            "displaced_threshold": clean_value(self.displaced_threshold),
-            "tch": clean_value(self.tch),
-            "width": clean_value(self.width),
-            "tch_id": clean_value(self.tch_id),
-            "ls_ident_1": clean_value(self.ls_ident_1),
-            "cat_1": clean_value(self.cat_1),
-            "stopway": clean_value(self.stopway),
-            "ls_ident_2": clean_value(self.ls_ident_2),
-            "cat_2": clean_value(self.cat_2),
-            "description": clean_value(self.description),
+            "cont_rec_no": self.cont_rec_no,
+            "length": self.length,
+            "bearing": self.bearing,
+            "true": self.true,
+            "lat": self.lat,
+            "lon": self.lon,
+            "gradient": self.gradient,
+            "ellipsoidal_height": self.ellipsoidal_height,
+            "threshold_elevation": self.threshold_elevation,
+            "displaced_threshold": self.displaced_threshold,
+            "tch": self.tch,
+            "width": self.width,
+            "tch_id": self.tch_id,
+            "ls_ident_1": self.ls_ident_1,
+            "cat_1": self.cat_1,
+            "stopway": self.stopway,
+            "ls_ident_2": self.ls_ident_2,
+            "cat_2": self.cat_2,
+            "description": self.description,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -102,23 +102,23 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "dta_1": clean_value(self.dta_1),
-            "alt_type_1": clean_value(self.alt_type_1),
-            "alt_id_1": clean_value(self.alt_id_1),
-            "dta_2": clean_value(self.dta_2),
-            "alt_type_2": clean_value(self.alt_type_2),
-            "alt_id_2": clean_value(self.alt_id_2),
-            "dta_3": clean_value(self.dta_3),
-            "alt_type_3": clean_value(self.alt_type_3),
-            "alt_id_3": clean_value(self.alt_id_3),
-            "dta_4": clean_value(self.dta_4),
-            "alt_type_4": clean_value(self.alt_type_4),
-            "alt_id_4": clean_value(self.alt_id_4),
-            "dta_5": clean_value(self.dta_5),
-            "alt_type_5": clean_value(self.alt_type_5),
-            "alt_id_5": clean_value(self.alt_id_5),
-            "dta_6": clean_value(self.dta_6),
-            "alt_type_6": clean_value(self.alt_type_6),
-            "alt_id_6": clean_value(self.alt_id_6),
+            "dta_1": self.dta_1,
+            "alt_type_1": self.alt_type_1,
+            "alt_id_1": self.alt_id_1,
+            "dta_2": self.dta_2,
+            "alt_type_2": self.alt_type_2,
+            "alt_id_2": self.alt_id_2,
+            "dta_3": self.dta_3,
+            "alt_type_3": self.alt_type_3,
+            "alt_id_3": self.alt_id_3,
+            "dta_4": self.dta_4,
+            "alt_type_4": self.alt_type_4,
+            "alt_id_4": self.alt_id_4,
+            "dta_5": self.dta_5,
+            "alt_type_5": self.alt_type_5,
+            "alt_id_5": self.alt_id_5,
+            "dta_6": self.dta_6,
+            "alt_type_6": self.alt_type_6,
+            "alt_id_6": self.alt_id_6,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

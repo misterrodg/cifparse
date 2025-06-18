@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_not
@@ -78,17 +78,17 @@ class NotePrimary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "start_point_id": clean_value(self.start_point_id),
-            "start_point_region": clean_value(self.start_point_region),
-            "start_point_sec_code": clean_value(self.start_point_sec_code),
-            "start_point_sub_code": clean_value(self.start_point_sub_code),
-            "end_point_id": clean_value(self.end_point_id),
-            "end_point_region": clean_value(self.end_point_region),
-            "end_point_sec_code": clean_value(self.end_point_sec_code),
-            "end_point_sub_code": clean_value(self.end_point_sub_code),
-            "start_date": clean_value(self.start_date),
-            "end_date": clean_value(self.end_date),
-            "notes": clean_value(self.notes),
+            "cont_rec_no": self.cont_rec_no,
+            "start_point_id": self.start_point_id,
+            "start_point_region": self.start_point_region,
+            "start_point_sec_code": self.start_point_sec_code,
+            "start_point_sub_code": self.start_point_sub_code,
+            "end_point_id": self.end_point_id,
+            "end_point_region": self.end_point_region,
+            "end_point_sec_code": self.end_point_sec_code,
+            "end_point_sub_code": self.end_point_sub_code,
+            "start_date": self.start_date,
+            "end_date": self.end_date,
+            "notes": self.notes,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

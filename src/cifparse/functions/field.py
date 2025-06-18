@@ -1,9 +1,3 @@
-def clean_value(value: any) -> any:
-    if isinstance(value, str) and value == "":
-        return None
-    return value
-
-
 def extract_field(
     line: str, field_definition: tuple[int, int, callable], type: str = None
 ) -> any:

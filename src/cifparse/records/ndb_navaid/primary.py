@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -61,13 +61,13 @@ class Primary(Base):
     def to_dict(self) -> dict:
         base_dict = super().to_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "frequency": clean_value(self.frequency),
-            "nav_class": clean_value(self.nav_class),
-            "lat": clean_value(self.lat),
-            "lon": clean_value(self.lon),
-            "mag_var": clean_value(self.mag_var),
-            "datum_code": clean_value(self.datum_code),
-            "ndb_name": clean_value(self.ndb_name),
+            "cont_rec_no": self.cont_rec_no,
+            "frequency": self.frequency,
+            "nav_class": self.nav_class,
+            "lat": self.lat,
+            "lon": self.lon,
+            "mag_var": self.mag_var,
+            "datum_code": self.datum_code,
+            "ndb_name": self.ndb_name,
         }
         return {**base_dict, **this_dict}

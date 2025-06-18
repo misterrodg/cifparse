@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -95,21 +95,21 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "gls_channel": clean_value(self.gls_channel),
-            "runway_id": clean_value(self.runway_id),
-            "true": clean_value(self.true),
-            "gls_bearing": clean_value(self.gls_bearing),
-            "station_lat": clean_value(self.station_lat),
-            "station_lon": clean_value(self.station_lon),
-            "gls_id": clean_value(self.gls_id),
-            "svc_vol": clean_value(self.svc_vol),
-            "tdma_slots": clean_value(self.tdma_slots),
-            "min_elev_angle": clean_value(self.min_elev_angle),
-            "mag_var": clean_value(self.mag_var),
-            "station_elev": clean_value(self.station_elev),
-            "datum_code": clean_value(self.datum_code),
-            "station_type": clean_value(self.station_type),
-            "wgs84_elev": clean_value(self.wgs84_elev),
+            "cont_rec_no": self.cont_rec_no,
+            "gls_channel": self.gls_channel,
+            "runway_id": self.runway_id,
+            "true": self.true,
+            "gls_bearing": self.gls_bearing,
+            "station_lat": self.station_lat,
+            "station_lon": self.station_lon,
+            "gls_id": self.gls_id,
+            "svc_vol": self.svc_vol,
+            "tdma_slots": self.tdma_slots,
+            "min_elev_angle": self.min_elev_angle,
+            "mag_var": self.mag_var,
+            "station_elev": self.station_elev,
+            "datum_code": self.datum_code,
+            "station_type": self.station_type,
+            "wgs84_elev": self.wgs84_elev,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

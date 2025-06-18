@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pla
@@ -114,26 +114,26 @@ class Planning(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "application": clean_value(self.application),
-            "se_ind": clean_value(self.se_ind),
-            "se_date": clean_value(self.se_date),
-            "rest_1_region": clean_value(self.rest_1_region),
-            "rest_1_type": clean_value(self.rest_1_type),
-            "rest_1_designation": clean_value(self.rest_1_designation),
-            "rest_1_mult_code": clean_value(self.rest_1_mult_code),
-            "rest_2_region": clean_value(self.rest_2_region),
-            "rest_2_type": clean_value(self.rest_2_type),
-            "rest_2_designation": clean_value(self.rest_2_designation),
-            "rest_2_mult_code": clean_value(self.rest_2_mult_code),
-            "rest_3_region": clean_value(self.rest_3_region),
-            "rest_3_type": clean_value(self.rest_3_type),
-            "rest_3_designation": clean_value(self.rest_3_designation),
-            "rest_3_mult_code": clean_value(self.rest_3_mult_code),
-            "rest_4_region": clean_value(self.rest_4_region),
-            "rest_4_type": clean_value(self.rest_4_type),
-            "rest_4_designation": clean_value(self.rest_4_designation),
-            "rest_4_mult_code": clean_value(self.rest_4_mult_code),
-            "linked_record": clean_value(self.linked_record),
+            "cont_rec_no": self.cont_rec_no,
+            "application": self.application,
+            "se_ind": self.se_ind,
+            "se_date": self.se_date,
+            "rest_1_region": self.rest_1_region,
+            "rest_1_type": self.rest_1_type,
+            "rest_1_designation": self.rest_1_designation,
+            "rest_1_mult_code": self.rest_1_mult_code,
+            "rest_2_region": self.rest_2_region,
+            "rest_2_type": self.rest_2_type,
+            "rest_2_designation": self.rest_2_designation,
+            "rest_2_mult_code": self.rest_2_mult_code,
+            "rest_3_region": self.rest_3_region,
+            "rest_3_type": self.rest_3_type,
+            "rest_3_designation": self.rest_3_designation,
+            "rest_3_mult_code": self.rest_3_mult_code,
+            "rest_4_region": self.rest_4_region,
+            "rest_4_type": self.rest_4_type,
+            "rest_4_designation": self.rest_4_designation,
+            "rest_4_mult_code": self.rest_4_mult_code,
+            "linked_record": self.linked_record,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

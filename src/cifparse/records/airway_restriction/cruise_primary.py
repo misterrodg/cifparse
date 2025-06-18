@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_cru
@@ -102,23 +102,23 @@ class CruisePrimary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "start_point_id": clean_value(self.start_point_id),
-            "start_point_region": clean_value(self.start_point_region),
-            "start_point_sec_code": clean_value(self.start_point_sec_code),
-            "start_point_sub_code": clean_value(self.start_point_sub_code),
-            "end_point_id": clean_value(self.end_point_id),
-            "end_point_region": clean_value(self.end_point_region),
-            "end_point_sec_code": clean_value(self.end_point_sec_code),
-            "end_point_sub_code": clean_value(self.end_point_sub_code),
-            "start_date": clean_value(self.start_date),
-            "end_date": clean_value(self.end_date),
-            "time_zone": clean_value(self.time_zone),
-            "daylight_ind": clean_value(self.daylight_ind),
-            "op_time_1": clean_value(self.op_time_1),
-            "op_time_2": clean_value(self.op_time_2),
-            "op_time_3": clean_value(self.op_time_3),
-            "op_time_4": clean_value(self.op_time_4),
-            "cruise_id": clean_value(self.cruise_id),
+            "cont_rec_no": self.cont_rec_no,
+            "start_point_id": self.start_point_id,
+            "start_point_region": self.start_point_region,
+            "start_point_sec_code": self.start_point_sec_code,
+            "start_point_sub_code": self.start_point_sub_code,
+            "end_point_id": self.end_point_id,
+            "end_point_region": self.end_point_region,
+            "end_point_sec_code": self.end_point_sec_code,
+            "end_point_sub_code": self.end_point_sub_code,
+            "start_date": self.start_date,
+            "end_date": self.end_date,
+            "time_zone": self.time_zone,
+            "daylight_ind": self.daylight_ind,
+            "op_time_1": self.op_time_1,
+            "op_time_2": self.op_time_2,
+            "op_time_3": self.op_time_3,
+            "op_time_4": self.op_time_4,
+            "cruise_id": self.cruise_id,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

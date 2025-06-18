@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -94,21 +94,21 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "level": clean_value(self.level),
-            "time_zone": clean_value(self.time_zone),
-            "notam": clean_value(self.notam),
-            "boundary_via": clean_value(self.boundary_via),
-            "lat": clean_value(self.lat),
-            "lon": clean_value(self.lon),
-            "arc_lat": clean_value(self.arc_lat),
-            "arc_lon": clean_value(self.arc_lon),
-            "arc_dist": clean_value(self.arc_dist),
-            "arc_bearing": clean_value(self.arc_bearing),
-            "lower_limit": clean_value(self.lower_limit),
-            "lower_unit": clean_value(self.lower_unit),
-            "upper_limit": clean_value(self.upper_limit),
-            "upper_unit": clean_value(self.upper_unit),
-            "restrictive_name": clean_value(self.restrictive_name),
+            "cont_rec_no": self.cont_rec_no,
+            "level": self.level,
+            "time_zone": self.time_zone,
+            "notam": self.notam,
+            "boundary_via": self.boundary_via,
+            "lat": self.lat,
+            "lon": self.lon,
+            "arc_lat": self.arc_lat,
+            "arc_lon": self.arc_lon,
+            "arc_dist": self.arc_dist,
+            "arc_bearing": self.arc_bearing,
+            "lower_limit": self.lower_limit,
+            "lower_unit": self.lower_unit,
+            "upper_limit": self.upper_limit,
+            "upper_unit": self.upper_unit,
+            "restrictive_name": self.restrictive_name,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -82,18 +82,18 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "frequency": clean_value(self.frequency),
-            "runway_id": clean_value(self.runway_id),
-            "marker_lat": clean_value(self.marker_lat),
-            "marker_lon": clean_value(self.marker_lon),
-            "true_bearing": clean_value(self.true_bearing),
-            "locator_lat": clean_value(self.locator_lat),
-            "locator_lon": clean_value(self.locator_lon),
-            "locator_class": clean_value(self.locator_class),
-            "locator_fac_char": clean_value(self.locator_fac_char),
-            "locator_id": clean_value(self.locator_id),
-            "mag_var": clean_value(self.mag_var),
-            "fac_elev": clean_value(self.fac_elev),
+            "cont_rec_no": self.cont_rec_no,
+            "frequency": self.frequency,
+            "runway_id": self.runway_id,
+            "marker_lat": self.marker_lat,
+            "marker_lon": self.marker_lon,
+            "true_bearing": self.true_bearing,
+            "locator_lat": self.locator_lat,
+            "locator_lon": self.locator_lon,
+            "locator_class": self.locator_class,
+            "locator_fac_char": self.locator_fac_char,
+            "locator_id": self.locator_id,
+            "mag_var": self.mag_var,
+            "fac_elev": self.fac_elev,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

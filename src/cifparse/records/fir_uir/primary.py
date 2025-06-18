@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -102,23 +102,23 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "adj_fir_id": clean_value(self.adj_fir_id),
-            "adj_uir_id": clean_value(self.adj_uir_id),
-            "rus": clean_value(self.rus),
-            "rua": clean_value(self.rua),
-            "entry": clean_value(self.entry),
-            "boundary_via": clean_value(self.boundary_via),
-            "fir_uir_lat": clean_value(self.fir_uir_lat),
-            "fir_uir_lon": clean_value(self.fir_uir_lon),
-            "arc_lat": clean_value(self.arc_lat),
-            "arc_lon": clean_value(self.arc_lon),
-            "arc_dist": clean_value(self.arc_dist),
-            "arc_bearing": clean_value(self.arc_bearing),
-            "fir_upper_limit": clean_value(self.fir_upper_limit),
-            "uir_lower_limit": clean_value(self.uir_lower_limit),
-            "uir_upper_limit": clean_value(self.uir_upper_limit),
-            "cruise_id": clean_value(self.cruise_id),
-            "fir_uir_name": clean_value(self.fir_uir_name),
+            "cont_rec_no": self.cont_rec_no,
+            "adj_fir_id": self.adj_fir_id,
+            "adj_uir_id": self.adj_uir_id,
+            "rus": self.rus,
+            "rua": self.rua,
+            "entry": self.entry,
+            "boundary_via": self.boundary_via,
+            "fir_uir_lat": self.fir_uir_lat,
+            "fir_uir_lon": self.fir_uir_lon,
+            "arc_lat": self.arc_lat,
+            "arc_lon": self.arc_lon,
+            "arc_dist": self.arc_dist,
+            "arc_bearing": self.arc_bearing,
+            "fir_upper_limit": self.fir_upper_limit,
+            "uir_lower_limit": self.uir_lower_limit,
+            "uir_upper_limit": self.uir_upper_limit,
+            "cruise_id": self.cruise_id,
+            "fir_uir_name": self.fir_uir_name,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

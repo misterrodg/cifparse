@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_pri
@@ -107,25 +107,25 @@ class Primary(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "noe": clean_value(self.noe),
-            "turbo": clean_value(self.turbo),
-            "rnav": clean_value(self.rnav),
-            "atc_wc": clean_value(self.atc_wc),
-            "atc_id": clean_value(self.atc_id),
-            "time_zone": clean_value(self.time_zone),
-            "description": clean_value(self.description),
-            "ltc": clean_value(self.ltc),
-            "rpt": clean_value(self.rpt),
-            "true": clean_value(self.true),
-            "out_mag_crs": clean_value(self.out_mag_crs),
-            "alt_desc": clean_value(self.alt_desc),
-            "fl_1": clean_value(self.fl_1),
-            "alt_1": clean_value(self.alt_1),
-            "fl_2": clean_value(self.fl_2),
-            "alt_2": clean_value(self.alt_2),
-            "speed_limit": clean_value(self.speed_limit),
-            "cruise_id": clean_value(self.cruise_id),
-            "speed_desc": clean_value(self.speed_desc),
+            "cont_rec_no": self.cont_rec_no,
+            "noe": self.noe,
+            "turbo": self.turbo,
+            "rnav": self.rnav,
+            "atc_wc": self.atc_wc,
+            "atc_id": self.atc_id,
+            "time_zone": self.time_zone,
+            "description": self.description,
+            "ltc": self.ltc,
+            "rpt": self.rpt,
+            "true": self.true,
+            "out_mag_crs": self.out_mag_crs,
+            "alt_desc": self.alt_desc,
+            "fl_1": self.fl_1,
+            "alt_1": self.alt_1,
+            "fl_2": self.fl_2,
+            "alt_2": self.alt_2,
+            "speed_limit": self.speed_limit,
+            "cruise_id": self.cruise_id,
+            "speed_desc": self.speed_desc,
         }
         return {**leading_dict, **this_dict, **trailing_dict}

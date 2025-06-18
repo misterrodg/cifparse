@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 from cifparse.records.table_base import TableBase
 
 from .widths import w_bas
@@ -83,23 +83,23 @@ class Base(TableBase):
 
     def get_leading_dict(self) -> dict:
         return {
-            "st": clean_value(self.st),
-            "area": clean_value(self.area),
-            "sec_code": clean_value(self.sec_code),
-            "sub_code": clean_value(self.sub_code),
-            "environment_id": clean_value(self.environment_id),
-            "environment_region": clean_value(self.environment_region),
-            "dup_ind": clean_value(self.dup_ind),
-            "point_id": clean_value(self.point_id),
-            "point_region": clean_value(self.point_region),
-            "point_sec_code": clean_value(self.point_sec_code),
-            "point_sub_code": clean_value(self.point_sub_code),
+            "st": self.st,
+            "area": self.area,
+            "sec_code": self.sec_code,
+            "sub_code": self.sub_code,
+            "environment_id": self.environment_id,
+            "environment_region": self.environment_region,
+            "dup_ind": self.dup_ind,
+            "point_id": self.point_id,
+            "point_region": self.point_region,
+            "point_sec_code": self.point_sec_code,
+            "point_sub_code": self.point_sub_code,
         }
 
     def get_trailing_dict(self) -> dict:
         return {
-            "record_number": clean_value(self.record_number),
-            "cycle_data": clean_value(self.cycle_data),
+            "record_number": self.record_number,
+            "cycle_data": self.cycle_data,
         }
 
     def to_dict(self) -> dict:

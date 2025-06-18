@@ -1,4 +1,4 @@
-from cifparse.functions.field import clean_value, extract_field
+from cifparse.functions.field import extract_field
 
 from .base import Base
 from .widths import w_con
@@ -150,31 +150,31 @@ class Continuation(Base):
         leading_dict = super().get_leading_dict()
         trailing_dict = super().get_trailing_dict()
         this_dict = {
-            "cont_rec_no": clean_value(self.cont_rec_no),
-            "application": clean_value(self.application),
-            "intermediate_id_1": clean_value(self.intermediate_id_1),
-            "intermediate_region_1": clean_value(self.intermediate_region_1),
-            "intermediate_sec_code_1": clean_value(self.intermediate_sec_code_1),
-            "intermediate_sub_code_1": clean_value(self.intermediate_sub_code_1),
-            "intermediate_atd_1": clean_value(self.intermediate_atd_1),
-            "frt_code_1": clean_value(self.frt_code_1),
-            "intermediate_id_2": clean_value(self.intermediate_id_2),
-            "intermediate_region_2": clean_value(self.intermediate_region_2),
-            "intermediate_sec_code_2": clean_value(self.intermediate_sec_code_2),
-            "intermediate_sub_code_2": clean_value(self.intermediate_sub_code_2),
-            "intermediate_atd_2": clean_value(self.intermediate_atd_2),
-            "frt_code_2": clean_value(self.frt_code_2),
-            "intermediate_id_3": clean_value(self.intermediate_id_3),
-            "intermediate_region_3": clean_value(self.intermediate_region_3),
-            "intermediate_sec_code_3": clean_value(self.intermediate_sec_code_3),
-            "intermediate_sub_code_3": clean_value(self.intermediate_sub_code_3),
-            "intermediate_atd_3": clean_value(self.intermediate_atd_3),
-            "frt_code_3": clean_value(self.frt_code_3),
-            "intermediate_id_4": clean_value(self.intermediate_id_4),
-            "intermediate_region_4": clean_value(self.intermediate_region_4),
-            "intermediate_sec_code_4": clean_value(self.intermediate_sec_code_4),
-            "intermediate_sub_code_4": clean_value(self.intermediate_sub_code_4),
-            "intermediate_atd_4": clean_value(self.intermediate_atd_4),
-            "frt_code_4": clean_value(self.frt_code_4),
+            "cont_rec_no": self.cont_rec_no,
+            "application": self.application,
+            "intermediate_id_1": self.intermediate_id_1,
+            "intermediate_region_1": self.intermediate_region_1,
+            "intermediate_sec_code_1": self.intermediate_sec_code_1,
+            "intermediate_sub_code_1": self.intermediate_sub_code_1,
+            "intermediate_atd_1": self.intermediate_atd_1,
+            "frt_code_1": self.frt_code_1,
+            "intermediate_id_2": self.intermediate_id_2,
+            "intermediate_region_2": self.intermediate_region_2,
+            "intermediate_sec_code_2": self.intermediate_sec_code_2,
+            "intermediate_sub_code_2": self.intermediate_sub_code_2,
+            "intermediate_atd_2": self.intermediate_atd_2,
+            "frt_code_2": self.frt_code_2,
+            "intermediate_id_3": self.intermediate_id_3,
+            "intermediate_region_3": self.intermediate_region_3,
+            "intermediate_sec_code_3": self.intermediate_sec_code_3,
+            "intermediate_sub_code_3": self.intermediate_sub_code_3,
+            "intermediate_atd_3": self.intermediate_atd_3,
+            "frt_code_3": self.frt_code_3,
+            "intermediate_id_4": self.intermediate_id_4,
+            "intermediate_region_4": self.intermediate_region_4,
+            "intermediate_sec_code_4": self.intermediate_sec_code_4,
+            "intermediate_sub_code_4": self.intermediate_sub_code_4,
+            "intermediate_atd_4": self.intermediate_atd_4,
+            "frt_code_4": self.frt_code_4,
         }
         return {**leading_dict, **this_dict, **trailing_dict}
