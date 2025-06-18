@@ -1,5 +1,13 @@
 ## Changelog
 
+### [2.0.3] - 2025-06-18
+
+- Bugfix for NDB field parsing.
+
+### [2.0.2] - 2025-05-25
+
+- Build bugfix.
+
 ### [2.0.1] - 2025-05-25
 
 - Minor fixes to internal module handling.

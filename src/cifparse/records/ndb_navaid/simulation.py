@@ -25,9 +25,7 @@ class Simulation(Base):
         self.cont_rec_no = extract_field(line, w_sim.cont_rec_no)
         self.application = extract_field(line, w_sim.application)
         self.fac_char = extract_field(line, w_sim.fac_char)
-        fac_elev = extract_field(line, w_sim.fac_elev)
-        if fac_elev != "":
-            self.fac_elev = int(fac_elev)
+        self.fac_elev = extract_field(line, w_sim.fac_elev)
         return self
 
     def ordered_fields(self) -> list:
