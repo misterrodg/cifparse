@@ -4,7 +4,7 @@ Use this checklist before triggering a new release via GitHub.
 
 ## Versioning
 
-- [ ] Increment the version number in `setup.cfg`
+- [ ] Increment the version number in `pyproject.toml`
   - Follow [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`
 
 ## Code & Tests
