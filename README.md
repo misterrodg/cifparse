@@ -6,6 +6,7 @@ A python parser for the FAA CIFP.
 
 | Version | Description                                                         | Release Date |
 | ------- | ------------------------------------------------------------------- | ------------ |
+| 2.0.5   | Section parsing fixes.                                              | 2025-06-21   |
 | 2.0.4   | Field parsing fixes.                                                | 2025-06-18   |
 | 2.0.3   | NDB Parsing bugfix.                                                 | 2025-06-18   |
 | 2.0.2   | Build bugfix.                                                       | 2025-05-25   |

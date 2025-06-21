@@ -1,5 +1,9 @@
 ## Changelog
 
+### [2.0.5] - 2025-06-21
+
+- Section parsing fixes.
+
 ### [2.0.4] - 2025-06-18
 
 - Field parsing fixes.
