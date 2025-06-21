@@ -144,7 +144,7 @@ airspace_class, airspace_name
 **Fields**
 
 - Added: `st`, `cont_rec_no`
-- Changed: `name` -> `vhf_name`
+- Changed: `name` -> `ndb_name`
 - Removed: `application`, `notes`
 
 ### Procedures
