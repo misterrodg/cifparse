@@ -12,10 +12,10 @@ class SectionT:
         self.subsection_g = []
 
         for line in lines:
-            if extract_field(line, c_w_pri.sub_code, False) == "C":
+            if extract_field(line, c_w_pri.sub_code) == "C":
                 self.subsection_c.append(line)
                 continue
-            if extract_field(line, g_w_pri.sub_code, False) == "G":
+            if extract_field(line, g_w_pri.sub_code) == "G":
                 self.subsection_g.append(line)
                 continue
 

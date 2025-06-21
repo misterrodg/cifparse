@@ -52,52 +52,52 @@ class SectionP:
         self.subsection_v = []
 
         for line in lines:
-            if extract_field(line, a_w_pri.sub_code, False) == "A":
+            if extract_field(line, a_w_pri.sub_code) == "A":
                 self.subsection_a.append(line)
                 continue
-            if extract_field(line, b_w_pri.sub_code, False) == "B":
+            if extract_field(line, b_w_pri.sub_code) == "B":
                 self.subsection_b.append(line)
                 continue
-            if extract_field(line, c_w_pri.environment_sub_code, False) == "C":
+            if extract_field(line, c_w_pri.environment_sub_code) == "C":
                 self.subsection_c.append(line)
                 continue
-            if extract_field(line, def_w_pri.fac_sub_code, False) == "D":
+            if extract_field(line, def_w_pri.fac_sub_code) == "D":
                 self.subsection_d.append(line)
                 continue
-            if extract_field(line, def_w_pri.fac_sub_code, False) == "E":
+            if extract_field(line, def_w_pri.fac_sub_code) == "E":
                 self.subsection_e.append(line)
                 continue
-            if extract_field(line, def_w_pri.fac_sub_code, False) == "F":
+            if extract_field(line, def_w_pri.fac_sub_code) == "F":
                 self.subsection_f.append(line)
                 continue
-            if extract_field(line, g_w_pri.sub_code, False) == "G":
+            if extract_field(line, g_w_pri.sub_code) == "G":
                 self.subsection_g.append(line)
                 continue
-            if extract_field(line, i_w_pri.sub_code, False) == "I":
+            if extract_field(line, i_w_pri.sub_code) == "I":
                 self.subsection_i.append(line)
                 continue
-            if extract_field(line, k_w_pri.sub_code, False) == "K":
+            if extract_field(line, k_w_pri.sub_code) == "K":
                 self.subsection_k.append(line)
                 continue
-            if extract_field(line, l_w_pri.sub_code, False) == "L":
+            if extract_field(line, l_w_pri.sub_code) == "L":
                 self.subsection_l.append(line)
                 continue
-            if extract_field(line, m_w_pri.sub_code, False) == "M":
+            if extract_field(line, m_w_pri.sub_code) == "M":
                 self.subsection_m.append(line)
                 continue
-            if extract_field(line, p_w_pri.sub_code, False) == "P":
+            if extract_field(line, p_w_pri.sub_code) == "P":
                 self.subsection_p.append(line)
                 continue
-            if extract_field(line, r_w_pri.sub_code, False) == "R":
+            if extract_field(line, r_w_pri.sub_code) == "R":
                 self.subsection_r.append(line)
                 continue
-            if extract_field(line, s_w_pri.sub_code, False) == "S":
+            if extract_field(line, s_w_pri.sub_code) == "S":
                 self.subsection_s.append(line)
                 continue
-            if extract_field(line, t_w_pri.sub_code, False) == "T":
+            if extract_field(line, t_w_pri.sub_code) == "T":
                 self.subsection_t.append(line)
                 continue
-            if extract_field(line, v_w_pri.sub_code, False) == "V":
+            if extract_field(line, v_w_pri.sub_code) == "V":
                 self.subsection_v.append(line)
                 continue
 

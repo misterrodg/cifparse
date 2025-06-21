@@ -27,25 +27,25 @@ class SectionE:
         self.subsection_v = []
 
         for line in lines:
-            if extract_field(line, a_w_pri.sub_code, False) == "A":
+            if extract_field(line, a_w_pri.sub_code) == "A":
                 self.subsection_a.append(line)
                 continue
-            if extract_field(line, m_w_pri.sub_code, False) == "M":
+            if extract_field(line, m_w_pri.sub_code) == "M":
                 self.subsection_m.append(line)
                 continue
-            if extract_field(line, p_w_pri.sub_code, False) == "P":
+            if extract_field(line, p_w_pri.sub_code) == "P":
                 self.subsection_p.append(line)
                 continue
-            if extract_field(line, r_w_pri.sub_code, False) == "R":
+            if extract_field(line, r_w_pri.sub_code) == "R":
                 self.subsection_r.append(line)
                 continue
-            if extract_field(line, t_w_pri.sub_code, False) == "T":
+            if extract_field(line, t_w_pri.sub_code) == "T":
                 self.subsection_t.append(line)
                 continue
-            if extract_field(line, u_w_pri.sub_code, False) == "U":
+            if extract_field(line, u_w_pri.sub_code) == "U":
                 self.subsection_u.append(line)
                 continue
-            if extract_field(line, v_w_pri.sub_code, False) == "V":
+            if extract_field(line, v_w_pri.sub_code) == "V":
                 self.subsection_v.append(line)
                 continue
 

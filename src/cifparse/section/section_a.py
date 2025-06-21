@@ -9,7 +9,7 @@ class SectionA:
         self.subsection_s = []
 
         for line in lines:
-            if extract_field(line, w_pri.sub_code, False) == "S":
+            if extract_field(line, w_pri.sub_code) == "S":
                 self.subsection_s.append(line)
                 continue
 

@@ -15,13 +15,13 @@ class SectionU:
         self.subsection_r = []
 
         for line in lines:
-            if extract_field(line, c_w_pri.sub_code, False) == "C":
+            if extract_field(line, c_w_pri.sub_code) == "C":
                 self.subsection_c.append(line)
                 continue
-            if extract_field(line, f_w_pri.sub_code, False) == "F":
+            if extract_field(line, f_w_pri.sub_code) == "F":
                 self.subsection_f.append(line)
                 continue
-            if extract_field(line, r_w_pri.sub_code, False) == "R":
+            if extract_field(line, r_w_pri.sub_code) == "R":
                 self.subsection_r.append(line)
                 continue
 
