@@ -21,7 +21,7 @@ The Enroute Communication object comprises the following fields:
 - sig_em: The signal emission type ID.
 - lat: The latitude of the transmitter.
 - lon: The longitude of the transmitter.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - fac_elev: The elevation of the transmitter.
 - h24_ind: A boolean value to note that the frequency is available 24 hours in a day.
 - alt_desc: The altitude descriptor.

@@ -27,7 +27,7 @@ The MLS object comprises the following fields:
 - cov_right: The coverage limit right of course.
 - cov_left: The coverage limit left of course.
 - el_angle: The elevation angle width.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - el_elevation: The elevation of the elevation antenna.
 - nom_el_angle: The nominal elevation angle.
 - min_el_angle: The lowest allowable elevation angle.

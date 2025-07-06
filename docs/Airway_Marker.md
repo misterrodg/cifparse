@@ -15,7 +15,7 @@ The Airway Marker object comprises the following fields:
 - lat: The latitude of the marker.
 - lon: The longitude of the marker.
 - true_bearing: The true bearing of the marker.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - fac_elev: The elevation of the facility.
 - datum_code: The reference system used in surveying.
 - marker_name: The marker name.

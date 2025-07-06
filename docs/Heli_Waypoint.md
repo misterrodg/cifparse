@@ -17,7 +17,7 @@ The Heli Waypoint object comprises the following fields:
 - usage: The use type (e.g. high, low, or both).\*
 - lat: The waypoint latitude.
 - lon: The waypoint longitude.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - datum_code: The reference system used in surveying.
 - name_indicator: The name indicator of the waypoint.\*
 - name_description: The description of the name.

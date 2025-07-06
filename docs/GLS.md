@@ -21,7 +21,7 @@ The GLS object comprises the following fields:
 - svc_vol: The service volume.
 - tdma_slots: The TDMA slots.
 - min_elev_angle: The minimum elevation angle.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - station_elev: The elevation of the GLS station.
 - datum_code: The datum code.
 - station_type: The station type.

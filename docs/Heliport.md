@@ -16,7 +16,7 @@ The Heliport object comprises the following fields:
 - is_ifr: An IFR capability marker.
 - lat: The heliport reference point latitude.
 - lon: The heliport reference point longitude.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - elevation: The field elevation.
 - speed_limit: The speed limit.
 - rec_vhf: The recommended/associated navaid.

@@ -24,7 +24,7 @@ The LOC/GS object comprises the following fields:
 - gs_thr_dist: The distance from the end of the associated runway to the antenna.
 - loc_width: The width of the localizer beam.
 - gs_angle: The angle of the glide slope.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - tch: The threshold crossing height.
 - gs_elevation: The elevation of the glide slope antenna.
 - support_fac: The support facility.

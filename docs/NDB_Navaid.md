@@ -15,7 +15,7 @@ The NDB Navaid object comprises the following fields:
 - nav_class: The class of NDB.\*
 - lat: The latitude of the NDB.
 - lon: The longitude of the NDB.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - datum_code: The reference system used in surveying.
 - ndb_name: The name of the NDB.
 - record_number: The CIFP record number.

@@ -21,7 +21,7 @@ The Terminal Marker object comprises the following fields:
 - locator_class: The class of the associated locator, if present.\*
 - locator_fac_char: The characteristics of the associated locator, if present.
 - locator_id: The ID of the associated locator, if present.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - fac_elev: The elevation of the facility.
 - record_number: The CIFP record number.
 - cycle_data: The cycle ID of when the record was added/updated.

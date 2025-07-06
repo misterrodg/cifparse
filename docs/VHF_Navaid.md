@@ -18,7 +18,7 @@ The VHF Navaid object comprises the following fields:
 - dme_id: The ID of the DME.
 - dme_lat: The latitude of the DME.
 - dme_lon: The longitude of the DME.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - dme_elevation: The elevation of the DME.
 - figure_of_merit: The figure of merit.
 - dme_bias: The DME bias.

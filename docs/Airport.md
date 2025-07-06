@@ -17,7 +17,7 @@ The Airport object comprises the following fields:
 - longest_surface: The surface type of the longest runway.
 - lat: The airport reference point latitude.
 - lon: The airport reference point longitude.
-- mag_var: The magnetic variation.
+- mag_var: The magnetic variation in signed notation (+ values for East, - for West).
 - elevation: The field elevation.
 - speed_limit: The speed limit.
 - rec_vhf: The recommended/associated navaid.
