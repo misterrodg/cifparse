@@ -18,8 +18,8 @@ class Primary(Base):
     rho: float
     true: bool
     course: float
-    time: int
     dist_time: float
+    time: int
     rec_vhf_sec_code: str
     rec_vhf_sub_code: str
     alt_desc: str
@@ -56,8 +56,8 @@ class Primary(Base):
         self.rho = None
         self.true = None
         self.course = None
-        self.time = None
         self.dist_time = None
+        self.time = None
         self.rec_vhf_sec_code = None
         self.rec_vhf_sub_code = None
         self.alt_desc = None
@@ -135,8 +135,8 @@ class Primary(Base):
                 "rho",
                 "true",
                 "course",
-                "time",
                 "dist_time",
+                "time",
                 "rec_vhf_sec_code",
                 "rec_vhf_sub_code",
                 "alt_desc",
@@ -179,8 +179,8 @@ class Primary(Base):
             "rho": self.rho,
             "true": self.true,
             "course": self.course,
-            "time": self.time,
             "dist_time": self.dist_time,
+            "time": self.time,
             "rec_vhf_sec_code": self.rec_vhf_sec_code,
             "rec_vhf_sub_code": self.rec_vhf_sub_code,
             "alt_desc": self.alt_desc,
