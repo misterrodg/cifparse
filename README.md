@@ -6,6 +6,7 @@ A python parser for the FAA CIFP.
 
 | Version | Description                                                         | Release Date |
 | ------- | ------------------------------------------------------------------- | ------------ |
+| 2.0.6   | Bugfix for missing `time` field in `procedure_points`.              | 2025-08-20   |
 | 2.0.5   | Section parsing fixes.                                              | 2025-06-21   |
 | 2.0.4   | Field parsing fixes.                                                | 2025-06-18   |
 | 2.0.3   | NDB Parsing bugfix.                                                 | 2025-06-18   |

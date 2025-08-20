@@ -1,5 +1,9 @@
 ## Changelog
 
+### [2.0.6] - 2025-08-20
+
+- Bugfix for missing `time` field in `procedure_points`.
+
 ### [2.0.5] - 2025-06-21
 
 - Section parsing fixes.
