@@ -235,7 +235,7 @@ def field_527(string: str) -> tuple[bool, float] | tuple[None, None]:
     "Route Distance From, Holding Distance/Time"
     if string[:1] == "T":
         if string[1:].isnumeric():
-            return (True, int(string[1:]))
+            return (True, _get_scaled_int(int(string[1:]), -1))
     else:
         if string.isnumeric():
             return (False, _get_scaled_int(int(string), -1))

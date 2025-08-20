@@ -1,5 +1,9 @@
 ## Changelog
 
+### [2.0.7] - 2025-08-20
+
+- Bugfix for incorrect time scale in `dist_time` field.
+
 ### [2.0.6] - 2025-08-20
 
 - Bugfix for missing `time` field in `procedure_points`.
