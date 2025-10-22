@@ -1,6 +1,13 @@
 # cifparse
 
-A python parser for the FAA CIFP.
+cifparse is a parser for the Coded Instrument Flight Procedures file, released 
+every 28 days by the FAA. It allows pilots, dispatchers, and others interested 
+in flight data to quickly parse the file into Python dictionaries or a SQLite 
+database for use in other programs. For example, the parsed data can then be 
+used to draw maps of the flight paths, individual named points, or airspace.
+
+If you are interested in the mapping aspect, have a look at 
+[FacilityMapper](https://github.com/misterrodg/FacilityMapper).
 
 ## Versions
 
