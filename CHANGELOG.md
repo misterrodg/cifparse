@@ -1,5 +1,9 @@
 ## Changelog
 
+### [2.0.8] - 2025-10-23
+
+- Bugfix for incorrect lat/lon parse in `controlled_points` records.
+
 ### [2.0.7] - 2025-08-20
 
 - Bugfix for incorrect time scale in `dist_time` field.
