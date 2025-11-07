@@ -13,6 +13,7 @@ If you are interested in the mapping aspect, have a look at
 
 | Version | Description                                                         | Release Date |
 | ------- | ------------------------------------------------------------------- | ------------ |
+| 2.0.9   | Bugfix for missing `vert_angle` in `procedure_points` records.      | 2025-11-07   |
 | 2.0.8   | Bugfix for incorrect lat/lon parse in `controlled_points` records.  | 2025-10-23   |
 | 2.0.7   | Bugfix for incorrect time scale in `dist_time` field.               | 2025-08-20   |
 | 2.0.6   | Bugfix for missing `time` field in `procedure_points`.              | 2025-08-20   |

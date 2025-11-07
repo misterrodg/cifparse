@@ -503,7 +503,7 @@ def field_569(string: str) -> int | None:
 
 def field_570(string: str) -> float | None:
     "Vertical Angle"
-    return _get_scaled_magnitude(string, -2)
+    return _get_signed_value(string, -2)
 
 
 def field_571(string: str) -> str | None:

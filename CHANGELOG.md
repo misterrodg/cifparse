@@ -1,5 +1,9 @@
 ## Changelog
 
+### [2.0.9] - 2025-11-08
+
+- Bugfix for missing `vert_angle` in `procedure_points` records.
+
 ### [2.0.8] - 2025-10-23
 
 - Bugfix for incorrect lat/lon parse in `controlled_points` records.
